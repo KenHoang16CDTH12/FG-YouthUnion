@@ -14,8 +14,16 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'users';
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'email',
+        'username',
+        'password',
+        'remember_token',
+        'active',
+        'role_id',
+        'class_id'
     ];
 
     /**
@@ -26,4 +34,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the role that owns the user.
+     */
+    public function role()
+    {
+        return $this->belongsTo('App\Role');
+    }
+
+    /**
+     * Get the userdetail for the user.
+     */
+    public function userdetail()
+    {
+        return $this->belongsTo('App\UserDetail');
+    }
 }
