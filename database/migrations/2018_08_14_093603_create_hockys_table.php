@@ -19,7 +19,7 @@ class CreateHockysTable extends Migration
             $table->integer('namhoc_id')->unsigned();
             $table->timestamps();
             //FK
-            $table->foreign('namhoc_id')->references('id')->on('namhocs');
+            $table->foreign('namhoc_id')->references('id')->on('namhocs')->onDelete('cascade');
         });
     }
 

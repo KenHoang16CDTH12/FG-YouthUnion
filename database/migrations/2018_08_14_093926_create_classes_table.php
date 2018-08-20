@@ -20,7 +20,7 @@ class CreateClassesTable extends Migration
             $table->integer('khoa_id')->unsigned();
             $table->timestamps();
             //FK
-            $table->foreign('khoa_id')->references('id')->on('khoas');
+            $table->foreign('khoa_id')->references('id')->on('khoas')->onDelete('cascade');
         });
     }
 

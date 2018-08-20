@@ -24,7 +24,7 @@ class CreateHoatdongsTable extends Migration
             $table->timestamps();
             //FK
             $table->foreign('hocky_id')->references('id')->on('hockys');
-            $table->foreign('hoatdong_type_id')->references('id')->on('hoatdong_types');
+            $table->foreign('hoatdong_type_id')->references('id')->on('hoatdong_types')->onDelete('cascade');
         });
     }
 
