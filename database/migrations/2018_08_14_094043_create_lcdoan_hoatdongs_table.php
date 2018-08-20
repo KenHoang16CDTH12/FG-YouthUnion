@@ -19,8 +19,8 @@ class CreateLcdoanHoatdongsTable extends Migration
             $table->integer('hoatdong_id')->unsigned();
             $table->timestamps();
             //FK
-            $table->foreign('lcdoan_id')->references('id')->on('lcdoans');
-            $table->foreign('hoatdong_id')->references('id')->on('hoatdongs');
+            $table->foreign('lcdoan_id')->references('id')->on('lcdoans')->onDelete('cascade');
+            $table->foreign('hoatdong_id')->references('id')->on('hoatdongs')->onDelete('cascade');
         });
     }
 

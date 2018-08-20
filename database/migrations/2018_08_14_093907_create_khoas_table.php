@@ -20,7 +20,7 @@ class CreateKhoasTable extends Migration
             $table->integer('lcdoan_id')->unsigned();
             $table->timestamps();
             //FK
-            $table->foreign('lcdoan_id')->references('id')->on('lcdoans');
+            $table->foreign('lcdoan_id')->references('id')->on('lcdoans')->onDelete('cascade');
         });
     }
 
