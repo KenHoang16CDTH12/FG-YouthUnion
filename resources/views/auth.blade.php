@@ -7,8 +7,11 @@
 @section('content-body')
 <div class="content-body">
     <!-- ============================================ -->
-    <!-- Flexbox-container -->
+    <!-- Begin Flexbox-container -->
     <!-- ============================================ -->
     @include('auth.partials.flexbox')
+    <!-- ============================================ -->
+    <!-- End Flexbox-container -->
+    <!-- ============================================ -->
 </div>
 @endsection
