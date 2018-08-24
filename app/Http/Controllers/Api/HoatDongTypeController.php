@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\HoatDongType;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HoatDongTypeController extends Controller
 {
@@ -30,7 +31,7 @@ class HoatDongTypeController extends Controller
 
     	return response()->json($hoatdongtype, 200);
     }
-    
+
     public function delete(HoatDongType $hoatdongtype)
     {
     	$hoatdongtype->delete();
