@@ -5,37 +5,54 @@ namespace App\Http\Controllers\Api;
 use App\LCDoan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\LCDoanRepository;
+use App\Http\Requests\StoreLCDoanRequest;
+use App\Http\Requests\UpdateLCDoanRequest;
 
 class LCDoanController extends Controller
 {
+    
+    /**
+     * The User repository instance.
+     *
+     * @var LCDoanRepository
+     */
+    protected $lcdoan;
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param  LCDoanRepository  $lcdoan
+     * @return void
+     */
+    public function __construct(LCDoanRepository $lcdoan)
+    {
+        $this->lcdoan = $lcdoan;
+    }
+
     public function index()
     {
-        return LCDoan::all();
+        return $this->lcdoan->collectionLCDoan();
     }
 
-    public function show(LCDoan $lcdoan)
+    public function store(StoreLCDoanRequest $request)
     {
-        return $lcdoan;
+        return $this->lcdoan->storeLCDoan($request);
     }
 
-    public function store(Request $request)
+    public function show(LCDoan $lcd)
     {
-        $lcdoan = LCDoan::create($request->all());
-
-        return response()->json($lcdoan, 201);
+      return new LCDoanResource($lcd);
     }
 
-    public function update(Request $request, LCDoan $lcdoan)
+    public function update(UpdateLCDoanRequest $request, LCDoan $lcd)
     {
-        $lcdoan->update($request->all());
-
-        return response()->json($lcdoan, 200);
+        return $this->lcdoan->updateLCDoan($request, $lcd);
     }
 
-    public function delete(LCDoan $lcdoan)
+    public function destroy(LCDoan $lcd)
     {
-        $lcdoan->delete();
-
-        return response()->json(null, 204);
+        return $this->lcdoan->deleteLCDoan($lcd);
     }
 }
