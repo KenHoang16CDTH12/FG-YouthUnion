@@ -19,8 +19,6 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'], function
     | Authentication
     |--------------------------------------------------------------------------
     */
-    Route::post('/login', 'Auth/LoginController@login');
-    Route::get('/logout', 'Auth/LoginController@logout');
 });
 
 //'middleware' => ['auth:api'],
@@ -72,17 +70,17 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | Lop API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('lops', 'Api/LopController');
+    Route::apiResource('lops', 'LopController');
     /*
     |--------------------------------------------------------------------
     | UserHoatDong API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('userhoatdongs', 'Api/UserHoatDongController');
+    Route::apiResource('userhoatdongs', 'UserHoatDongController');
     /*
     |--------------------------------------------------------------------
     | LCDoanHoatDong API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('lcdoanhoatdongs', 'Api/LCDoanHoatDongController');
+    Route::apiResource('lcdoanhoatdongs', 'LCDoanHoatDongController');
 });
