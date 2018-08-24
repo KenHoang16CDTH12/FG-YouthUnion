@@ -4,38 +4,44 @@ namespace App\Http\Controllers\Api;
 
 use App\LCDoanHoatDong;
 use Illuminate\Http\Request;
+use App\Repositories\LCDoanHoatDongRepository;
+use App\Http\Requests\StoreLCDoanHoatDongRequest;
+use App\Http\Requests\UpdateLCDoanHoatDongRequest;
 use App\Http\Controllers\Controller;
 
 class LCDoanHoatDongController extends Controller
 {
+
+    //LCDoanHoatDongRepository's instance
+    protected $lcdoanhoatdong;
+
+    public function __construct(LCDoanHoatDongRepository $lcdoanhoatdong)
+    {
+        $this->lcdoanhoatdong = $lcdoanhoatdong;
+    }
+
     public function index()
     {
-        return LCDoanHoatDong::all();
+        return $this->lcdhd->collectionLCDoanHoatDong();
+    }
+
+    public function store(StoreLCDoanHoatDongRequest $request)
+    {
+        return $this->lcdoanhoatdong->storeLCDoanHoatDong($request);
     }
 
     public function show(LCDoanHoatDong $lcdoanhoatdong)
     {
-        return $lcdoanhoatdong;
+        return new LCDoanHoatDongResource($lcdoanhoatdong);
     }
 
-    public function store(Request $request)
+    public function update(UpdateLCDoanHoatDongRequest $request, LCDoanHoatDong $lcdoanhoatdong)
     {
-        $lcdoanhoatdong = LCDoanHoatDong::create($request->all());
-
-        return response()->json($lcdoanhoatdong, 201);
+       return $this->lcdoanhoatdong->updateLCDoanHoatDong($request, $lcdoanhoatdong);
     }
 
-    public function update(Request $request, LCDoanHoatDong $lcdoanhoatdong)
+    public function destroy(LCDoanHoatDong $lcdoanhoatdong)
     {
-        $lcdoanhoatdong->update($request->all());
-
-        return response()->json($lcdoanhoatdong, 200);
-    }
-
-    public function delete(LCDoanHoatDong $lcdoanhoatdong)
-    {
-        $lcdoanhoatdong->delete();
-
-        return response()->json(null, 204);
+        return $this->lcdoanhoatdong->deleteLCDoanHoatDong($lcdoanhoatdong);
     }
 }

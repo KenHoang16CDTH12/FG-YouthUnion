@@ -25,14 +25,14 @@ class LCDoanHoatDongRepository
         return new LCDoanHoatDongResource(LCDoanHoatDong::create($request->all()));
     }
 
-    public function updateLCDoanHoatDong(UpdateLCDoanHoatDongRequest $request, LCDoanHoatDong $lcdht)
+    public function updateLCDoanHoatDong(UpdateLCDoanHoatDongRequest $request, LCDoanHoatDong $lcdoanhoatdong)
     {
         $lcdhd->update($request->all());
 
-        return new LCDoanHoatDongResource($lcdhd);
+        return new LCDoanHoatDongResource($lcdoanhoatdong);
     }
 
-    public function deleteUser(LCDoanHoatDong $lcdhd)
+    public function deleteLCDoanHoatDong(LCDoanHoatDong $lcdoanhoatdong)
     {
       $lcdhd->delete();
 
