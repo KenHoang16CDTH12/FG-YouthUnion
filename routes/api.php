@@ -19,69 +19,70 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'], function
     | Authentication
     |--------------------------------------------------------------------------
     */
-    Route::post('/login', 'UserController@login');
-    Route::get('/logout', 'UserController@logout');
+    Route::post('/login', 'Auth/LoginController@login');
+    Route::get('/logout', 'Auth/LoginController@logout');
 });
 
-Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.', 'middleware' => ['auth:api']], function() {
+//'middleware' => ['auth:api'],
+Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  function() {
     /*
     |--------------------------------------------------------------------
     | User API Routes
     |--------------------------------------------------------------------
     */
-    require __DIR__.'/api/users.php';
+    Route::apiResource('users', 'UserController');
     /*
     |--------------------------------------------------------------------
     | NamHoc API Routes
     |--------------------------------------------------------------------
     */
-    require __DIR__.'/api/namhocs.php';
+    Route::apiResource('namhocs', 'NamHocController');
     /*
     |--------------------------------------------------------------------
     | HocKy API Routes
     |--------------------------------------------------------------------
     */
-    require __DIR__.'/api/hockys.php';
+    Route::apiResource('hockys', 'HocKyController');
     /*
     |--------------------------------------------------------------------
     | HoatDongType API Routes
     |--------------------------------------------------------------------
     */
-    require __DIR__.'/api/hoatdongtypes.php';
+    Route::apiResource('hoatdongtypes', 'HoatDongTypeController');
     /*
     |--------------------------------------------------------------------
     | HoatDong API Routes
     |--------------------------------------------------------------------
     */
-    require __DIR__.'/api/hoatdongs.php';
+    Route::apiResource('hoatdongs', 'HoatDongController');
     /*
     |--------------------------------------------------------------------
     | LCDoan API Routes
     |--------------------------------------------------------------------
     */
-    require __DIR__.'/api/lcdoans.php';
+    Route::apiResource('lcdoans', 'LCDoanController');
     /*
     |--------------------------------------------------------------------
     | Khoa API Routes
     |--------------------------------------------------------------------
     */
-    require __DIR__.'/api/khoas.php';
+    Route::apiResource('khoas', 'KhoaController');
     /*
     |--------------------------------------------------------------------
     | Lop API Routes
     |--------------------------------------------------------------------
     */
-    require __DIR__.'/api/lops.php';
+    Route::apiResource('lops', 'Api/LopController');
     /*
     |--------------------------------------------------------------------
     | UserHoatDong API Routes
     |--------------------------------------------------------------------
     */
-    require __DIR__.'/api/userhoatdongs.php';
+    Route::apiResource('userhoatdongs', 'Api/UserHoatDongController');
     /*
     |--------------------------------------------------------------------
     | LCDoanHoatDong API Routes
     |--------------------------------------------------------------------
     */
-    require __DIR__.'/api/lcdoanhoatdongs.php';
+    Route::apiResource('lcdoanhoatdongs', 'Api/LCDoanHoatDongController');
 });

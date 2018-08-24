@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('auth');
+    return view('dashboard');
 });
