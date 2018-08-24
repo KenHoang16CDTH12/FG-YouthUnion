@@ -32,7 +32,7 @@ class UserRepository
         return new UserResource($user);
     }
 
-    public function deleteUser($user)
+    public function deleteUser(User $user)
     {
       $user->delete();
 
