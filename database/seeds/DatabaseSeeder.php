@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
         $this->call(HoatDongTypesTableSeeder::class);  
         $this->call(LCDoanHoatDongsTableSeeder::class);
         $this->call(LCDoansTableSeeder::class);
+        $this->call(KhoasTableSeeder::class);
     }
 }
