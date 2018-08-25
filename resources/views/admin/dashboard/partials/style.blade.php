@@ -2,6 +2,7 @@
 <!-- BEGIN VENDOR CSS -->
 <!-- ============================================ -->
 <link href="{{ asset('app-assets/css/vendors.css') }}" rel="stylesheet" type="text/css"/>
+{{ HTML::style('app-assets/css/vendors.css', array(), true) }}
 {!! Html::style('app-assets/css/vendors.css') !!}
 <!-- ============================================ -->
 <!-- BEGIN MODERN CSS -->
