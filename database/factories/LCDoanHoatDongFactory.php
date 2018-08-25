@@ -9,3 +9,5 @@ $factory->define(App\LCDoanHoatDong::class, function ($faker) {
         'hoatdong_id' => factory(App\HoatDong::class)->create()->id,
     ];
 });
+
+
