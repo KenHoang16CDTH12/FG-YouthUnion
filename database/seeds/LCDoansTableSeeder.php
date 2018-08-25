@@ -2,8 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-
-class LCDoanHoatDongTableSeeder extends Seeder
+class LCDoansTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +11,6 @@ class LCDoanHoatDongTableSeeder extends Seeder
      */
     public function run()
     {
-        $lcdoanhoatdongs = factory(App\LCDoanHoatDong::class, 50)->create();
+        $lcdoans = factory(App\LCDoan::class, 100)->create();
     }
 }
