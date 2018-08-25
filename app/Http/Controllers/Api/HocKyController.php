@@ -5,37 +5,53 @@ namespace App\Http\Controllers\Api;
 use App\HocKy;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\HocKyRepository;
+use App\Http\Requests\StoreHocKyRequest;
+use App\Http\Requests\UpdateHocKyRequest;
 
 class HocKyController extends Controller
 {
+    /**
+     * The HocKy repository instance.
+     *
+     * @var HocKyRepository
+     */
+    protected $hockys;
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param  HocKyRepository  $hockys
+     * @return void
+     */
+    public function __construct(HocKyRepository $hockys)
+    {
+        $this->hockys = $hockys;
+    }
+
     public function index()
     {
-    	return HocKy::all();
+        return $this->hockys->collectionHocKy();
+    }
+
+    public function store(StoreHocKyRequest $request)
+    {
+        return $this->hockys->storeHocKy($request);
     }
 
     public function show(HocKy $hocky)
     {
-    	return $hocky;
+      return new HocKyResource($hocky);
     }
 
-    public function store(Request $request)
+    public function update(UpdateHocKyRequest $request, HocKy $hocky)
     {
-    	$hocky = HocKy::create($request->all());
-
-    	return reponse()->json($hocky, 201);
+        return $this->hockys->updateHocKy($request, $hocky);
     }
 
-    public function update(Request $request, HocKy $hocky)
+    public function destroy(HocKy $hocky)
     {
-    	$hocky->update($request->all());
-
-    	return response()->json($hocky, 200);
-    }
-
-    public function delete(HocKy $hocky)
-    {
-    	$hocky->delete();
-
-    	return reponse()->json(null, 204);
+        return $this->hockys->deleteHocKy($hocky);
     }
 }
