@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KhoasTableSeeder::class);
         $this->call(HocKyTableSeeder::class);
         $this->call(NamHocTableSeeder::class);
+        $this->call(HocKyTableSeeder::class);
     }
 }
