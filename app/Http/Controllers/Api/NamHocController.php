@@ -5,37 +5,53 @@ namespace App\Http\Controllers\Api;
 use App\NamHoc;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\NamHocRepository;
+use App\Http\Requests\UpdateNamHocRequest; 
+use App\Http\Requests\StoreNamHocRequest;
 
 class NamHocController extends Controller
 {
+   /**
+     * The Namhoc repository instance.
+     *
+     * @var NamHocRepository
+     */
+    protected $namhocs;
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param  NamHocRepository  $namhocs
+     * @return void
+     */
+    public function __construct(NamHocRepository $namhocs)
+    {
+        $this->namhocs = $namhocs;
+    }
+
     public function index()
     {
-        return NamHoc::all();
+        return $this->namhocs->collectionNamHoc();
+    }
+
+    public function store(StoreNamHocRequest $request)
+    {
+        return $this->namhocs->storeNamHoc($request);
     }
 
     public function show(NamHoc $namhoc)
     {
-        return $namhoc;
+      return new NamHocResource($namhoc);
     }
 
-    public function store(Request $request)
+    public function update(UpdateNamHocRequest $request, NamHoc $namhoc)
     {
-        $namhoc = NamHoc::create($request->all());
-
-        return response()->json($namhoc, 201);
+        return $this->namhocs->updateNamHoc($request, $namhoc);
     }
 
-    public function update(Request $request, NamHoc $namhoc)
+    public function destroy(NamHoc $namhoc)
     {
-        $namhoc->update($request->all());
-
-        return response()->json($namhoc, 200);
-    }
-
-    public function delete(NamHoc $namhoc)
-    {
-        $namhoc->delete();
-
-        return response()->json(null, 204);
+        return $this->namhocs->deleteNamHoc($namhoc);
     }
 }
