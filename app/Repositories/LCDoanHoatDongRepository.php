@@ -27,14 +27,14 @@ class LCDoanHoatDongRepository
 
     public function updateLCDoanHoatDong(UpdateLCDoanHoatDongRequest $request, LCDoanHoatDong $lcdoanhoatdong)
     {
-        $lcdhd->update($request->all());
+        $lcdoanhoatdong->update($request->all());
 
         return new LCDoanHoatDongResource($lcdoanhoatdong);
     }
 
     public function deleteLCDoanHoatDong(LCDoanHoatDong $lcdoanhoatdong)
     {
-      $lcdhd->delete();
+      $lcdoanhoatdong->delete();
 
       return response()->json(null, 204);
     }

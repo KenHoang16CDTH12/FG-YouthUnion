@@ -13,35 +13,35 @@ class LCDoanHoatDongController extends Controller
 {
 
     //LCDoanHoatDongRepository's instance
-    protected $lcdoanhoatdong;
+    protected $lcdoanhoatdongs;
 
-    public function __construct(LCDoanHoatDongRepository $lcdoanhoatdong)
+    public function __construct(LCDoanHoatDongRepository $lcdoanhoatdongs)
     {
-        $this->lcdoanhoatdong = $lcdoanhoatdong;
+        $this->lcdoanhoatdongs = $lcdoanhoatdongs;
     }
 
     public function index()
     {
-        return $this->lcdhd->collectionLCDoanHoatDong();
+        return $this->lcdoanhoatdongs->collectionLCDoanHoatDong();
     }
 
     public function store(StoreLCDoanHoatDongRequest $request)
     {
-        return $this->lcdoanhoatdong->storeLCDoanHoatDong($request);
+        return $this->lcdoanhoatdongs->storeLCDoanHoatDong($request);
     }
 
-    public function show(LCDoanHoatDong $lcdoanhoatdong)
+    public function show(LCDoanHoatDong $lcdoanhoatdongs)
     {
-        return new LCDoanHoatDongResource($lcdoanhoatdong);
+        return new LCDoanHoatDongResource($lcdoanhoatdongs);
     }
 
-    public function update(UpdateLCDoanHoatDongRequest $request, LCDoanHoatDong $lcdoanhoatdong)
+    public function update(UpdateLCDoanHoatDongRequest $request, LCDoanHoatDong $lcdoanhoatdongs)
     {
-       return $this->lcdoanhoatdong->updateLCDoanHoatDong($request, $lcdoanhoatdong);
+       return $this->lcdoanhoatdongs->updateLCDoanHoatDong($request, $lcdoanhoatdongs);
     }
 
-    public function destroy(LCDoanHoatDong $lcdoanhoatdong)
+    public function destroy(LCDoanHoatDong $lcdoanhoatdongs)
     {
-        return $this->lcdoanhoatdong->deleteLCDoanHoatDong($lcdoanhoatdong);
+        return $this->lcdoanhoatdongs->deleteLCDoanHoatDong($lcdoanhoatdongs);
     }
 }
