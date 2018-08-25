@@ -4,11 +4,11 @@
     <!-- ============================================ -->
     <!-- Icon -->
     <!-- ============================================ -->
-    @include('layouts.partials.icon')
+    @include('admin.layouts.partials.icon')
     <!-- ============================================ -->
     <!-- Meta -->
     <!-- ============================================ -->
-    @include('layouts.partials.meta')
+    @include('admin.layouts.partials.meta')
     <title>@yield('title')</title>
     <!-- ============================================ -->
     <!-- Style -->
@@ -30,6 +30,6 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
     <!-- ============================================ -->
     <!-- Script -->
     <!-- ============================================ -->
-    @include('auth.partials.script')
+    @include('admin.auth.partials.script')
   </body>
 </html>
