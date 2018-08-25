@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
         HocKysTableSeeder::class,
         HoatDongTypesTableSeeder::class
         );
-
+        $this->call(UserHoatDongsTableSeeder::class);
     }
 }
