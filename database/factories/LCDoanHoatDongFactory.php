@@ -3,13 +3,9 @@
 use Faker\Generator as Faker;
 
 
-$factory->define(App\LCDoanHoatDong::class, function (Faker $faker) {
+$factory->define(App\LCDoanHoatDong::class, function ($faker) {
     return [
-        'lcdoan_id' => function () {
-            return factory(App\LCDoan::class)->create()->id;
-        },
-        'hoatdong_id' => function () {
-            return factory(App\HoatDong::class)->create()->id;
-        },
+        'lcdoan_id' => factory(App\LCDoan::class)->create()->id,
+        'hoatdong_id' => factory(App\HoatDong::class)->create()->id,
     ];
 });
