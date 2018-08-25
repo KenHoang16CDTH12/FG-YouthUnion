@@ -33,11 +33,8 @@ class LCDoanRepository
         return new LCDoanResource($lcdoan);
     }
 
-<<<<<<< HEAD
     public function deleteLCDoan($lcdoan)
-=======
     public function deleteLCDoan(LCDoan $lcdoan) 
->>>>>>> 91fc537e5bb98ec9ade47023d74a345adcc9afb9
     {
       $lcdoan->delete();
 
