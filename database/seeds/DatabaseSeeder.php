@@ -10,20 +10,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(HoatDongTypesTableSeeder::class);  
-        $this->call(LCDoanHoatDongsTableSeeder::class);
-        $this->call(LCDoansTableSeeder::class);
-        $this->call(KhoasTableSeeder::class);
-        $this->call(HocKyTableSeeder::class);
-        $this->call(NamHocTableSeeder::class);
-        $this->call(HocKyTableSeeder::class);
-        $this->call(ClassesTableSeeder::class);
-        $this->call
-        (
-        HoatDongsTableSeeder::class,
-        HocKysTableSeeder::class,
-        HoatDongTypesTableSeeder::class
-        );
-        $this->call(UserHoatDongsTableSeeder::class);
+        $this->call([
+            RolesTableSeeder::class,
+            NamHocTableSeeder::class,
+            HocKyTableSeeder::class,
+            HoatDongTypesTableSeeder::class,
+            HoatDongTableSeeder::class,
+            LCDoansTableSeeder::class,
+            KhoasTableSeeder::class,
+            ClassesTableSeeder::class,
+            UsersTableSeeder::class,
+            UserHoatDongsSeeder::class,
+            LCDoanHoatDongsTableSeeder::class,
+            UserDetailsTableSeeder::class,
+        ]);
     }
 }
