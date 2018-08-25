@@ -4,38 +4,54 @@ namespace App\Http\Controllers\Api;
 
 use App\Khoa;
 use Illuminate\Http\Request;
+use App\Repositories\KhoaRepository;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreKhoaRequest;
+use App\Http\Requests\UpdateKhoaRequest;
 
 class KhoaController extends Controller
 {
+    /**
+     * The Khoa repository instance.
+     *
+     * @var KhoaRepository
+     */
+    protected $Khoas;
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param  KhoaRepository  $Khoas
+     * @return void
+     */
+    public function __construct(KhoaRepository $Khoas)
+    {
+        $this->Khoas = $Khoas;
+    }
+
     public function index()
     {
-    	return Khoa::all();
+        return $this->Khoas->collectionKhoa();
     }
 
-    public function show(Khoa $khoa)
+    public function store(StoreKhoaRequest $request)
     {
-    	return $khoa;
+        return $this->Khoas->storeKhoa($request);
     }
 
-    public function store(Request $request)
+    public function show(Khoa $Khoa)
     {
-        $khoa = Khoa::create($request->all());
-
-        return response()->json($khoa, 201);
+      return new KhoaResource($Khoa);
     }
 
-    public function update(Request $request, Khoa $khoa)
+    public function update(UpdateKhoaRequest $request, Khoa $Khoa)
     {
-        $khoa->update($request->all());
-
-        return response()->json($khoa, 200);
+        return $this->Khoas->updateKhoa($request, $Khoa);
     }
 
-    public function delete(Khoa $khoa)
+    public function destroy(Khoa $Khoa)
     {
-        $khoa->delete();
-
-        return response()->json(null, 204);
+        return $this->Khoas->deleteKhoa($Khoa);
     }
 }
