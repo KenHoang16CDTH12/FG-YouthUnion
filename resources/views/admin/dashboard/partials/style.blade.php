@@ -2,7 +2,7 @@
 <!-- BEGIN VENDOR CSS -->
 <!-- ============================================ -->
 <link href="{{ asset('app-assets/css/vendors.css') }}" rel="stylesheet" type="text/css"/>
-<link href="//app-assets/css/vendors.css" rel="stylesheet" type="text/css"/>
+<link href="/app-assets/css/vendors.css" rel="stylesheet" type="text/css"/>
 
 {!! Html::style('app-assets/css/vendors.css') !!}
 <!-- ============================================ -->
