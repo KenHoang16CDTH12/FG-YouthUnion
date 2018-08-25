@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(HoatDongTypesTableSeeder::class);  
-        $this->call(LCDoanHoatDongTableSeeder::class);
+        $this->call(LCDoanHoatDongsTableSeeder::class);
+        $this->call(LCDoansTableSeeder::class);
     }
 }
