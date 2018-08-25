@@ -11,6 +11,6 @@ class ClassesTableSeeder extends Seeder
      */
     public function run()
     {
-        $lops = factory(App\Lop::class, 100)->create();
+        $lops = factory(App\Lop::class, 20)->create();
     }
 }

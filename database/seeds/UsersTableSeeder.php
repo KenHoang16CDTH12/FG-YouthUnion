@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class NamHocTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class NamHocTableSeeder extends Seeder
      */
     public function run()
     {
-        $namhocs = factory(App\NamHoc::class, 20)->create();
+        $users = factory(App\User::class, 20)->create();
     }
 }

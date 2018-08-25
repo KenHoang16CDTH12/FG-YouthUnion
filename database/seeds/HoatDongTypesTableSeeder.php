@@ -11,7 +11,7 @@ class HoatDongTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        $hoatdongtypes = factory(App\HoatDongType::class, 100)->create();
+        $hoatdongtypes = factory(App\HoatDongType::class, 20)->create();
     }
 }
 
