@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-class DatabaseSeeder extends Seeder
+
+class HoatDongTypesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -10,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(HoatDongTypesTableSeeder::class);  
+        $hoatdongtypes = factory(App\HoatDongType::class, 100)->create();
     }
 }
+
