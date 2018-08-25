@@ -24,7 +24,6 @@ class StoreHoatDongTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required',
             'type' => 'required'
         ];
     }

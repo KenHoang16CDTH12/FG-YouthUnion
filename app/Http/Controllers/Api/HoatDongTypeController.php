@@ -4,38 +4,53 @@ namespace App\Http\Controllers\Api;
 
 use App\HoatDongType;
 use Illuminate\Http\Request;
+use App\Repositories\HoatDongTypeRepository;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreHoatDongTypeRequest;
+use App\Http\Requests\UpdateHoatDongTypeRequest;
 
 class HoatDongTypeController extends Controller
 {
+    /**
+     * The User repository instance.
+     *
+     * @var HoatDongTypeRepository
+     */
+    protected $hoatdongtypes;
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param  HoatDongTypeRepository  $hoatdongtypes
+     * @return void
+     */
+    public function __construct(HoatDongTypeRepository $hoatdongtypes)
+    {
+        $this->hoatdongtypes = $hoatdongtypes;
+    }
+
     public function index()
     {
-    	return HoatDongType::all();
+        return $this->hoatdongtypes->collectionHoatDongType();
+    }
+
+    public function store(StoreHoatDongTypeRequest $request)
+    {
+        return $this->hoatdongtypes->storeHoatDongType($request);
     }
 
     public function show(HoatDongType $hoatdongtype)
     {
-    	return $hoatdongtype;
+      return new HoatDongTypeResource($hoatdongtype);
     }
 
-    public function store (Request $request)
+    public function update(UpdateHoatDongTypeRequest $request, HoatDongType $hoatdongtype)
     {
-    	$hoatdongtype = HoatDongType::create($request->all());
-
-    	return response()->json($hoatdongtype, 201);
+        return $this->hoatdongtypes->updateHoatDongType($request, $hoatdongtype);
     }
 
-    public function update(Request $request, HoatDongType $hoatdongtype)
+    public function destroy(HoatDongType $hoatdongtype)
     {
-    	$hoatdongtype->update($request->all());
-
-    	return response()->json($hoatdongtype, 200);
-    }
-
-    public function delete(HoatDongType $hoatdongtype)
-    {
-    	$hoatdongtype->delete();
-
-    	return response()->json(null, 204);
-    }
-}
+        return $this->hoatdongtypes->deleteHoatDongType($hoatdongtype);
+    }}
