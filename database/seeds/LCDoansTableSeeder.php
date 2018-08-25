@@ -11,6 +11,6 @@ class LCDoansTableSeeder extends Seeder
      */
     public function run()
     {
-        $lcdoans = factory(App\LCDoan::class, 100)->create();
+        $lcdoans = factory(App\LCDoan::class, 20)->create();
     }
 }

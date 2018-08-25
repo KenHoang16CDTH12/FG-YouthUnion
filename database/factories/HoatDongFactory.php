@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 use Carbon\Carbon;
 
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(App\HoatDong::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'desc' => $faker->address,
