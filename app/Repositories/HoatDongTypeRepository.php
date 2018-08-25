@@ -32,7 +32,7 @@ class HoatDongTypeRepository
         return new HoatDongTypeResource($hoatdongtype);
     }
 
-    public function deleteHoatDongType($hoatdongtype)
+    public function deleteHoatDongType(HoatDongType $hoatdongtype)
     {
       $hoatdongtype->delete();
 

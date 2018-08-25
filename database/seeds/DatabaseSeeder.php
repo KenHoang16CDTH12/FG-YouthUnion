@@ -18,5 +18,19 @@ class DatabaseSeeder extends Seeder
         $this->call(NamHocTableSeeder::class);
         $this->call(HocKyTableSeeder::class);
         $this->call(UserDetailsTableSeeder::class);
+        $this->call([
+            RolesTableSeeder::class,
+            NamHocTableSeeder::class,
+            HocKyTableSeeder::class,
+            HoatDongTypesTableSeeder::class,
+            HoatDongTableSeeder::class,
+            LCDoansTableSeeder::class,
+            KhoasTableSeeder::class,
+            ClassesTableSeeder::class,
+            UsersTableSeeder::class,
+            UserHoatDongsSeeder::class,
+            LCDoanHoatDongsTableSeeder::class,
+            UserDetailsTableSeeder::class,
+        ]);
     }
 }
