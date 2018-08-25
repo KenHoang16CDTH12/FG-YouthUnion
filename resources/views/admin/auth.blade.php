@@ -1,4 +1,4 @@
-@extends('layouts.auth_default')
+@extends('admin.layouts.auth_default')
 
 @section('title')
     Login
@@ -9,7 +9,7 @@
     <!-- ============================================ -->
     <!-- Begin Flexbox-container -->
     <!-- ============================================ -->
-    @include('auth.partials.flexbox')
+    @include('admin.auth.partials.flexbox')
     <!-- ============================================ -->
     <!-- End Flexbox-container -->
     <!-- ============================================ -->
