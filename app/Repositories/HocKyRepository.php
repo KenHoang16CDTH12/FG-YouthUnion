@@ -32,7 +32,7 @@ class HocKyRepository
         return new HocKyResource($hocky);
     }
 
-    public function deleteHocKy($hocky)
+    public function deleteHocKy(HocKy $hocky)
     {
       $hocky->delete();
 
