@@ -53,4 +53,5 @@ class HoatDongTypeController extends Controller
     public function destroy(HoatDongType $hoatdongtype)
     {
         return $this->hoatdongtypes->deleteHoatDongType($hoatdongtype);
-    }}
+    }
+}
