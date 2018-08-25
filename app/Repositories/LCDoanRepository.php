@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Repositories;
 use App\LCDoan;
 use Illuminate\Http\Request;
@@ -7,7 +7,7 @@ use App\Http\Requests\StoreLCDoanRequest;
 use App\Http\Requests\UpdateLCDoanRequest;
 
 /**
- * 
+ *
  */
 class LCDoanRepository
 {
@@ -33,8 +33,7 @@ class LCDoanRepository
         return new LCDoanResource($lcdoan);
     }
 
-    public function deleteLCDoan($lcdoan)
-    public function deleteLCDoan(LCDoan $lcdoan) 
+    public function deleteLCDoan(LCDoan $lcdoan)
     {
       $lcdoan->delete();
 

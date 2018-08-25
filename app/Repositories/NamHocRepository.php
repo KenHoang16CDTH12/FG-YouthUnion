@@ -32,7 +32,7 @@ class NamHocRepository
         return new NamHocResource($namhoc);
     }
 
-    public function deleteNamHoc($namhoc)
+    public function deleteNamHoc(NamHoc $namhoc)
     {
       $namhoc->delete();
 
