@@ -11,6 +11,6 @@ class UserDetailsTableSeeder extends Seeder
      */
     public function run()
     {
-        $userdetails = factory(App\UserDetail::class, 100)->create();
+        $userdetails = factory(App\UserDetail::class, 20)->create();
     }
 }

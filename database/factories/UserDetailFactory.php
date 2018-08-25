@@ -11,8 +11,8 @@ $factory->define(App\UserDetail::class, function (Faker $faker) {
         'date_of_birth' => $faker->dateTime,
         'phone' => $faker->phoneNumber,
         'address' => $faker->address,
-        'photo' => $faker->null,
+        'photo' => null,
         'student_code' => $faker->postcode,
-        'users_id' => factory(App\User::class)->create()->id,
+        'user_id' => factory(App\User::class)->create()->id,
     ];
 });
