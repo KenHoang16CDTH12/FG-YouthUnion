@@ -6,52 +6,83 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
     /**
-     * The User repository instance.
+     * The repository instance.
      *
-     * @var UserRepository
+     * @var ObjectRepository
      */
-    protected $users;
+    protected $respository;
 
 
     /**
      * Create a new controller instance.
      *
-     * @param  UserRepository  $users
+     * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(UserRepository $users)
+    public function __construct(UserRepository $respository)
     {
-        $this->users = $users;
+        $this->respository = $respository;
     }
 
+    /**
+     * Get all of the objects for a given model.
+     *
+     * @return Collection
+     */
     public function index()
     {
-        return $this->users->collectionUser();
+        return $this->respository->collection();
     }
 
-    public function store(StoreUserRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        return $this->users->storeUser($request);
+        return $this->respository->show($id);
     }
 
-    public function show(User $user)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(UserStoreRequest $request)
     {
-      return new UserResource($user);
+        $request->validated();
+        return $this->respository->store($request);
     }
 
-    public function update(UpdateUserRequest $request, User $user)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UserUpdateRequest $request, $id)
     {
-        return $this->users->updateUser($request, $user);
+        $request->validated();
+        return $this->respository->update($request, $id);
     }
 
-    public function destroy(User $user)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-        return $this->users->deleteUser($user);
+        return $this->respository->destroy($id);
     }
 }

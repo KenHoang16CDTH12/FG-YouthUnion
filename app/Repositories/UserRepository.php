@@ -3,39 +3,71 @@
 namespace App\Repositories;
 
 use App\User;
-use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
 
 class UserRepository
 {
     /**
-     * Get all of the users for a given user.
+     * Get all of the objects for a given model.
      *
      * @return Collection
      */
-    public function collectionUser()
+    public function collection()
     {
-        return UserResource::collection(User::paginate(25));
+        // Return collection of objects as a resource
+        return UserResource::collection(User::orderBy('created_at', 'desc')->paginate(25));
     }
 
-    public function storeUser(StoreUserRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
+        //Return object
+        return new UserResource(User::findOrFail($id));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store($request)
+    {
+        // Return object
         return new UserResource(User::create($request->all()));
     }
 
-    public function updateUser(UpdateUserRequest $request, User $user)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($request, $id)
     {
-        $user->update($request->all());
-
+        $user = User::findOrFail($id);
+        $user->update($request->only(['active', 'role_id', 'class_id']));
+        // Return object
         return new UserResource($user);
     }
 
-    public function deleteUser(User $user)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
+      $user = User::findOrFail($id);
       $user->delete();
-
-      return response()->json(null, 204);
+      return response()->json([
+          'meesage' => 'Delete #' . $id . ' successful!'
+      ], 200);
     }
 }

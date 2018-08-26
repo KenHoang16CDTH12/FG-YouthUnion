@@ -15,9 +15,9 @@ use Illuminate\Http\Request;
 
 Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'], function() {
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------
     | Authentication
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------
     */
 });
 
@@ -28,7 +28,11 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | User API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('users', 'UserController');
+    Route::get('users', 'UserController@index');
+    Route::get('users/{id}', 'UserController@show');
+    Route::post('users', 'UserController@store');
+    Route::put('users/{id}', 'UserController@update');
+    Route::delete('users/{id}', 'UserController@destroy');
     /*
     |--------------------------------------------------------------------
     | NamHoc API Routes
