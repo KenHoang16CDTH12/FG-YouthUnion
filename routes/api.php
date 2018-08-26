@@ -39,6 +39,10 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     |--------------------------------------------------------------------
     */
     Route::apiResource('namhocs', 'NamHocController');
+    Route::get('namhocs/{id}', 'NamHocController@show');
+    Route::post('namhocs', 'NamHocController@store');
+    Route::put('namhocs/{id}', 'NamHocController@update');
+    Route::delete('namhocs/{id}', 'NamHocController@destroy');
     /*
     |--------------------------------------------------------------------
     | HocKy API Routes
