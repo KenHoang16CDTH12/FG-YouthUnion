@@ -49,4 +49,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\UserDetail');
     }
+
+    /**
+     * Get the class for the user.
+     */
+    public function lop()
+    {
+        return $this->belongsTo('App\Lop', 'class_id');
+    }
 }
