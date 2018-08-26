@@ -45,6 +45,10 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     |--------------------------------------------------------------------
     */
     Route::apiResource('hockys', 'HocKyController');
+    Route::get('hockys/{id}', 'HocKyController@show');
+    Route::post('hockys', 'HocKyController@store');
+    Route::put('hockys/{id}', 'HocKyController@update');
+    Route::delete('hockys/{id}', 'HocKyController@destroy');
     /*
     |--------------------------------------------------------------------
     | HoatDongType API Routes
