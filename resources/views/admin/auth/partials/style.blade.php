@@ -1,6 +1,7 @@
 <!-- ============================================ -->
 <!-- BEGIN VENDOR CSS -->
 <!-- ============================================ -->
+<link href="{{ asset('app-assets/css/vendors.css') }}" rel="stylesheet" type="text/css"/>
 {!! Html::style('app-assets/css/vendors.css') !!}
 {!! Html::style('app-assets/vendors/css/forms/icheck/icheck.css') !!}
 {!! Html::style('app-assets/vendors/css/forms/icheck/custom.css') !!}
