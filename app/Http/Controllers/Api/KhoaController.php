@@ -6,52 +6,83 @@ use App\Khoa;
 use Illuminate\Http\Request;
 use App\Repositories\KhoaRepository;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreKhoaRequest;
-use App\Http\Requests\UpdateKhoaRequest;
+use App\Http\Requests\KhoaStoreRequest;
+use App\Http\Requests\KhoaUpdateRequest;
 
 class KhoaController extends Controller
 {
     /**
-     * The Khoa repository instance.
+     * The repository instance.
      *
-     * @var KhoaRepository
+     * @var ObjectRepository
      */
-    protected $Khoas;
+    protected $respository;
 
 
     /**
      * Create a new controller instance.
      *
-     * @param  KhoaRepository  $Khoas
+     * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(KhoaRepository $Khoas)
+    public function __construct(KhoaRepository $respository)
     {
-        $this->Khoas = $Khoas;
+        $this->respository = $respository;
     }
 
+    /**
+     * Get all of the objects for a given model.
+     *
+     * @return Collection
+     */
     public function index()
     {
-        return $this->Khoas->collectionKhoa();
+        return $this->respository->collection();
     }
 
-    public function store(StoreKhoaRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        return $this->Khoas->storeKhoa($request);
+        return $this->respository->show($id);
     }
 
-    public function show(Khoa $Khoa)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(KhoaStoreRequest $request)
     {
-      return new KhoaResource($Khoa);
+        $request->validated();
+        return $this->respository->store($request);
     }
 
-    public function update(UpdateKhoaRequest $request, Khoa $Khoa)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(KhoaUpdateRequest $request, $id)
     {
-        return $this->Khoas->updateKhoa($request, $Khoa);
+        $request->validated();
+        return $this->respository->update($request, $id);
     }
 
-    public function destroy(Khoa $Khoa)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-        return $this->Khoas->deleteKhoa($Khoa);
+        return $this->respository->destroy($id);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreHocKyRequest extends FormRequest
+class HoatDongUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class StoreHocKyRequest extends FormRequest
     public function rules()
     {
         return [
-            'hocky' => 'required',
-            'namhoc_id' => 'required',
+            //
         ];
     }
 }

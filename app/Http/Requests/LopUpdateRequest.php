@@ -4,10 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateHoatDongTypeRequest extends FormRequest
+class LopUpdateRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine if the lop is authorized to make this request.
      *
      * @return bool
      */
@@ -24,7 +24,7 @@ class UpdateHoatDongTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'required'
+            //
         ];
     }
 }

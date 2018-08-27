@@ -3,39 +3,71 @@
 namespace App\Repositories;
 
 use App\LCDoanHoatDong;
-use Illuminate\Http\Request;
 use App\Http\Resources\LCDoanHoatDongResource;
-use App\Http\Requests\StoreLCDoanHoatDongRequest;
-use App\Http\Requests\UpdateLCDoanHoatDongRequest;
 
 class LCDoanHoatDongRepository
 {
     /**
-     * Get all of the users for a given user.
+     * Get all of the objects for a given model.
      *
      * @return Collection
      */
-    public function collectionLCDoanHoatDong()
+    public function collection()
     {
-        return LCDoanHoatDongResource::collection(LCDoanHoatDong::paginate(25));
+        // Return collection of objects as a resource
+        return LCDoanHoatDongResource::collection(LCDoanHoatDong::orderBy('created_at', 'desc')->paginate(25));
     }
 
-    public function storeLCDoanHoatDong(StoreLCDoanHoatDongRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
+        //Return object
+        return new LCDoanHoatDongResource(User::findOrFail($id));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store($request)
+    {
+        // Return object
         return new LCDoanHoatDongResource(LCDoanHoatDong::create($request->all()));
     }
 
-    public function updateLCDoanHoatDong(UpdateLCDoanHoatDongRequest $request, LCDoanHoatDong $lcdoanhoatdong)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($request, $id)
     {
-        $lcdoanhoatdong->update($request->all());
-
+        $lcdoanhoatdong = LCDoanHoatDong::findOrFail($id);
+        $lcdoanhoatdong->update($request->only(['hoatdong_id', 'lcdoan_id']));
+        // Return object
         return new LCDoanHoatDongResource($lcdoanhoatdong);
     }
 
-    public function deleteLCDoanHoatDong(LCDoanHoatDong $lcdoanhoatdong)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
+      $lcdoanhoatdong = LCDoanHoatDong::findOrFail($id);
       $lcdoanhoatdong->delete();
-
-      return response()->json(null, 204);
+      return response()->json([
+          'meesage' => 'Delete #' . $id . ' successful!'
+      ], 200);
     }
 }

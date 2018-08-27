@@ -4,10 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreNamHocRequest extends FormRequest
+class LopStoreRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine if the lop is authorized to make this request.
      *
      * @return bool
      */
@@ -24,7 +24,7 @@ class StoreNamHocRequest extends FormRequest
     public function rules()
     {
         return [
-            'nam_hoc' => 'required',
+            //
         ];
     }
 }

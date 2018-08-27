@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateKhoaRequest extends FormRequest
+class UserUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +24,9 @@ class UpdateKhoaRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:khoas,name',
-            'desc' => 'required',
-            'lcdoan_id' => 'required'
+            'active' => 'boolean',
+            'role_id' => 'integer',
+            'class_id' => 'integer'
         ];
     }
 }

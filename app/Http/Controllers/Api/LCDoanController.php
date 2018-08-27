@@ -1,58 +1,87 @@
 <?php
-
 namespace App\Http\Controllers\Api;
 
 use App\LCDoan;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Repositories\LCDoanRepository;
-use App\Http\Requests\StoreLCDoanRequest;
-use App\Http\Requests\UpdateLCDoanRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\LCDoanStoreRequest;
+use App\Http\Requests\LCDoanUpdateRequest;
 
 class LCDoanController extends Controller
 {
-    
     /**
-     * The User repository instance.
+     * The repository instance.
      *
-     * @var LCDoanRepository
+     * @var ObjectRepository
      */
-    protected $lcdoan;
+    protected $respository;
 
 
     /**
      * Create a new controller instance.
      *
-     * @param  LCDoanRepository  $lcdoan
+     * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(LCDoanRepository $lcdoan)
+    public function __construct(LCDoanRepository $respository)
     {
-        $this->lcdoan = $lcdoan;
+        $this->respository = $respository;
     }
 
+    /**
+     * Get all of the objects for a given model.
+     *
+     * @return Collection
+     */
     public function index()
     {
-        return $this->lcdoan->collectionLCDoan();
+        return $this->respository->collection();
     }
 
-    public function store(StoreLCDoanRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        return $this->lcdoan->storeLCDoan($request);
+        return $this->respository->show($id);
     }
 
-    public function show(LCDoan $lcd)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(LCDoanStoreRequest $request)
     {
-      return new LCDoanResource($lcd);
+        $request->validated();
+        return $this->respository->store($request);
     }
 
-    public function update(UpdateLCDoanRequest $request, LCDoan $lcd)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(LCDoanUpdateRequest $request, $id)
     {
-        return $this->lcdoan->updateLCDoan($request, $lcd);
+        $request->validated();
+        return $this->respository->update($request, $id);
     }
 
-    public function destroy(LCDoan $lcd)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-        return $this->lcdoan->deleteLCDoan($lcd);
+        return $this->respository->destroy($id);
     }
 }

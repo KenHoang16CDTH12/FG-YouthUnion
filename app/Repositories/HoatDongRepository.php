@@ -1,57 +1,73 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Repositories;
 
 use App\HoatDong;
-use Illuminate\Http\Request;
-use App\Repositories\HoatDongRepository;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreHoatDongRequest;
-use App\Http\Requests\UpdateHoatDongRequest;
+use App\Http\Resources\HoatDongResource;
 
-class HoatDongController extends Controller
+class HoatDongRepository
 {
     /**
-     * The User repository instance.
+     * Get all of the objects for a given model.
      *
-     * @var HoatDongRepository
+     * @return Collection
      */
-    protected $hoatdongs;
-
+    public function collection()
+    {
+        // Return collection of objects as a resource
+        return HoatDongResource::collection(HoatDong::orderBy('created_at', 'desc')->paginate(25));
+    }
 
     /**
-     * Create a new controller instance.
+     * Display the specified resource.
      *
-     * @param  HoatDongRepository  $hoatdongs
-     * @return void
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function __construct(HoatDongRepository $hoatdongs)
+    public function show($id)
     {
-        $this->hoatdongs = $hoatdongs;
+        //Return object
+        return new HoatDongResource(HoatDong::findOrFail($id));
     }
 
-    public function index()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store($request)
     {
-        return $this->hoatdongs->collectionHoatDong();
+        // Return object
+        return new HoatDongResource(HoatDong::create($request->all()));
     }
 
-    public function store(StoreHoatDongRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($request, $id)
     {
-        return $this->hoatdongs->storeHoatDong($request);
+        $hoatdong = HoatDong::findOrFail($id);
+        $hoatdong->update($request->only(['name','desc','from_date','end_date','hocky_id','hoatdong_type_id']));
+        // Return object
+        return new HoatDongResource($hoatdong);
     }
 
-    public function show(HoatDong $hoatdong)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-      return new HoatDongResource($hoatdong);
-    }
-
-    public function update(UpdateHoatDongRequest $request, HoatDong $hoatdong)
-    {
-        return $this->hoatdongs->updateHoatDong($request, $hoatdong);
-    }
-
-    public function destroy(HoatDong $hoatdong)
-    {
-        return $this->hoatdongs->deleteHoatDong($hoatdong);
+      $hoatdong = HoatDong::findOrFail($id);
+      $hoatdong->delete();
+      return response()->json([
+          'meesage' => 'Delete #' . $id . ' successful!'
+      ], 200);
     }
 }

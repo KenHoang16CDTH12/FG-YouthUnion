@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateLCDoanHoatDongRequest extends FormRequest
+class UserStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,12 @@ class UpdateLCDoanHoatDongRequest extends FormRequest
     public function rules()
     {
         return [
-            'lcdoan_id' => 'required',
-            'hoatdong_id' => 'required',
+            'email' => 'required|string|unique:users|email|max:100',
+            'username' => 'required|string|unique:users|max:100',
+            'password' => 'required|string|min:8',
+            'active' => 'required|boolean',
+            'role_id' => 'required|integer',
+            'class_id' => 'required|integer'
         ];
     }
 }

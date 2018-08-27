@@ -3,39 +3,71 @@
 namespace App\Repositories;
 
 use App\HoatDongType;
-use Illuminate\Http\Request;
 use App\Http\Resources\HoatDongTypeResource;
-use App\Http\Requests\StoreHoatDongTypeRequest;
-use App\Http\Requests\UpdateHoatDongTypeRequest;
 
 class HoatDongTypeRepository
 {
     /**
-     * Get all of the users for a given user.
+     * Get all of the objects for a given model.
      *
      * @return Collection
      */
-    public function collectionHoatDongType()
+    public function collection()
     {
-        return HoatDongTypeResource::collection(HoatDongType::paginate(25));
+        // Return collection of objects as a resource
+        return HoatDongTypeResource::collection(HoatDongType::orderBy('created_at', 'desc')->paginate(25));
     }
 
-    public function storeHoatDongType(StoreHoatDongTypeRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
+        //Return object
+        return new HoatDongTypeResource(HoatDongType::findOrFail($id));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store($request)
+    {
+        // Return object
         return new HoatDongTypeResource(HoatDongType::create($request->all()));
     }
 
-    public function updateHoatDongType(UpdateHoatDongTypeRequest $request, HoatDongType $hoatdongtype)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($request, $id)
     {
-        $hoatdongtype->update($request->all());
-
-        return new HoatDongTypeResource($hoatdongtype);
+        $hoatdong_type = HoatDongType::findOrFail($id);
+        $hoatdong_type->update($request->only(['type']));
+        // Return object
+        return new HoatDongTypeResource($hoatdong_type);
     }
 
-    public function deleteHoatDongType(HoatDongType $hoatdongtype)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-      $hoatdongtype->delete();
-
-      return response()->json(null, 204);
+      $hoatdong_type = HoatDongType::findOrFail($id);
+      $hoatdong_type->delete();
+      return response()->json([
+          'meesage' => 'Delete #' . $id . ' successful!'
+      ], 200);
     }
 }

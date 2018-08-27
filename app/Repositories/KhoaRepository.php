@@ -3,39 +3,71 @@
 namespace App\Repositories;
 
 use App\Khoa;
-use Illuminate\Http\Request;
 use App\Http\Resources\KhoaResource;
-use App\Http\Requests\StoreKhoaRequest;
-use App\Http\Requests\UpdateKhoaRequest;
 
 class KhoaRepository
 {
     /**
-     * Get all of the Khoas for a given Khoa.
+     * Get all of the objects for a given model.
      *
      * @return Collection
      */
-    public function collectionKhoa()
+    public function collection()
     {
-        return KhoaResource::collection(Khoa::paginate(25));
+        // Return collection of objects as a resource
+        return KhoaResource::collection(Khoa::orderBy('created_at', 'desc')->paginate(25));
     }
 
-    public function storeKhoa(StoreKhoaRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
+        //Return object
+        return new KhoaResource(User::findOrFail($id));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store($request)
+    {
+        // Return object
         return new KhoaResource(Khoa::create($request->all()));
     }
 
-    public function updateKhoa(UpdateKhoaRequest $request, Khoa $Khoa)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($request, $id)
     {
-        $Khoa->update($request->all());
-
-        return new KhoaResource($Khoa);
+        $khoa = Khoa::findOrFail($id);
+        $khoa->update($request->only(['name', 'desc', 'lcdoan_id']));
+        // Return object
+        return new KhoaResource($khoa);
     }
 
-    public function deleteKhoa(Khoa $Khoa)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-      $Khoa->delete();
-
-      return response()->json(null, 204);
+      $khoa = Khoa::findOrFail($id);
+      $khoa->delete();
+      return response()->json([
+          'meesage' => 'Delete #' . $id . ' successful!'
+      ], 200);
     }
 }

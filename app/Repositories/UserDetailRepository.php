@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\User;
 use App\Http\Resources\UserResource;
 
-class UserRepository
+class UserDetailRepository
 {
     /**
      * Get all of the objects for a given model.
@@ -15,7 +15,7 @@ class UserRepository
     public function collection()
     {
         // Return collection of objects as a resource
-        return UserResource::collection(User::orderBy('created_at', 'desc')->paginate(25));
+        return UserDetailResource::collection(UserDetail::orderBy('created_at', 'desc')->paginate(25));
     }
 
     /**
@@ -27,7 +27,7 @@ class UserRepository
     public function show($id)
     {
         //Return object
-        return new UserResource(User::findOrFail($id));
+        return new UserDetailResource(User::findOrFail($id));
     }
 
     /**
@@ -39,7 +39,7 @@ class UserRepository
     public function store($request)
     {
         // Return object
-        return new UserResource(User::create($request->all()));
+        return new UserDetailResource(UserDetail::create($request->all()));
     }
 
     /**
@@ -50,10 +50,21 @@ class UserRepository
      */
     public function update($request, $id)
     {
-        $user = User::findOrFail($id);
-        $user->update($request->only(['active', 'role_id', 'class_id']));
+        $userdetail = UserDetail::findOrFail($id);
+        $userdetail->update($request->only([
+            'first_name',
+            'middle_name',
+            'last_name',
+            'gender',
+            'date_of_birth',
+            'phone',
+            'address',
+            'photo',
+            'student_code',
+            'user_id'
+            ]));
         // Return object
-        return new UserResource($user);
+        return new UserDetailResource($userdetail);
     }
 
     /**
@@ -64,8 +75,8 @@ class UserRepository
      */
     public function destroy($id)
     {
-      $user = User::findOrFail($id);
-      $user->delete();
+      $userdetail = UserDetail::findOrFail($id);
+      $userdetail->delete();
       return response()->json([
           'meesage' => 'Delete #' . $id . ' successful!'
       ], 200);

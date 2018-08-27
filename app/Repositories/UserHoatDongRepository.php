@@ -2,10 +2,10 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Http\Resources\UserResource;
+use App\UserHoatDong;
+use App\Http\Resources\UserHoatDongResource;
 
-class UserRepository
+class UserHoatDongRepository
 {
     /**
      * Get all of the objects for a given model.
@@ -15,7 +15,7 @@ class UserRepository
     public function collection()
     {
         // Return collection of objects as a resource
-        return UserResource::collection(User::orderBy('created_at', 'desc')->paginate(25));
+        return UserHoatDongResource::collection(UserHoatDong::orderBy('created_at', 'desc')->paginate(25));
     }
 
     /**
@@ -27,7 +27,7 @@ class UserRepository
     public function show($id)
     {
         //Return object
-        return new UserResource(User::findOrFail($id));
+        return new UserHoatDongResource(UserHoatDong::findOrFail($id));
     }
 
     /**
@@ -39,7 +39,7 @@ class UserRepository
     public function store($request)
     {
         // Return object
-        return new UserResource(User::create($request->all()));
+        return new UserHoatDongResource(UserHoatDong::create($request->all()));
     }
 
     /**
@@ -50,10 +50,10 @@ class UserRepository
      */
     public function update($request, $id)
     {
-        $user = User::findOrFail($id);
-        $user->update($request->only(['active', 'role_id', 'class_id']));
+        $user_hoatdong = UserHoatDong::findOrFail($id);
+        $user_hoatdong->update($request->only(['user_id', 'hoatdong_id']));
         // Return object
-        return new UserResource($user);
+        return new UserHoatDongResource($user);
     }
 
     /**
@@ -64,8 +64,8 @@ class UserRepository
      */
     public function destroy($id)
     {
-      $user = User::findOrFail($id);
-      $user->delete();
+      $user_hoatdong = UserHoatDong::findOrFail($id);
+      $user_hoatdong->delete();
       return response()->json([
           'meesage' => 'Delete #' . $id . ' successful!'
       ], 200);

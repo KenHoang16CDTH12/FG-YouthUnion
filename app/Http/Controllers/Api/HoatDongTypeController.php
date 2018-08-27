@@ -3,55 +3,86 @@
 namespace App\Http\Controllers\Api;
 
 use App\HoatDongType;
-use Illuminate\Http\Request;
 use App\Repositories\HoatDongTypeRepository;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreHoatDongTypeRequest;
-use App\Http\Requests\UpdateHoatDongTypeRequest;
+use App\Http\Requests\HoatDongTypeStoreRequest;
+use App\Http\Requests\HoatDongTypeUpdateRequest;
 
 class HoatDongTypeController extends Controller
 {
     /**
-     * The User repository instance.
+     * The repository instance.
      *
-     * @var HoatDongTypeRepository
+     * @var ObjectRepository
      */
-    protected $hoatdongtypes;
+    protected $respository;
 
 
     /**
      * Create a new controller instance.
      *
-     * @param  HoatDongTypeRepository  $hoatdongtypes
+     * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(HoatDongTypeRepository $hoatdongtypes)
+    public function __construct(HoatDongTypeRepository $respository)
     {
-        $this->hoatdongtypes = $hoatdongtypes;
+        $this->respository = $respository;
     }
 
+    /**
+     * Get all of the objects for a given model.
+     *
+     * @return Collection
+     */
     public function index()
     {
-        return $this->hoatdongtypes->collectionHoatDongType();
+        return $this->respository->collection();
     }
 
-    public function store(StoreHoatDongTypeRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        return $this->hoatdongtypes->storeHoatDongType($request);
+        return $this->respository->show($id);
     }
 
-    public function show(HoatDongType $hoatdongtype)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(HoatDongTypeStoreRequest $request)
     {
-      return new HoatDongTypeResource($hoatdongtype);
+        $request->validated();
+        return $this->respository->store($request);
     }
 
-    public function update(UpdateHoatDongTypeRequest $request, HoatDongType $hoatdongtype)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(HoatDongTypeUpdateRequest $request, $id)
     {
-        return $this->hoatdongtypes->updateHoatDongType($request, $hoatdongtype);
+        $request->validated();
+        return $this->respository->update($request, $id);
     }
 
-    public function destroy(HoatDongType $hoatdongtype)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-        return $this->hoatdongtypes->deleteHoatDongType($hoatdongtype);
+        return $this->respository->destroy($id);
     }
 }

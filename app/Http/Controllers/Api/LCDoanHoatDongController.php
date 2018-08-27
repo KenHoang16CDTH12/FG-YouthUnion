@@ -5,43 +5,84 @@ namespace App\Http\Controllers\Api;
 use App\LCDoanHoatDong;
 use Illuminate\Http\Request;
 use App\Repositories\LCDoanHoatDongRepository;
-use App\Http\Requests\StoreLCDoanHoatDongRequest;
-use App\Http\Requests\UpdateLCDoanHoatDongRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LCDoanHoatDongStoreRequest;
+use App\Http\Requests\LCDoanHoatDongUpdateRequest;
 
 class LCDoanHoatDongController extends Controller
 {
+    /**
+     * The repository instance.
+     *
+     * @var ObjectRepository
+     */
+    protected $respository;
 
-    //LCDoanHoatDongRepository's instance
-    protected $lcdoanhoatdongs;
 
-    public function __construct(LCDoanHoatDongRepository $lcdoanhoatdongs)
+    /**
+     * Create a new controller instance.
+     *
+     * @param  ObjectRepository  $objects
+     * @return void
+     */
+    public function __construct(LCDoanHoatDongRepository $respository)
     {
-        $this->lcdoanhoatdongs = $lcdoanhoatdongs;
+        $this->respository = $respository;
     }
 
+    /**
+     * Get all of the objects for a given model.
+     *
+     * @return Collection
+     */
     public function index()
     {
-        return $this->lcdoanhoatdongs->collectionLCDoanHoatDong();
+        return $this->respository->collection();
     }
 
-    public function store(StoreLCDoanHoatDongRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        return $this->lcdoanhoatdongs->storeLCDoanHoatDong($request);
+        return $this->respository->show($id);
     }
 
-    public function show(LCDoanHoatDong $lcdoanhoatdongs)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(LCDoanHoatDongStoreRequest $request)
     {
-        return new LCDoanHoatDongResource($lcdoanhoatdongs);
+        $request->validated();
+        return $this->respository->store($request);
     }
 
-    public function update(UpdateLCDoanHoatDongRequest $request, LCDoanHoatDong $lcdoanhoatdongs)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(LCDoanHoatDongUpdateRequest $request, $id)
     {
-       return $this->lcdoanhoatdongs->updateLCDoanHoatDong($request, $lcdoanhoatdongs);
+        $request->validated();
+        return $this->respository->update($request, $id);
     }
 
-    public function destroy(LCDoanHoatDong $lcdoanhoatdongs)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-        return $this->lcdoanhoatdongs->deleteLCDoanHoatDong($lcdoanhoatdongs);
+        return $this->respository->destroy($id);
     }
 }

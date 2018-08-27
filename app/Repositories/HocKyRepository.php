@@ -3,39 +3,71 @@
 namespace App\Repositories;
 
 use App\HocKy;
-use Illuminate\Http\Request;
 use App\Http\Resources\HocKyResource;
-use App\Http\Requests\StoreHocKyRequest;
-use App\Http\Requests\UpdateHocKyRequest;
 
 class HocKyRepository
 {
     /**
-     * Get all of the hockys for a given hocky.
+     * Get all of the objects for a given model.
      *
      * @return Collection
      */
-    public function collectionHocKy()
+    public function collection()
     {
-        return HocKyResource::collection(HocKy::paginate(25));
+        // Return collection of objects as a resource
+        return HocKyResource::collection(HocKy::orderBy('created_at', 'desc')->paginate(25));
     }
 
-    public function storeHocKy(StoreHocKyRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
+        //Return object
+        return new HocKyResource(HocKy::findOrFail($id));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store($request)
+    {
+        // Return object
         return new HocKyResource(HocKy::create($request->all()));
     }
 
-    public function updateHocKy(UpdateHocKyRequest $request, HocKy $hocky)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($request, $id)
     {
-        $hocky->update($request->all());
-
+        $hocky = HocKy::findOrFail($id);
+        $hocky->update($request->only(['hocky', 'namhoc_id']));
+        // Return object
         return new HocKyResource($hocky);
     }
 
-    public function deleteHocKy(HocKy $hocky)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
+      $hocky = HocKy::findOrFail($id);
       $hocky->delete();
-
-      return response()->json(null, 204);
+      return response()->json([
+          'meesage' => 'Delete #' . $id . ' successful!'
+      ], 200);
     }
 }

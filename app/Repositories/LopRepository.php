@@ -2,10 +2,10 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Http\Resources\UserResource;
+use App\Lop;
+use App\Http\Resources\LopResource;
 
-class UserRepository
+class LopRepository
 {
     /**
      * Get all of the objects for a given model.
@@ -15,7 +15,7 @@ class UserRepository
     public function collection()
     {
         // Return collection of objects as a resource
-        return UserResource::collection(User::orderBy('created_at', 'desc')->paginate(25));
+        return LopResource::collection(Lop::orderBy('created_at', 'desc')->paginate(25));
     }
 
     /**
@@ -27,7 +27,7 @@ class UserRepository
     public function show($id)
     {
         //Return object
-        return new UserResource(User::findOrFail($id));
+        return new LopResource(Lop::findOrFail($id));
     }
 
     /**
@@ -39,7 +39,7 @@ class UserRepository
     public function store($request)
     {
         // Return object
-        return new UserResource(User::create($request->all()));
+        return new LopResource(Lop::create($request->all()));
     }
 
     /**
@@ -50,10 +50,10 @@ class UserRepository
      */
     public function update($request, $id)
     {
-        $user = User::findOrFail($id);
-        $user->update($request->only(['active', 'role_id', 'class_id']));
+        $lop = Lop::findOrFail($id);
+        $lop->update($request->only(['name', 'desc', 'khoa_id']));
         // Return object
-        return new UserResource($user);
+        return new LopResource($lop);
     }
 
     /**
@@ -64,10 +64,10 @@ class UserRepository
      */
     public function destroy($id)
     {
-      $user = User::findOrFail($id);
-      $user->delete();
+      $lop = Lop::findOrFail($id);
+      $lop->delete();
       return response()->json([
           'meesage' => 'Delete #' . $id . ' successful!'
-      ], 200);
+      ], 200);   
     }
 }

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\HoatDong;
+use App\UserDetail;
 use Illuminate\Http\Request;
-use App\Repositories\HoatDongRepository;
+use App\Repositories\UserDetailRepository;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\HoatDongStoreRequest;
-use App\Http\Requests\HoatDongUpdateRequest;
+use App\Http\Requests\UserDetailStoreRequest;
+use App\Http\Requests\UserDetailUpdateRequest;
 
-class HoatDongController extends Controller
+class UserDetailController extends Controller
 {
-   /**
+    /**
      * The repository instance.
      *
      * @var ObjectRepository
@@ -25,7 +25,7 @@ class HoatDongController extends Controller
      * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(HoatDongRepository $respository)
+    public function __construct(UserDetailRepository $respository)
     {
         $this->respository = $respository;
     }
@@ -57,7 +57,7 @@ class HoatDongController extends Controller
      * @param  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HoatDongStoreRequest $request)
+    public function store(UserDetailStoreRequest $request)
     {
         $request->validated();
         return $this->respository->store($request);
@@ -69,7 +69,7 @@ class HoatDongController extends Controller
      * @param  $request | $id
      * @return \Illuminate\Http\Response
      */
-    public function update(HoatDongUpdateRequest $request, $id)
+    public function update(UserDetailUpdateRequest $request, $id)
     {
         $request->validated();
         return $this->respository->update($request, $id);

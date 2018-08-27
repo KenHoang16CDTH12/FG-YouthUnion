@@ -5,53 +5,84 @@ namespace App\Http\Controllers\Api;
 use App\NamHoc;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Repositories\NamHocRepository;
-use App\Http\Requests\UpdateNamHocRequest; 
-use App\Http\Requests\StoreNamHocRequest;
+use App\Repositories\NamHocRepository;
+use App\Http\Requests\NamHocStoreRequest;
+use App\Http\Requests\NamHocUpdateRequest;
 
 class NamHocController extends Controller
 {
-   /**
-     * The Namhoc repository instance.
+    /**
+     * The repository instance.
      *
-     * @var NamHocRepository
+     * @var ObjectRepository
      */
-    protected $namhocs;
+    protected $respository;
 
 
     /**
      * Create a new controller instance.
      *
-     * @param  NamHocRepository  $namhocs
+     * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(NamHocRepository $namhocs)
+    public function __construct(NamHocRepository $respository)
     {
-        $this->namhocs = $namhocs;
+        $this->respository = $respository;
     }
 
+    /**
+     * Get all of the objects for a given model.
+     *
+     * @return Collection
+     */
     public function index()
     {
-        return $this->namhocs->collectionNamHoc();
+        return $this->respository->collection();
     }
 
-    public function store(StoreNamHocRequest $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        return $this->namhocs->storeNamHoc($request);
+        return $this->respository->show($id);
     }
 
-    public function show(NamHoc $namhoc)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(NamHocStoreRequest $request)
     {
-      return new NamHocResource($namhoc);
+        $request->validated();
+        return $this->respository->store($request);
     }
 
-    public function update(UpdateNamHocRequest $request, NamHoc $namhoc)
+    /**
+     * Display the specified resource.
+     *
+     * @param  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(NamHocUpdateRequest $request, $id)
     {
-        return $this->namhocs->updateNamHoc($request, $namhoc);
+        $request->validated();
+        return $this->respository->update($request, $id);
     }
 
-    public function destroy(NamHoc $namhoc)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-        return $this->namhocs->deleteNamHoc($namhoc);
+        return $this->respository->destroy($id);
     }
 }

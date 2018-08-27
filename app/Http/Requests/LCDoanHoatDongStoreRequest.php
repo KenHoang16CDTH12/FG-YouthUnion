@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateNamHocRequest extends FormRequest
+class LCDoanHoatDongStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class UpdateNamHocRequest extends FormRequest
     public function rules()
     {
         return [
-            'nam_hoc' => 'required',
+            //
         ];
     }
 }
