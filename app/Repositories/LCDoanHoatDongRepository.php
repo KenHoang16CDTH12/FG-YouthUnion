@@ -51,7 +51,7 @@ class LCDoanHoatDongRepository
     public function update($request, $id)
     {
         $lcdoanhoatdong = LCDoanHoatDong::findOrFail($id);
-        $lcdoanhoatdong->update($request->only(['active', 'role_id', 'class_id']));
+        $lcdoanhoatdong->update($request->only(['hoatdong_id', 'lcdoan_id']));
         // Return object
         return new LCDoanHoatDongResource($lcdoanhoatdong);
     }
