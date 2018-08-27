@@ -118,5 +118,9 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | LCDoanHoatDong API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('lcdoanhoatdongs', 'LCDoanHoatDongController');
+    Route::get('lcdoanhoatdongs', 'LCDoanHoatDongController@index');
+    Route::get('lcdoanhoatdongs/{id}', 'LCDoanHoatDongController@show');
+    Route::post('lcdoanhoatdongs', 'LCDoanHoatDongController@store');
+    Route::put('lcdoanhoatdongs/{id}', 'LCDoanHoatDongController@update');
+    Route::delete('lcdoanhoatdongs/{id}', 'LCDoanHoatDongController@destroy');
 });
