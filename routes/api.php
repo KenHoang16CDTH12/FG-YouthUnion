@@ -64,7 +64,11 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | HoatDong API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('hoatdongs', 'HoatDongController');
+    Route::get('hoatdongs', 'HoatDongController@index');
+    Route::get('hoatdongs/{id}', 'HoatDongController@show');
+    Route::post('hoatdongs', 'HoatDongController@store');
+    Route::put('hoatdongs/{id}', 'HoatDongController@update');
+    Route::delete('hoatdongs/{id}', 'HoatDongController@destroy');
     /*
     |--------------------------------------------------------------------
     | LCDoan API Routes
