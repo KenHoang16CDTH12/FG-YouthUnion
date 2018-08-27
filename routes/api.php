@@ -70,7 +70,11 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | LCDoan API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('lcdoans', 'LCDoanController');
+    Route::get('lcdoans', 'LCDoanController@index');
+    Route::get('lcdoans/{id}', 'LCDoanController@show');
+    Route::post('lcdoans', 'LCDoanController@store');
+    Route::put('lcdoans/{id}', 'LCDoanController@update');
+    Route::delete('lcdoans/{id}', 'LCDoanController@destroy');
     /*
     |--------------------------------------------------------------------
     | Khoa API Routes
