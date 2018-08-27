@@ -58,8 +58,12 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | HoatDongType API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('hoatdongtypes', 'HoatDongTypeController');
-    /*
+    Route::get('hoatdong_types', 'HoatDongTypeController@index');
+    Route::get('hoatdong_types/{id}', 'HoatDongTypeController@show');
+    Route::post('hoatdong_types', 'HoatDongTypeController@store');
+    Route::put('hoatdong_types/{id}', 'HoatDongTypeController@update');
+    Route::delete('hoatdong_types/{id}', 'HoatDongTypeController@destroy');
+    /* 
     |--------------------------------------------------------------------
     | HoatDong API Routes
     |--------------------------------------------------------------------
