@@ -88,7 +88,11 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | Khoa API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('khoas', 'KhoaController');
+    Route::get('khoas', 'KhoaController@index');
+    Route::get('khoas/{id}', 'KhoaController@show');
+    Route::post('khoas', 'KhoaController@store');
+    Route::put('khoas/{id}', 'KhoaController@update');
+    Route::delete('khoas/{id}', 'KhoaController@destroy');
     /*
     |--------------------------------------------------------------------
     | Lop API Routes
