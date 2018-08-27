@@ -104,7 +104,11 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | UserHoatDong API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('userhoatdongs', 'UserHoatDongController');
+    Route::get('user_hoatdong', 'UserHoatDongController@index');
+    Route::get('user_hoatdong/{id}', 'UserHoatDongController@show');
+    Route::post('user_hoatdong', 'UserHoatDongController@store'); 
+    Route::put('user_hoatdong/{id}', 'UserHoatDongController@update');
+    Route::delete('user_hoatdong/{id}', 'UserHoatDongController@destroy');
     /*
     |--------------------------------------------------------------------
     | LCDoanHoatDong API Routes
