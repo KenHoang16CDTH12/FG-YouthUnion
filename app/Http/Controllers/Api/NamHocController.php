@@ -57,7 +57,7 @@ class NamHocController extends Controller
      * @param  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserStoreRequest $request)
+    public function store(NamHocStoreRequest $request)
     {
         $request->validated();
         return $this->respository->store($request);
@@ -69,7 +69,7 @@ class NamHocController extends Controller
      * @param  $request | $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserUpdateRequest $request, $id)
+    public function update(NamHocUpdateRequest $request, $id)
     {
         $request->validated();
         return $this->respository->update($request, $id);
