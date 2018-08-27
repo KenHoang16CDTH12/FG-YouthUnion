@@ -24,7 +24,12 @@ class HoatDongUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'string',
+            'desc' => 'string',
+            'from_date' => 'date',
+            'end_date' => 'date',
+            'hocky_id' => 'integer',
+            'hoatdong_type_id' => 'integer'
         ];
     }
 }
