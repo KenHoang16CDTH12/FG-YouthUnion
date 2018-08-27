@@ -44,7 +44,6 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | HocKy API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('hockys', 'HocKyController');
     Route::get('hockys/{id}', 'HocKyController@show');
     Route::post('hockys', 'HocKyController@store');
     Route::put('hockys/{id}', 'HocKyController@update');
