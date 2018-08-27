@@ -33,6 +33,18 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::post('users', 'UserController@store');
     Route::put('users/{id}', 'UserController@update');
     Route::delete('users/{id}', 'UserController@destroy');
+
+    /*
+    |--------------------------------------------------------------------
+    | UserDetail API Routes
+    |--------------------------------------------------------------------
+    */
+    Route::get('userdetails', 'UserDetailController@index');
+    Route::get('userdetails/{id}', 'UserDetailController@show');
+    Route::post('userdetails', 'UserDetailController@store');
+    Route::put('userdetails/{id}', 'UserDetailController@update');
+    Route::delete('userdetails/{id}', 'UserDetailController@destroy');
+    
     /*
     |--------------------------------------------------------------------
     | NamHoc API Routes
@@ -88,7 +100,11 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | Khoa API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('khoas', 'KhoaController');
+    Route::get('khoas', 'KhoaController@index');
+    Route::get('khoas/{id}', 'KhoaController@show');
+    Route::post('khoas', 'KhoaController@store');
+    Route::put('khoas/{id}', 'KhoaController@update');
+    Route::delete('khoas/{id}', 'KhoaController@destroy');
     /*
     |--------------------------------------------------------------------
     | Lop API Routes
@@ -114,5 +130,9 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | LCDoanHoatDong API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('lcdoanhoatdongs', 'LCDoanHoatDongController');
+    Route::get('lcdoanhoatdongs', 'LCDoanHoatDongController@index');
+    Route::get('lcdoanhoatdongs/{id}', 'LCDoanHoatDongController@show');
+    Route::post('lcdoanhoatdongs', 'LCDoanHoatDongController@store');
+    Route::put('lcdoanhoatdongs/{id}', 'LCDoanHoatDongController@update');
+    Route::delete('lcdoanhoatdongs/{id}', 'LCDoanHoatDongController@destroy');
 });
