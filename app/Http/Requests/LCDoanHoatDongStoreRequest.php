@@ -24,8 +24,7 @@ class LCDoanHoatDongStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'hoatdong_id' => 'required|integer',
-            'lcdoan_id' => 'required|integer'
+            //
         ];
     }
 }
