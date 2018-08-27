@@ -33,6 +33,18 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::post('users', 'UserController@store');
     Route::put('users/{id}', 'UserController@update');
     Route::delete('users/{id}', 'UserController@destroy');
+
+    /*
+    |--------------------------------------------------------------------
+    | UserDetail API Routes
+    |--------------------------------------------------------------------
+    */
+    Route::get('userdetails', 'UserDetailController@index');
+    Route::get('userdetails/{id}', 'UserDetailController@show');
+    Route::post('userdetails', 'UserDetailController@store');
+    Route::put('userdetails/{id}', 'UserDetailController@update');
+    Route::delete('userdetails/{id}', 'UserDetailController@destroy');
+    
     /*
     |--------------------------------------------------------------------
     | NamHoc API Routes
