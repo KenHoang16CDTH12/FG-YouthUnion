@@ -24,7 +24,9 @@ class LopStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:100',
+            'desc' => 'required|string|max:255',
+            'khoa_id' => 'required|integer'
         ];
     }
 }
