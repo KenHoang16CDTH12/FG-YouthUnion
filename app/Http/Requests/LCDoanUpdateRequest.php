@@ -24,7 +24,8 @@ class LCDoanUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'string',
+            'desc' => 'string',
         ];
     }
 }
