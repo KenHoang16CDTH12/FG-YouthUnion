@@ -24,7 +24,9 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'active' => 'boolean',
+            'role_id' => 'integer',
+            'class_id' => 'integer'
         ];
     }
 }
