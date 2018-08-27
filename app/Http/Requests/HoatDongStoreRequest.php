@@ -24,7 +24,7 @@ class HoatDongStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+           
         ];
     }
 }
