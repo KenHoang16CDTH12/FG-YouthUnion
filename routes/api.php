@@ -90,7 +90,11 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     | Lop API Routes
     |--------------------------------------------------------------------
     */
-    Route::apiResource('lops', 'LopController');
+    Route::get('lops', 'LopController@index');
+    Route::get('lops/{id}', 'LopController@show');
+    Route::post('lops', 'LopController@store');
+    Route::put('lops/{id}', 'LopController@update');
+    Route::delete('lops/{id}', 'LopController@destroy');
     /*
     |--------------------------------------------------------------------
     | UserHoatDong API Routes
