@@ -21,6 +21,7 @@
 {!! Html::script('app-assets/js/core/app-menu.js') !!}
 {!! Html::script('app-assets/js/core/app.js') !!}
 {!! Html::script('app-assets/js/scripts/customizer.js') !!}
+{!! Html::script('js/app.js') !!}
 <!-- ============================================ -->
 <!-- END MODERN JS -->
 <!-- ============================================ -->
