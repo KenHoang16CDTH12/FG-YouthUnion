@@ -34,7 +34,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
     <!-- ============================================ -->
     <!-- Begin Content -->
     <!-- ============================================ -->
-    <div class="app-content content">
+    <div class="app-content content" id="app-content-dashboard">
       <div class="content-wrapper">
         <div class="content-header row">
         </div>
