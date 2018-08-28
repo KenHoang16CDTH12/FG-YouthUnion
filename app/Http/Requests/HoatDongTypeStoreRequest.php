@@ -24,7 +24,7 @@ class HoatDongTypeStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'required|string|unique:hoatdong_types,type'
+            'type' => 'required|string|unique:hoatdong_types'
         ];
     }
 }
