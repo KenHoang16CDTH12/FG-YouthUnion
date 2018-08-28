@@ -24,7 +24,9 @@ class UserHoatDongStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'required|integer',
+            'hoatdongs_id' => 'required|integer',
+            'status' => 'required|string|status|max:45'
         ];
     }
 }
