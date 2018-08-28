@@ -24,7 +24,9 @@ class KhoaUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'string|max:255',
+            'desc' => 'string',
+            'lcdoan_id' => 'int|max:10',
         ];
     }
 }

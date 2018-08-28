@@ -24,7 +24,9 @@ class KhoaStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'desc' => 'string',
+            'lcdoan_id' => 'required|int|max:10',
         ];
     }
 }
