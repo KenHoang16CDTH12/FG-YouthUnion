@@ -27,9 +27,9 @@
   <!-- ============================================ -->
   <!-- END CARD USERS -->
   <!-- ============================================ -->
-  <!-- ============================================ -->
   <!-- BEGIN CARD CLASS -->
   <!-- ============================================ -->
+  <div class="col-xl-3 col-lg-6 col-12">
     <div class="card pull-up">
       <div class="card-content">
         <div class="card-body">
@@ -46,17 +46,12 @@
             <div class="progress-bar bg-gradient-x-teal " role="progressbar" style="width: 100%"
             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-          <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
-            <div class="progress-bar bg-gradient-x-red" role="progressbar" style="width: 65%"
-            aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
         </div>
       </div>
     </div>
   </div>
   <!-- ============================================ -->
   <!-- END CARD CLASS -->
-  <!-- ============================================ -->
   <!-- ============================================ -->
   <!-- BEGIN CARD FACULTY -->
   <!-- ============================================ -->
@@ -77,18 +72,12 @@
             <div class="progress-bar bg-gradient-x-red" role="progressbar" style="width: 100%"
             aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-          <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
-            <div class="progress-bar bg-gradient-x-teal" role="progressbar" style="width: 65%"
-            aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
         </div>
       </div>
     </div>
   </div>
   <!-- ============================================ -->
   <!-- END CARD FACULTY -->
-  <!-- ============================================ -->
-  <!-- ============================================ -->
   <!-- ============================================ -->
   <!-- BEGIN CARD FEDERATION -->
   <!-- ============================================ -->
@@ -100,7 +89,6 @@
             <div class="media-body text-left">
               <h3 class="purple">0</h3>
               <h6>Liên Chi Đoàn</h6>
-
             </div>
             <div>
               <i class="icon-link purple font-large-2 float-right"></i>
@@ -109,31 +97,6 @@
           <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
             <div class="progress-bar bg-gradient-x-purple" role="progressbar" style="width: 100%"
             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
-            <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 80%"
-            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-lg-6 col-12">
-    <div class="card pull-up">
-      <div class="card-content">
-        <div class="card-body">
-          <div class="media d-flex">
-            <div class="media-body text-left">
-              <h3 class="warning">0</h3>
-              <h6>Years</h6>
-            </div>
-            <div>
-              <i class="icon-graduation warning font-large-2 float-right"></i>
-            </div>
-          </div>
-          <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
-            <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 65%"
-            aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </div>
       </div>
@@ -171,7 +134,6 @@
   <!-- ============================================ -->
   <!-- END CARD YEARS -->
   <!-- ============================================ -->
-  <!-- ============================================ -->
   <!-- BEGIN CARD ACTIVITIES -->
   <!-- ============================================ -->
   <div class="col-xl-3 col-lg-6 col-12">
@@ -198,7 +160,6 @@
   <!-- ============================================ -->
   <!-- END CARD ACTIVITIES -->
   <!-- ============================================ -->
-  <!-- ============================================ -->
   <!-- BEGIN CARD FEDERATION -->
   <!-- ============================================ -->
   <div class="col-xl-3 col-lg-6 col-12">
@@ -222,6 +183,8 @@
       </div>
     </div>
   </div>
+  <!-- ============================================ -->
+  <!-- END CARD FEDERATION -->
   <!-- ============================================ -->
   <!-- BEGIN CARD FEDERATION ACTIVITIES -->
   <!-- ============================================ -->
