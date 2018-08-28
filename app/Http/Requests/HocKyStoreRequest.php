@@ -24,7 +24,8 @@ class HocKyStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'hocky' => 'required|string|hocky|max:50',
+            'namhoc_id' => 'required|integer'
         ];
     }
 }
