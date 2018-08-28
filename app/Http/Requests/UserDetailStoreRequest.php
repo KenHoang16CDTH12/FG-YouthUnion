@@ -28,12 +28,12 @@ class UserDetailStoreRequest extends FormRequest
             'middle_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
             'gender' => 'required|integer|max:1',
-            'date_of_birth' => 'date_format:"Y-m-d"',
-            'phone' => 'string|max:50',                    
-            'address' => 'string',                    
+            'date_of_birth' => 'date',
+            'phone' => 'string|max:50',
+            'address' => 'string',
             'photo' => 'string',
             'student_code' => 'string|unique:user_details|max:50',
-            'user_id' => 'required|int|max:10'  
+            'user_id' => 'required|int|max:10'
         ];
     }
 }

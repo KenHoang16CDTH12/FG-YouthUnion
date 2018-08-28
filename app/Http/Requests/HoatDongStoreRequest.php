@@ -24,10 +24,10 @@ class HoatDongStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|unique:hoatdongs,name',
+            'name' => 'required|string|unique:hoatdongs',
             'desc' => 'required|string',
-            'from_date' => 'required|date_format:"Y-m-d"',
-            'end_date' => 'required|date_format:"Y-m-d"',
+            'from_date' => 'required|date',
+            'end_date' => 'required|date',
             'hocky_id' => 'required|integer',
             'hoatdong_type_id' => 'required|integer'
         ];
