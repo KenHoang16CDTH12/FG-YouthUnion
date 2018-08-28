@@ -24,7 +24,7 @@ class LCDoanStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|unique:lcdoans,name',
+            'name' => 'required|string|unique:lcdoans',
             'desc' => 'string',
         ];
     }
