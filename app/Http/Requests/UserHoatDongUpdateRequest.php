@@ -26,7 +26,7 @@ class UserHoatDongUpdateRequest extends FormRequest
         return [
             'user_id' => 'integer',
             'hoatdongs_id' => 'integer',
-            'status' => 'string|status|max:45'
+            'status' => 'string|max:45'
         ];
     }
 }
