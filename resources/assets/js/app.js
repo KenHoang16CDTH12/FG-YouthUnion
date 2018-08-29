@@ -15,8 +15,18 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+ 
+/*============================================
+*   Common
+*============================================*/
+Vue.component('navbar', require('./components/common/Navbar.vue'));
+Vue.component('sidebar', require('./components/common/Sidebar.vue'));
+Vue.component('footerr', require('./components/common/Footer.vue'));
+/*============================================
+*   //
+*============================================*/
 Vue.component('users', require('./components/Users.vue'));
 
 const app = new Vue({
-    el: '#app-content-dashboard'
+    el: '#root'
 });
