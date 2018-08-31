@@ -10,7 +10,8 @@ class UserHoatDong extends Model
 
     protected $fillable = [
         'user_id',
-        'hoatdong_id'
+		'hoatdong_id',
+		'status'
     ];
 
 	/**

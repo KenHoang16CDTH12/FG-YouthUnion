@@ -25,7 +25,7 @@ class UserHoatDongStoreRequest extends FormRequest
     {
         return [
             'user_id' => 'required|integer',
-            'hoatdongs_id' => 'required|integer',
+            'hoatdong_id' => 'required|integer',
             'status' => 'required|string|max:45'
         ];
     }
