@@ -1,4 +1,5 @@
-<!-- ============================================ -->
+<template>
+  <!-- ============================================ -->
 <!-- Begin Main_menu -->
 <!-- ============================================ -->
 <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
@@ -21,7 +22,6 @@
                 <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">Vertical</a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="../vertical-menu-template" data-i18n="nav.templates.vert.classic_menu">Classic Menu</a>
-                    </li>
                     </li>
                 </ul>
                 </li>
@@ -76,3 +76,4 @@
 <!-- ============================================ -->
 <!-- End Main_menu -->
 <!-- ============================================ -->
+</template>
