@@ -1,3 +1,4 @@
+<template>
 <!-- ============================================ -->
 <!-- Begin Header_navbar -->
 <!-- ============================================ -->
@@ -8,13 +9,14 @@
     <div class="navbar-wrapper">
         <!-- ============================================ -->
         <!-- Begin navbar-header -->
-        <!-- ============================================ -->    
+        <!-- ============================================ -->
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
             <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
             <li class="nav-item mr-auto">
                 <a class="navbar-brand" href="index.html">
-                <img class="brand-logo" alt="modern admin logo" src="{{ URL::asset('app-assets/images/logo/logo.png') }}">
+                <img class="brand-logo" alt="modern admin logo" src="">
+                <!-- app-assets/images/logo/logo.png -->
                 <h3 class="brand-text">FG-YouthUnion</h3>
                 </a>
             </li>
@@ -29,7 +31,7 @@
         <!-- ============================================ -->
         <!-- ============================================ -->
         <!-- Begin navbar-container -->
-        <!-- ============================================ --> 
+        <!-- ============================================ -->
         <div class="navbar-container content">
             <div class="collapse navbar-collapse" id="navbar-mobile">
             <ul class="nav navbar-nav mr-auto float-left">
@@ -40,8 +42,9 @@
                     <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> News</h6>
                     <div id="mega-menu-carousel-example">
                         <div>
-                        <img class="rounded img-fluid mb-1" src="../../../app-assets/images/slider/slider-2.png"
+                        <img class="rounded img-fluid mb-1" src=""
                         alt="First slide"><a class="news-title mb-0" href="#">Poster Frame PSD</a>
+                        <!-- ../../../app-assets/images/slider/slider-2.png -->
                         <p class="news-content">
                             <span class="font-small-2">January 26, 2018</span>
                         </p>
@@ -174,7 +177,8 @@
                     <span class="user-name text-bold-700">John Doe</span>
                     </span>
                     <span class="avatar avatar-online">
-                    <img src="../../../app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
+                    <img src="" alt="avatar"><i></i></span>
+                    <!-- /app-assets/images/portrait/small/avatar-s-19.png -->
                 </a>
                 <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a>
                     <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
@@ -279,7 +283,8 @@
                         <div class="media">
                         <div class="media-left">
                             <span class="avatar avatar-sm avatar-online rounded-circle">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
+                            <img src="" alt="avatar"><i></i></span>
+                            <!-- /app-assets/images/portrait/small/avatar-s-19.png -->
                         </div>
                         <div class="media-body">
                             <h6 class="media-heading">Margaret Govan</h6>
@@ -294,7 +299,8 @@
                         <div class="media">
                         <div class="media-left">
                             <span class="avatar avatar-sm avatar-busy rounded-circle">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span>
+                            <img src="" alt="avatar"><i></i></span>
+                            <!-- ../../../app-assets/images/portrait/small/avatar-s-2.png -->
                         </div>
                         <div class="media-body">
                             <h6 class="media-heading">Bret Lezama</h6>
@@ -309,7 +315,8 @@
                         <div class="media">
                         <div class="media-left">
                             <span class="avatar avatar-sm avatar-online rounded-circle">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span>
+                            <img src="" alt="avatar"><i></i></span>
+                            <!-- ../../../app-assets/images/portrait/small/avatar-s-3.png -->
                         </div>
                         <div class="media-body">
                             <h6 class="media-heading">Carie Berra</h6>
@@ -324,7 +331,8 @@
                         <div class="media">
                         <div class="media-left">
                             <span class="avatar avatar-sm avatar-away rounded-circle">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span>
+                            <img src="" alt="avatar"><i></i></span>
+                            <!-- ../../../app-assets/images/portrait/small/avatar-s-6.png -->
                         </div>
                         <div class="media-body">
                             <h6 class="media-heading">Eric Alsobrook</h6>
@@ -344,7 +352,7 @@
         </div>
         <!-- ============================================ -->
         <!-- End navbar-container -->
-        <!-- ============================================ --> 
+        <!-- ============================================ -->
     </div>
     <!-- ============================================ -->
     <!-- End navbar-wrapper -->
@@ -353,3 +361,4 @@
 <!-- ============================================ -->
 <!-- End Header_navbar -->
 <!-- ============================================ -->
+</template>
