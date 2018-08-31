@@ -50,10 +50,10 @@ class NamHocRepository
      */
     public function update($request, $id)
     {
-        $namhoc = NamHoc::findOrFail($id);
-        $namhoc->update($request->only(['nam_hoc']));
+        $nam_hoc = NamHoc::findOrFail($id);
+        $nam_hoc->update($request->only(['nam_hoc']));
         // Return object
-        return new NamHocResource($namhoc);
+        return new NamHocResource($nam_hoc);
     }
 
     /**
@@ -64,8 +64,8 @@ class NamHocRepository
      */
     public function destroy($id)
     {
-      $namhoc = NamHoc::findOrFail($id);
-      $namhoc->delete();
+      $nam_hoc = NamHoc::findOrFail($id);
+      $nam_hoc->delete();
       return response()->json([
           'meesage' => 'Delete #' . $id . ' successful!'
       ], 200);
