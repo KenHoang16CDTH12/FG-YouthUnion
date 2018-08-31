@@ -120,7 +120,7 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     */
     Route::get('userhoatdongs', 'UserHoatDongController@index');
     Route::get('userhoatdongs/{id}', 'UserHoatDongController@show');
-    Route::post('userhoatdongs', 'UserHoatDongController@store');
+    Route::post('userhoatdongs', 'UserHoatDongController@store'); 
     Route::put('userhoatdongs/{id}', 'UserHoatDongController@update');
     Route::delete('userhoatdongs/{id}', 'UserHoatDongController@destroy');
     /*
