@@ -26,7 +26,7 @@ class LopUpdateRequest extends FormRequest
         return [
             'name' => 'string|max:255',
             'desc' => 'string',
-            'khoa_id' => 'int|max:10',
+            'khoa_id' => 'integer|max:10',
         ];
     }
 }

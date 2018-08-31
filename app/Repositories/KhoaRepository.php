@@ -24,10 +24,10 @@ class KhoaRepository
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id)   
     {
         //Return object
-        return new KhoaResource(User::findOrFail($id));
+        return new KhoaResource(Khoa::findOrFail($id));
     }
 
     /**
