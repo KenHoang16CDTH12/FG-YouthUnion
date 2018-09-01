@@ -24,7 +24,12 @@ class HoatDongStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|unique:hoatdongs|max:255',
+            'desc' => 'required|string',
+            'from_date' => 'required|date',
+            'end_date' => 'required|date',
+            'hocky_id' => 'required|integer|max:10',
+            'hoatdong_type_id' => 'required|integer|max:10'
         ];
     }
 }

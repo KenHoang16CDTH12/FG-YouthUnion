@@ -24,7 +24,9 @@ class LopUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'string|max:255',
+            'desc' => 'string',
+            'khoa_id' => 'integer|max:10',
         ];
     }
 }

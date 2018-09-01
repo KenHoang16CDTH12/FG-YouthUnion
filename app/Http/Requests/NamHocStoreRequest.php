@@ -24,7 +24,7 @@ class NamHocStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nam_hoc' => 'required|unique:namhocs|string|max:45',
         ];
     }
 }

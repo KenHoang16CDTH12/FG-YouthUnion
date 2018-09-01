@@ -24,7 +24,8 @@ class HocKyUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'hocky' => 'string|hocky|max:50',
+            'namhoc_id' => 'integer'
         ];
     }
 }

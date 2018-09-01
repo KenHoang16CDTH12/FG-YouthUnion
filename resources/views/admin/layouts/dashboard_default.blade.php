@@ -17,19 +17,20 @@
   </head>
   <body class="vertical-layout vertical-menu-modern 2-columns   menu-expanded fixed-navbar"
 data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
+    <div id="root">
     <!-- ============================================ -->
     <!-- Begin Header_navbar -->
     <!-- ============================================ -->
-    @include('admin.layouts.partials.header_navbar')
+    <navbar></navbar>
     <!-- ============================================ -->
     <!-- End Header_navbar -->
     <!-- ============================================ -->
     <!-- ============================================ -->
-    <!-- Begin Main_menu -->
+    <!-- Begin Sidebar -->
     <!-- ============================================ -->
-    @include('admin.layouts.partials.main_menu')
+    <sidebar></sidebar>
     <!-- ============================================ -->
-    <!-- End Main_menu -->
+    <!-- End Sidebar -->
     <!-- ============================================ -->
     <!-- ============================================ -->
     <!-- Begin Content -->
@@ -49,7 +50,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
     <!-- ============================================ -->
     <!-- Begin Footer -->
     <!-- ============================================ -->
-    @include('admin.layouts.partials.footer')
+    <footerr></footerr>
     <!-- ============================================ -->
     <!-- End Footer -->
     <!-- ============================================ -->
@@ -57,5 +58,6 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
     <!-- Script -->
     <!-- ============================================ -->
     @include('admin.dashboard.partials.script')
+    </div>
   </body>
 </html>

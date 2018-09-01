@@ -24,7 +24,7 @@ class HoatDongTypeUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type' => 'string'
         ];
     }
 }
