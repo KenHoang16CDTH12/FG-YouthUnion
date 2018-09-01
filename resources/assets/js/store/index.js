@@ -6,7 +6,6 @@ import mutations from './mutations';
 
 const store = new Vuex.Store({
     state: {
-        user: null
     },
     mutations,
 });

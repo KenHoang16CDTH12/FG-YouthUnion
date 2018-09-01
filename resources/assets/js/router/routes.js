@@ -1,8 +1,16 @@
 
 const routes = [
     {
+        path: '/error',
+        redirect: '/error'
+    },
+    {
+        path: '/login',
+        redirect: '/login'
+    },
+    {
         path: '/',
-        redirect: '/dashboard'
+        redirect: '/'
     }
 ];
 

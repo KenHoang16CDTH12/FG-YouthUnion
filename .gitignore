@@ -1,4 +1,9 @@
 /node_modules
+/public/css
+/public/js
+/public/core-assets
+/public/app-assets
+/public/fonts
 /public/hot
 /public/storage
 /storage/*.key

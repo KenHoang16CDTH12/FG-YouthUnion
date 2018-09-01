@@ -7,7 +7,7 @@
       <div class="content-header row">
       </div>
       <div class="content-body">
-        <slot />
+
       </div>
     </div>
   </div>
