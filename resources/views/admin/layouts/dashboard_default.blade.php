@@ -13,51 +13,44 @@
     <!-- ============================================ -->
     <!-- Style -->
     <!-- ============================================ -->
-    @include('admin.dashboard.partials.style')
+    @include('admin.layouts.partials.style')
   </head>
-  <body class="vertical-layout vertical-menu-modern 2-columns   menu-expanded fixed-navbar"
+  <body class="vertical-layout vertical-menu-modern 2-columns menu-expanded fixed-navbar"
 data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
-    <div id="root">
+    <div id="app">
     <!-- ============================================ -->
-    <!-- Begin Header_navbar -->
+    <!-- Begin Navbar -->
     <!-- ============================================ -->
-    <navbar></navbar>
+    <menu-navbar></menu-navbar>
     <!-- ============================================ -->
-    <!-- End Header_navbar -->
+    <!-- End Navbar -->
     <!-- ============================================ -->
     <!-- ============================================ -->
     <!-- Begin Sidebar -->
     <!-- ============================================ -->
-    <sidebar></sidebar>
+    <menu-sidebar></menu-sidebar>
     <!-- ============================================ -->
     <!-- End Sidebar -->
     <!-- ============================================ -->
     <!-- ============================================ -->
     <!-- Begin Content -->
     <!-- ============================================ -->
-    <div class="app-content content">
-      <div class="content-wrapper">
-        <div class="content-header row">
-        </div>
-        <div class="content-body">
-          @yield('content-body')
-        </div>
-      </div>
-    </div>
+    <router-view></router-view>
     <!-- ============================================ -->
     <!-- End Content -->
     <!-- ============================================ -->
     <!-- ============================================ -->
     <!-- Begin Footer -->
     <!-- ============================================ -->
-    <footerr></footerr>
+    <activity-footer></activity-footer>
     <!-- ============================================ -->
     <!-- End Footer -->
     <!-- ============================================ -->
+    </div>
     <!-- ============================================ -->
     <!-- Script -->
     <!-- ============================================ -->
-    @include('admin.dashboard.partials.script')
+    @include('admin.layouts.partials.script')
     </div>
   </body>
 </html>

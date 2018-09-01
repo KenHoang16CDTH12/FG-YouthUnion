@@ -5,8 +5,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-
 window.Vue = require('vue');
 import Vuex from 'vuex';
 import Vuelidate from 'vuelidate';
@@ -26,8 +24,15 @@ import store from './store';
 import MenuSidebar from './components/MenuSidebar.vue';
 import MenuNavbar from './components/MenuNavbar.vue';
 import ActivityFooter from './components/ActivityFooter.vue';
+import Error from './components/error/Error.vue';
 
+//Layout s
 Vue.component('application-layout', require('./layouts/ApplicationView.vue'));
+//Forms
+Vue.component('form-login', require('./components/auth/Login.vue'));
+//Card
+Vue.component('card-footer', require('./components/CardFooter.vue'));
+//Options
 Vue.component('paginator', require('./components/Paginator.vue'));
 
 // Global Event Bus
@@ -49,10 +54,14 @@ Vue.prototype.goBack = () => {
 
 const app = new Vue({
     created() {
-        this.$store.commit('setUser', window.App.user);
     },
     el: '#app',
-    components: {MenuNavbar, MenuSidebar, ActivityFooter},
+    components: {
+      MenuNavbar,
+      MenuSidebar,
+      ActivityFooter,
+      Error
+    },
     router,
     store: store
 });
