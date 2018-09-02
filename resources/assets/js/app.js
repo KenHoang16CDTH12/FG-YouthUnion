@@ -8,11 +8,12 @@
 window.Vue = require('vue');
 import Vuex from 'vuex';
 import Vuelidate from 'vuelidate';
-
-
-Vue.use(Vuelidate)
+import VueInternationalization from 'vue-i18n';
+import Locale from './vue-i18n-locales.generated';
 
 Vue.use(Vuex);
+Vue.use(Vuelidate);
+Vue.use(VueInternationalization);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51,11 +52,19 @@ Vue.prototype.goBack = () => {
 // import {Alert} from './utilities';
 // Vue.prototype.Alert = Alert;
 
+const lang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
+// or however you determine your current app locale
 
-const app = new Vue({
+const i18n = new VueInternationalization({
+    locale: lang,
+    messages: Locale
+});
+
+export const app = new Vue({
     created() {
     },
     el: '#app',
+    i18n,
     components: {
       MenuNavbar,
       MenuSidebar,
