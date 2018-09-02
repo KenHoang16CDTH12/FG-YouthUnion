@@ -171,7 +171,7 @@
             <ul class="nav navbar-nav float-right">
                 <li class="dropdown dropdown-user nav-item">
                 <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                    <span class="mr-1">Hello,
+                    <span class="mr-1">{{ $t('message.hello') }}
                     <span class="user-name text-bold-700">John Doe</span>
                     </span>
                     <span class="avatar avatar-online">
@@ -185,11 +185,10 @@
                 </div>
                 </li>
                 <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-gb"></i><span class="selected-language"></span></a>
-                <div class="dropdown-menu" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-gb"></i> English</a>
-                    <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> French</a>
-                    <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> Chinese</a>
-                    <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i> German</a>
+                aria-haspopup="true" aria-expanded="false"><i v-bind:class="lang_icon"></i><span class="selected-language"></span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+                    <a @click.prevent="setLang('en', 'flag-icon flag-icon-gb')" class="dropdown-item" href="#"><i class="flag-icon flag-icon-gb"></i> English</a>
+                    <a @click.prevent="setLang('vi', 'flag-icon flag-icon-vn')" class="dropdown-item" href="#"><i class="flag-icon flag-icon-vn"></i> Vietnamese</a>
                 </div>
                 </li>
                 <li class="dropdown dropdown-notification nav-item">
@@ -355,3 +354,24 @@
 <!-- End Header_navbar -->
 <!-- ============================================ -->
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+        lang_icon: 'flag-icon flag-icon-gb'
+    }
+  },
+  created() {
+    if (localStorage.getItem('lang_icon'))
+        this.lang_icon = localStorage.getItem('lang_icon');
+  },
+  methods: {
+    setLang: function(lang, icon){
+         localStorage.setItem('lang', lang);
+         localStorage.setItem('lang_icon', icon);
+         window.location.reload()
+    }
+  }
+}
+</script>

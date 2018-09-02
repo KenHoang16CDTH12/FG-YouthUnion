@@ -1,4 +1,3 @@
-export default {
-    setUser(state, user) {
-    }
+export const mutations = {
+
 }
