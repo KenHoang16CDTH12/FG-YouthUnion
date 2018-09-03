@@ -9,30 +9,33 @@
     <!-- Meta -->
     <!-- ============================================ -->
     @include('admin.layouts.partials.meta')
-    <title>@yield('title')</title>
+    <title>FGDev Team</title>
     <!-- ============================================ -->
     <!-- Style -->
     <!-- ============================================ -->
     @include('admin.layouts.partials.style')
-    {!! Html::style('app-assets/css/pages/login-register.css') !!}
   </head>
-  <body class="vertical-layout vertical-menu-modern 1-column  bg-cyan bg-lighten-2 menu-expanded blank-page blank-page"
-data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
+  <body class="vertical-layout vertical-menu-modern 2-columns menu-expanded fixed-navbar pace-done" data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
     <div id="app">
     <!-- ============================================ -->
-    <!-- Begin Login -->
-    <!-- ============================================ -->
-    <router-view/>
-    <!-- ============================================ -->
-    <!-- End Login -->
+    <!-- Render With Vuejs -->
     <!-- ============================================ -->
     </div>
     <!-- ============================================ -->
     <!-- Script -->
     <!-- ============================================ -->
     @include('admin.layouts.partials.script')
-    {!! Html::script('app-assets/js/scripts/forms/form-login-register.js') !!}
-    {!! Html::script('app-assets/vendors/js/forms/icheck/icheck.min.js') !!}
-    {!! Html::script('app-assets/vendors/js/forms/validation/jqBootstrapValidation.js') !!}
+    <script>
+        $(document).ready(function () {
+            if(window.location.href.indexOf("login") > -1) {
+                $('body').removeClass();
+                $('body').addClass('vertical-layout bg-cyan bg-lighten-2 menu-expanded blank-page blank-page pace-done');
+            } else {
+                $('body').removeClass();
+                $('body').addClass('vertical-layout vertical-menu-modern 2-columns menu-expanded fixed-navbar');
+            }
+        });
+    </script>
   </body>
 </html>
+

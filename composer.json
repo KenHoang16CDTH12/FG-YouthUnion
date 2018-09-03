@@ -8,9 +8,11 @@
         "php": ">=7.0.0",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
+        "laravel/passport": "4.0.3",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
-        "martinlindhe/laravel-vue-i18n-generator": "^0.1.28"
+        "martinlindhe/laravel-vue-i18n-generator": "^0.1.28",
+        "paragonie/random_compat": "2.*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.1",
