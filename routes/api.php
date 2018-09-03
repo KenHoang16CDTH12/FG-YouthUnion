@@ -20,22 +20,16 @@ if (env('APP_ENV') === 'production') {
 Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'], function() {
     /*
     |------------------------------------------------------------
-    | Language
-    |------------------------------------------------------------
-    */
-    Route::get('language/{locale}', function ($locale) {
-        App::setLocale($locale);
-        return response()->json(['locale' => $locale], 200);
-    });
-    /*
-    |------------------------------------------------------------
     | Authentication
     |------------------------------------------------------------
     */
+    Route::post('login', 'AuthController@login');
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::get('logout', 'AuthController@logout');
+    });
 });
 
-//'middleware' => ['auth:api'],
-Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  function() {
+Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  function() {
     /*
     |------------------------------------------------------------
     | User API Routes

@@ -181,7 +181,7 @@
                     <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
                     <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a>
                     <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
-                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="ft-power"></i> Logout</a>
+                    <div class="dropdown-divider"></div><a @click="handleLogout()" class="dropdown-item"><i class="ft-power"></i> Logout</a>
                 </div>
                 </li>
                 <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
@@ -356,21 +356,31 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
   data() {
     return {
         lang_icon: 'flag-icon flag-icon-gb'
     }
   },
+  computed: {
+    ...mapState('account', ['status'])
+  },
   created() {
     if (localStorage.getItem('lang_icon'))
         this.lang_icon = localStorage.getItem('lang_icon');
   },
   methods: {
+    ...mapActions('account', ['logout']),
     setLang: function(lang, icon){
          localStorage.setItem('lang', lang);
          localStorage.setItem('lang_icon', icon);
-         window.location.reload()
+         window.location.reload();
+    },
+    handleLogout() {
+        this.logout();
+        window.location.reload();
     }
   }
 }

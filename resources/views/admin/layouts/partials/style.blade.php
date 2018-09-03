@@ -29,15 +29,3 @@
 <!-- ============================================ -->
 <!-- END Custom CSS -->
 <!-- ============================================ -->
-<!-- ============================================ -->
-<!-- BEGIN More CSS -->
-<!-- ============================================ -->
-@yield('style')
-<!-- ============================================ -->
-<!-- END More CSS -->
-<!-- ============================================ -->
-
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/extensions/rowReorder.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/extensions/responsive.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/users.css">

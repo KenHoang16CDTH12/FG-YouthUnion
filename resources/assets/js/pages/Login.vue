@@ -1,8 +1,9 @@
 <template>
-<!-- ============================================ -->
-<!-- Flexbox-container -->
-<!-- ============================================ -->
-<div class="app-content content container-fluid">
+<div>
+    <!-- ============================================ -->
+    <!-- Flexbox-container -->
+    <!-- ============================================ -->
+    <div class="app-content content">
       <div class="content-wrapper">
         <div class="content-header row">
         </div>
@@ -34,25 +35,27 @@
                     <span>OR</span>
                     </p>
                     <div class="card-body pt-0">
-                    <form class="form-horizontal" action="index.html">
+                    <form @submit.prevent="handleSubmit" class="form-horizontal">
                         <fieldset class="form-group floating-label-form-group">
-                        <label for="username">Your Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Your Username">
+                        <label for="email">Your Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email Address" v-model="email" :class="{ 'is-invalid': submitted && !email }">
+                        <div v-show="submitted && !email" class="invalid-feedback">Email is required</div>
                         </fieldset>
                         <fieldset class="form-group floating-label-form-group mb-1">
                         <label for="password">Enter Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" v-model="password" :class="{ 'is-invalid': submitted && !password }">
+                        <div v-show="submitted && !password" class="invalid-feedback">Password is required</div>
                         </fieldset>
                         <div class="form-group row">
                         <div class="col-md-6 col-12 text-center text-sm-left">
                             <fieldset>
-                            <input type="checkbox" id="remember-me" class="chk-remember">
+                            <input type="checkbox" id="remember-me" class="chk-remember" v-model="remember_me">
                             <label for="remember-me"> Remember Me</label>
                             </fieldset>
                         </div>
-                        <div class="col-md-6 col-12 float-sm-left text-center text-sm-right"><a href="recover-password.html" class="card-link">Forgot Password?</a></div>
+                        <div class="col-md-6 col-12 float-sm-left text-center text-sm-right"><router-link to="/forgot-password" class="card-link">Forgot Password?</router-link></div>
                         </div>
-                        <button type="submit" class="btn btn-outline-info btn-block"><i class="ft-unlock"></i> Login</button>
+                        <button type="submit" class="btn btn-outline-info btn-block"  :disabled="status.loggingIn"><i class="ft-unlock"></i> Login</button>
                     </form>
                     </div>
                 </div>
@@ -61,8 +64,40 @@
             </div>
         </section>
       </div>
+    </div>
+    <!-- ============================================ -->
+    <!-- Flexbox-container -->
+    <!-- ============================================ -->
 </div>
-<!-- ============================================ -->
-<!-- Flexbox-container -->
-<!-- ============================================ -->
 </template>
+<script>
+import { mapState, mapActions } from 'vuex'
+
+export default {
+    data () {
+        return {
+            email: '',
+            password: '',
+            remember_me: false,
+            submitted: false
+        }
+    },
+    computed: {
+        ...mapState('account', ['status'])
+    },
+    created () {
+        // reset login status
+        this.logout();
+    },
+    methods: {
+        ...mapActions('account', ['login', 'logout']),
+        handleSubmit(e) {
+            this.submitted = true;
+            const { email, password, remember_me } = this;
+            if (email && password) {
+                this.login({ email, password, remember_me })
+            }
+        }
+    }
+};
+</script>
