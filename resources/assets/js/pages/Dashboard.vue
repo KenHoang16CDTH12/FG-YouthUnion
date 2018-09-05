@@ -17,7 +17,18 @@
   <!-- ============================================ -->
   <!-- Begin Content -->
   <!-- ============================================ -->
-  <router-view></router-view>
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <!-- ============================================ -->
+      <!-- Content Header-->
+      <!-- ============================================ -->
+      <bread-crumb/>
+      <!-- ============================================ -->
+      <!-- Content Body-->
+      <!-- ============================================ -->
+      <router-view/>
+    </div>
+  </div>
   <!-- ============================================ -->
   <!-- End Content -->
   <!-- ============================================ -->
@@ -33,10 +44,11 @@
 <script>
 import MenuNavbar from '../components/MenuNavbar.vue';
 import MenuSidebar from '../components/MenuSidebar.vue';
+import BreadCrumb from '../components/BreadCrumb.vue';
 import ActivityFooter from '../components/ActivityFooter.vue';
 
 export default {
     name: 'dashboard',
-    components: { MenuNavbar, MenuSidebar, ActivityFooter }
+    components: { MenuNavbar, BreadCrumb, MenuSidebar, ActivityFooter }
 }
 </script>

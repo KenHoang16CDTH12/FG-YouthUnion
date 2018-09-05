@@ -1,5 +1,8 @@
+import { url } from '../_helpers';
 import { authHeader } from '../_helpers';
-const url = "http://127.0.0.1:8000/api/v1";
+import { contentType } from '../_helpers';
+import { handleResponse } from '../_helpers';
+
 export const authService = {
     login,
     logout
@@ -8,7 +11,7 @@ export const authService = {
 function login(email, password, remember_me) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: contentType,
         body: JSON.stringify({ email, password, remember_me })
     };
 
@@ -29,24 +32,6 @@ function login(email, password, remember_me) {
 }
 
 function logout() {
-    // remove auth from local storage to log auth out
-    localStorage.removeItem('auth');
+    return localStorage.removeItem('auth');
 }
 
-function handleResponse(response) {
-    return response.text().then(text => {
-        const data = text && JSON.parse(text);
-        if (!response.ok) {
-            if (response.status === 401) {
-                // auto logout if 401 response returned from api
-                logout();
-                location.reload(true);
-            }
-
-            const error = (data && data.message) || response.statusText;
-            return Promise.reject(error);
-        }
-
-        return data;
-    });
-}

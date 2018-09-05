@@ -2,7 +2,7 @@
 <!-- ============================================ -->
 <!-- Begin Header_navbar -->
 <!-- ============================================ -->
-<nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-dark navbar-shadow">
+<nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-dark navbar-shadow">
     <!-- ============================================ -->
     <!-- Begin navbar-wrapper -->
     <!-- ============================================ -->

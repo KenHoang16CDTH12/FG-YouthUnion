@@ -12,10 +12,10 @@ class UserRepository
      *
      * @return Collection
      */
-    public function collection()
+    public function collection($entries)
     {
         // Return collection of objects as a resource
-        return UserResource::collection(User::orderBy('created_at', 'desc')->paginate(25));
+        return UserResource::collection(User::orderBy('created_at', 'desc')->paginate($entries));
     }
 
     /**
