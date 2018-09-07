@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/home', function () {
-    return view('admin.dashboard');
-});
+Route::get('{view}', function () {
+    return view('admin.index');
+})->where('view', '(.*)');

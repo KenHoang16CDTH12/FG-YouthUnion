@@ -20,7 +20,7 @@ class CreateUserHoatdongsTable extends Migration
             $table->string('status', 50);
             $table->timestamps();
             //FK
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('hoatdong_id')->references('id')->on('hoatdongs')->onDelete('cascade');
         });
     }

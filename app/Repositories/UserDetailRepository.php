@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use App\Http\Resources\UserResource;
+use App\UserDetail;
+use App\Http\Resources\UserDetailResource;
 
 class UserDetailRepository
 {
@@ -27,7 +27,7 @@ class UserDetailRepository
     public function show($id)
     {
         //Return object
-        return new UserDetailResource(User::findOrFail($id));
+        return new UserDetailResource(UserDetail::findOrFail($id));
     }
 
     /**

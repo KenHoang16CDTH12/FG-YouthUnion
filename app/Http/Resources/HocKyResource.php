@@ -16,8 +16,8 @@ class HocKyResource extends Resource
     {
         return [
             'id' => $this->id,
-            'hoc_ky' => $this->hoc_ky,
-            'nam_hoc' => $this->namhoc,
+            'hocky' => $this->hocky,
+            'namhoc_id' => $this->namhoc_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
