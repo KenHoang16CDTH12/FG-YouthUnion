@@ -2,7 +2,7 @@
 <!-- ============================================ -->
 <!-- Begin Header_navbar -->
 <!-- ============================================ -->
-<nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-dark navbar-shadow">
+<nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-dark navbar-shadow">
     <!-- ============================================ -->
     <!-- Begin navbar-wrapper -->
     <!-- ============================================ -->
@@ -14,9 +14,8 @@
             <ul class="nav navbar-nav flex-row">
             <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
             <li class="nav-item mr-auto">
-                <a class="navbar-brand" href="index.html">
-                <img class="brand-logo" alt="modern admin logo" src="">
-                <!-- app-assets/images/logo/logo.png -->
+                <a class="navbar-brand" href="#">
+                <img class="brand-logo" alt="Logo" src="app-assets/images/logo/logo.png">
                 <h3 class="brand-text">FG-YouthUnion</h3>
                 </a>
             </li>
@@ -42,9 +41,8 @@
                     <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> News</h6>
                     <div id="mega-menu-carousel-example">
                         <div>
-                        <img class="rounded img-fluid mb-1" src=""
+                        <img class="rounded img-fluid mb-1" src="app-assets/images/slider/slider-2.png"
                         alt="First slide"><a class="news-title mb-0" href="#">Poster Frame PSD</a>
-                        <!-- ../../../app-assets/images/slider/slider-2.png -->
                         <p class="news-content">
                             <span class="font-small-2">January 26, 2018</span>
                         </p>
@@ -173,26 +171,24 @@
             <ul class="nav navbar-nav float-right">
                 <li class="dropdown dropdown-user nav-item">
                 <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                    <span class="mr-1">Hello,
+                    <span class="mr-1">{{ $t('message.hello') }}
                     <span class="user-name text-bold-700">John Doe</span>
                     </span>
                     <span class="avatar avatar-online">
-                    <img src="" alt="avatar"><i></i></span>
-                    <!-- /app-assets/images/portrait/small/avatar-s-19.png -->
+                    <img src="app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a>
                     <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
                     <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a>
                     <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
-                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="ft-power"></i> Logout</a>
+                    <div class="dropdown-divider"></div><a @click="handleLogout()" class="dropdown-item"><i class="ft-power"></i> Logout</a>
                 </div>
                 </li>
                 <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-gb"></i><span class="selected-language"></span></a>
-                <div class="dropdown-menu" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-gb"></i> English</a>
-                    <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> French</a>
-                    <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> Chinese</a>
-                    <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i> German</a>
+                aria-haspopup="true" aria-expanded="false"><i v-bind:class="lang_icon"></i><span class="selected-language"></span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+                    <a @click.prevent="setLang('en', 'flag-icon flag-icon-gb')" class="dropdown-item" href="#"><i class="flag-icon flag-icon-gb"></i> English</a>
+                    <a @click.prevent="setLang('vi', 'flag-icon flag-icon-vn')" class="dropdown-item" href="#"><i class="flag-icon flag-icon-vn"></i> Vietnamese</a>
                 </div>
                 </li>
                 <li class="dropdown dropdown-notification nav-item">
@@ -283,8 +279,7 @@
                         <div class="media">
                         <div class="media-left">
                             <span class="avatar avatar-sm avatar-online rounded-circle">
-                            <img src="" alt="avatar"><i></i></span>
-                            <!-- /app-assets/images/portrait/small/avatar-s-19.png -->
+                            <img src="app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
                         </div>
                         <div class="media-body">
                             <h6 class="media-heading">Margaret Govan</h6>
@@ -299,8 +294,7 @@
                         <div class="media">
                         <div class="media-left">
                             <span class="avatar avatar-sm avatar-busy rounded-circle">
-                            <img src="" alt="avatar"><i></i></span>
-                            <!-- ../../../app-assets/images/portrait/small/avatar-s-2.png -->
+                            <img src="app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span>
                         </div>
                         <div class="media-body">
                             <h6 class="media-heading">Bret Lezama</h6>
@@ -315,8 +309,7 @@
                         <div class="media">
                         <div class="media-left">
                             <span class="avatar avatar-sm avatar-online rounded-circle">
-                            <img src="" alt="avatar"><i></i></span>
-                            <!-- ../../../app-assets/images/portrait/small/avatar-s-3.png -->
+                            <img src="app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span>
                         </div>
                         <div class="media-body">
                             <h6 class="media-heading">Carie Berra</h6>
@@ -331,8 +324,7 @@
                         <div class="media">
                         <div class="media-left">
                             <span class="avatar avatar-sm avatar-away rounded-circle">
-                            <img src="" alt="avatar"><i></i></span>
-                            <!-- ../../../app-assets/images/portrait/small/avatar-s-6.png -->
+                            <img src="app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span>
                         </div>
                         <div class="media-body">
                             <h6 class="media-heading">Eric Alsobrook</h6>
@@ -362,3 +354,34 @@
 <!-- End Header_navbar -->
 <!-- ============================================ -->
 </template>
+
+<script>
+import { mapState, mapActions } from 'vuex'
+
+export default {
+  data() {
+    return {
+        lang_icon: 'flag-icon flag-icon-gb'
+    }
+  },
+  computed: {
+    ...mapState('account', ['status'])
+  },
+  created() {
+    if (localStorage.getItem('lang_icon'))
+        this.lang_icon = localStorage.getItem('lang_icon');
+  },
+  methods: {
+    ...mapActions('account', ['logout']),
+    setLang: function(lang, icon){
+         localStorage.setItem('lang', lang);
+         localStorage.setItem('lang_icon', icon);
+         window.location.reload();
+    },
+    handleLogout() {
+        this.logout();
+        window.location.reload();
+    }
+  }
+}
+</script>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserDetail extends Model
 {
 	protected $table = 'user_details';
+    public $incrementing = false;
 
     protected $fillable = [
         'first_name',

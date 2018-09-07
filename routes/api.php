@@ -13,20 +13,27 @@ use Illuminate\Http\Request;
 |
 */
 
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
+
 Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'], function() {
     /*
-    |-------------------------------------------------------------------
+    |------------------------------------------------------------
     | Authentication
-    |-------------------------------------------------------------------
+    |------------------------------------------------------------
     */
+    Route::post('login', 'AuthController@login');
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::get('logout', 'AuthController@logout');
+    });
 });
 
-//'middleware' => ['auth:api'],
-Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  function() {
+Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  function() {
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | User API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('users', 'UserController@index');
     Route::get('users/{id}', 'UserController@show');
@@ -34,9 +41,9 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::put('users/{id}', 'UserController@update');
     Route::delete('users/{id}', 'UserController@destroy');
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | UserDetail API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('userdetails', 'UserDetailController@index');
     Route::get('userdetails/{id}', 'UserDetailController@show');
@@ -44,9 +51,9 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::put('userdetails/{id}', 'UserDetailController@update');
     Route::delete('userdetails/{id}', 'UserDetailController@destroy');
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | NamHoc API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('namhocs', 'NamHocController@index');
     Route::get('namhocs/{id}', 'NamHocController@show');
@@ -54,9 +61,9 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::put('namhocs/{id}', 'NamHocController@update');
     Route::delete('namhocs/{id}', 'NamHocController@destroy');
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | HocKy API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('hockys', 'HocKyController@index');
     Route::get('hockys/{id}', 'HocKyController@show');
@@ -64,9 +71,9 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::put('hockys/{id}', 'HocKyController@update');
     Route::delete('hockys/{id}', 'HocKyController@destroy');
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | HoatDongType API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('hoatdongtypes', 'HoatDongTypeController@index');
     Route::get('hoatdongtypes/{id}', 'HoatDongTypeController@show');
@@ -74,9 +81,9 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::put('hoatdongtypes/{id}', 'HoatDongTypeController@update');
     Route::delete('hoatdongtypes/{id}', 'HoatDongTypeController@destroy');
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | HoatDong API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('hoatdongs', 'HoatDongController@index');
     Route::get('hoatdongs/{id}', 'HoatDongController@show');
@@ -84,9 +91,9 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::put('hoatdongs/{id}', 'HoatDongController@update');
     Route::delete('hoatdongs/{id}', 'HoatDongController@destroy');
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | LCDoan API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('lcdoans', 'LCDoanController@index');
     Route::get('lcdoans/{id}', 'LCDoanController@show');
@@ -94,9 +101,9 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::put('lcdoans/{id}', 'LCDoanController@update');
     Route::delete('lcdoans/{id}', 'LCDoanController@destroy');
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | Khoa API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('khoas', 'KhoaController@index');
     Route::get('khoas/{id}', 'KhoaController@show');
@@ -104,9 +111,9 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::put('khoas/{id}', 'KhoaController@update');
     Route::delete('khoas/{id}', 'KhoaController@destroy');
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | Lop API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('lops', 'LopController@index');
     Route::get('lops/{id}', 'LopController@show');
@@ -114,19 +121,19 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::put('lops/{id}', 'LopController@update');
     Route::delete('lops/{id}', 'LopController@destroy');
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | UserHoatDong API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('userhoatdongs', 'UserHoatDongController@index');
     Route::get('userhoatdongs/{id}', 'UserHoatDongController@show');
-    Route::post('userhoatdongs', 'UserHoatDongController@store'); 
+    Route::post('userhoatdongs', 'UserHoatDongController@store');
     Route::put('userhoatdongs/{id}', 'UserHoatDongController@update');
     Route::delete('userhoatdongs/{id}', 'UserHoatDongController@destroy');
     /*
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     | LCDoanHoatDong API Routes
-    |--------------------------------------------------------------------
+    |------------------------------------------------------------
     */
     Route::get('lcdoanhoatdongs', 'LCDoanHoatDongController@index');
     Route::get('lcdoanhoatdongs/{id}', 'LCDoanHoatDongController@show');
