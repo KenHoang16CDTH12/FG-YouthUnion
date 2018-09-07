@@ -5,6 +5,7 @@ import DashboardPage from '../pages/Dashboard.vue';
 import UsersDashboard from '../pages/dashboards/Users.vue';
 import NamhocsDashboard from '../pages/dashboards/Namhocs.vue';
 import KhoasDashboard from '../pages/dashboards/Khoas.vue';
+import ClassesDashboard from '../pages/dashboards/Classes.vue';
 
 Vue.use(Router);
 
@@ -33,6 +34,10 @@ export const router = new Router({
        {
         path: 'khoas',
         component: KhoasDashboard
+       },
+       {
+        path: 'classes',
+        component: ClassesDashboard
        },
       ]
     },
