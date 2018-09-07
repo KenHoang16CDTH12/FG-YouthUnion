@@ -27,12 +27,7 @@ import { router } from './_helpers';
 // setup fake backend
 //import { configureFakeBackend } from './_helpers';
 //configureFakeBackend();
-
-//Card
-Vue.component('card-footer', require('./components/CardFooter.vue'));
 //Options
-Vue.component('paginator', require('./components/Paginator.vue'));
-
 const lang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
 // or however you determine your current app locale
 

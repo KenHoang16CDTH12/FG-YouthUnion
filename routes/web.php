@@ -11,12 +11,6 @@
 |
 */
 
-/*
-Route::get('/login', function () {
-    return view('admin.auth');
-});*/
-
-
 Route::get('{view}', function () {
     return view('admin.index');
 })->where('view', '(.*)');

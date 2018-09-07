@@ -12,17 +12,16 @@ export const resourceService = {
     delete: _delete
 };
 
-function _index(objName, urlPaginate, entries) {
+function _index(objName, urlPaginate, entries, searchText) {
     const requestOptions = {
         method: 'GET',
         headers: { ...authHeader(), contentType, accept }
     };
 
     entries = entries || 10;
-    if (urlPaginate) urlPaginate = `${urlPaginate}&entries=${entries}`
-    else urlPaginate = `${url}/${objName}?entries=${entries}`;
-    console.log(entries);
-    console.log(urlPaginate);
+    searchText = searchText || '';
+    if (urlPaginate) urlPaginate = `${urlPaginate}&entries=${entries}&searchText=${searchText}`
+    else urlPaginate = `${url}/${objName}?entries=${entries}&searchText=${searchText}`;
     return fetch(urlPaginate, requestOptions).then(handleResponse);
 }
 
