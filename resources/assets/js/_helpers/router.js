@@ -2,7 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import LoginPage from '../pages/Login.vue';
 import DashboardPage from '../pages/Dashboard.vue';
-import IndexDashboard from '../pages/dashboards/Index.vue';
+import UsersDashboard from '../pages/dashboards/Users.vue';
+import NamhocsDashboard from '../pages/dashboards/Namhocs.vue';
 
 Vue.use(Router);
 
@@ -21,8 +22,12 @@ export const router = new Router({
       },
       children: [
        {
-        path: 'dashboard',
-        component: IndexDashboard
+        path: 'users',
+        component: UsersDashboard
+       },
+       {
+        path: 'namhocs',
+        component: NamhocsDashboard
        },
       ]
     },
