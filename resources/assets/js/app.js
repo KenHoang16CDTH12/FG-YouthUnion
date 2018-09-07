@@ -20,22 +20,6 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-<<<<<<< HEAD
- 
-/*============================================
-*   Common
-*============================================*/
-Vue.component('navbar', require('./components/common/Navbar.vue'));
-Vue.component('sidebar', require('./components/common/Sidebar.vue'));
-Vue.component('footerr', require('./components/common/Footer.vue'));
-/*============================================
-*   //
-*============================================*/
-Vue.component('users', require('./components/Users.vue'));
-
-const app = new Vue({
-    el: '#root'
-=======
 import App from './app/App';
 import { store } from './_store';
 import { router } from './_helpers';
@@ -62,5 +46,4 @@ new Vue({
     router,
     store,
     render: h => h(App)
->>>>>>> 2256b5e18133d3855b72c57acfdfe51f6877a847
 });

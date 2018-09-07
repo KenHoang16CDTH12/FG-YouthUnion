@@ -7,6 +7,7 @@ import { users } from './users.module';
 import { namhocs } from './namhocs.module';
 import { khoas } from './khoas.module';
 import { lops } from './lops.module';
+import { lcdoans } from './lcdoans.module';
 
 Vue.use(Vuex);
 
@@ -17,6 +18,7 @@ export const store = new Vuex.Store({
         users,
         namhocs,
         khoas,
-        lops
+        lops,
+        lcdoans
     }
 });
