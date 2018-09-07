@@ -52,11 +52,14 @@
         "deploy": [
             "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "php artisan key:generate",
-            "php artisan migrate"
+            "php artisan migrate:refresh",
+            "php artisan db:seed",
+            "php artisan passport:install"
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
             "php artisan optimize",
+            "npm install",
             "@deploy"
         ],
         "post-update-cmd": [
