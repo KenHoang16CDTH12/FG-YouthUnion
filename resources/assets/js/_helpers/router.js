@@ -4,6 +4,7 @@ import LoginPage from '../pages/Login.vue';
 import DashboardPage from '../pages/Dashboard.vue';
 import UsersDashboard from '../pages/dashboards/Users.vue';
 import NamhocsDashboard from '../pages/dashboards/Namhocs.vue';
+import HockysDashboard from '../pages/dashboards/Hockys.vue';
 
 Vue.use(Router);
 
@@ -29,6 +30,10 @@ export const router = new Router({
         path: 'namhocs',
         component: NamhocsDashboard
        },
+       {
+         path: 'hockys',
+         component: HockysDashboard
+       }
       ]
     },
 
