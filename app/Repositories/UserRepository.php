@@ -19,6 +19,20 @@ class UserRepository
     }
 
     /**
+     * Get search of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionSearch($entries, $searchText)
+    {
+        $query = User::where('id', $searchText)
+                     ->orWhere('username', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('email', 'LIKE', '%'.$searchText.'%');
+        // Return collection of objects as a resource
+        return UserResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id

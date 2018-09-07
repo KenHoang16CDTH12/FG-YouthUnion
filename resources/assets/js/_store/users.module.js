@@ -7,10 +7,10 @@ const state = {
 };
 
 const actions = {
-    index({ commit }, { urlPaginate, entries }) {
+    index({ commit }, { urlPaginate, entries, searchText }) {
         commit('indexRequest');
 
-        resourceService.index(objName, urlPaginate, entries)
+        resourceService.index(objName, urlPaginate, entries, searchText)
             .then(
                 response => commit('indexSuccess', response),
                 error => commit('indexFailed', error)
@@ -146,5 +146,5 @@ export const users = {
     namespaced: true,
     state,
     actions,
-    mutations
+    mutations,
 };
