@@ -4,7 +4,11 @@ import LoginPage from '../pages/Login.vue';
 import DashboardPage from '../pages/Dashboard.vue';
 import UsersDashboard from '../pages/dashboards/Users.vue';
 import NamhocsDashboard from '../pages/dashboards/Namhocs.vue';
+<<<<<<< HEAD
 import KhoasDashboard from '../pages/dashboards/Khoas.vue';
+=======
+import ClassesDashboard from '../pages/dashboards/Classes.vue';
+>>>>>>> design classes 01
 
 Vue.use(Router);
 
@@ -31,8 +35,13 @@ export const router = new Router({
         component: NamhocsDashboard
        },
        {
+<<<<<<< HEAD
         path: 'khoas',
         component: KhoasDashboard
+=======
+        path: 'classes',
+        component: ClassesDashboard
+>>>>>>> design classes 01
        },
       ]
     },
