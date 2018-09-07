@@ -1,6 +1,5 @@
 <template>
   <div class="content-body">
-    <pull-up-card></pull-up-card>
     <card-table-user></card-table-user>
   </div>
 </template>
