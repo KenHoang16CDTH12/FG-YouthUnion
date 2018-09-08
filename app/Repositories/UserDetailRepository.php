@@ -12,10 +12,31 @@ class UserDetailRepository
      *
      * @return Collection
      */
-    public function collection()
+    public function collection($entries)
     {
         // Return collection of objects as a resource
-        return UserDetailResource::collection(UserDetail::orderBy('created_at', 'desc')->paginate(25));
+        return UserDetailResource::collection(UserDetail::orderBy('created_at', 'desc')->paginate($entries));
+    }
+
+    /**
+     * Get search of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionSearch($entries, $searchText)
+    {
+        $query = UserDetail::where('id', $searchText)
+                     ->orWhere('first_name', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('middle_name', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('last_name', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('gender', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('date_of_birth', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('phone', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('address', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('photo', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('student_code', 'LIKE', '%'.$searchText.'%');
+        // Return collection of objects as a resource
+        return UserDetailResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
     }
 
     /**

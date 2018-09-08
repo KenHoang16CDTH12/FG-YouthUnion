@@ -7,15 +7,28 @@ use App\Http\Resources\NamHocResource;
 
 class NamHocRepository
 {
-    /**
+     /**
      * Get all of the objects for a given model.
      *
      * @return Collection
      */
-    public function collection()
+    public function collection($entries)
     {
         // Return collection of objects as a resource
-        return NamHocResource::collection(NamHoc::orderBy('created_at', 'desc')->paginate(25));
+        return NamHocResource::collection(NamHoc::orderBy('created_at', 'desc')->paginate($entries));
+    }
+
+    /**
+     * Get search of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionSearch($entries, $searchText)
+    {
+        $query = NamHoc::where('id', $searchText)
+                     ->orWhere('nam_hoc', 'LIKE', '%'.$searchText.'%');
+        // Return collection of objects as a resource
+        return NamHocResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
     }
 
     /**

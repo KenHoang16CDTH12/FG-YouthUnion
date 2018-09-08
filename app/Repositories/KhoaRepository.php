@@ -12,10 +12,25 @@ class KhoaRepository
      *
      * @return Collection
      */
-    public function collection()
+    public function collection($entries)
     {
         // Return collection of objects as a resource
-        return KhoaResource::collection(Khoa::orderBy('created_at', 'desc')->paginate(25));
+        return KhoaResource::collection(Khoa::orderBy('created_at', 'desc')->paginate($entries));
+    }
+
+    /**
+     * Get search of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionSearch($entries, $searchText)
+    {
+        $query = Khoa::where('id', $searchText)
+                     ->orWhere('name', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('desc', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('lcdoan_id', 'LIKE', '%'.$searchText.'%');
+        // Return collection of objects as a resource
+        return KhoaResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
     }
 
     /**
