@@ -4,59 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcfe780717351dbc32cc7baee01ae69a",
+    "content-hash": "56c21d68bf92be7082a1948dad0b49f0",
     "packages": [
-        {
-            "name": "brotzka/laravel-dotenv-editor",
-            "version": "v2.0.14",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Brotzka/laravel-dotenv-editor.git",
-                "reference": "0ae9ecfaf1c2824a419b4d7a8c20046bb6aeca43"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Brotzka/laravel-dotenv-editor/zipball/0ae9ecfaf1c2824a419b4d7a8c20046bb6aeca43",
-                "reference": "0ae9ecfaf1c2824a419b4d7a8c20046bb6aeca43",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Brotzka\\DotenvEditor\\DotenvEditorServiceProvider"
-                    ],
-                    "aliases": {
-                        "DotenvEditor": "Brotzka\\DotenvEditor\\DotenvEditorFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Brotzka\\DotenvEditor\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabian Hagen",
-                    "email": "fabianhagen87@gmail.com"
-                }
-            ],
-            "description": "A package for editing the .env file in your Laravel root.",
-            "keywords": [
-                "dotenv",
-                "dotenv-editor",
-                "laravel"
-            ],
-            "time": "2018-07-02T05:42:54+00:00"
-        },
         {
             "name": "defuse/php-encryption",
             "version": "v2.2.1",
@@ -660,6 +609,55 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "jackiedo/dotenv-editor",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JackieDo/Laravel-Dotenv-Editor.git",
+                "reference": "d27e12b8b120d49234d6759810ad06f076ee52cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JackieDo/Laravel-Dotenv-Editor/zipball/d27e12b8b120d49234d6759810ad06f076ee52cc",
+                "reference": "d27e12b8b120d49234d6759810ad06f076ee52cc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": ">=5.0",
+                "illuminate/container": ">=5.0",
+                "illuminate/support": ">=5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jackiedo\\DotenvEditor\\": "src/Jackiedo/DotenvEditor"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jackie Do",
+                    "email": "anhvudo@gmail.com"
+                }
+            ],
+            "description": "The .env file editor tool for Laravel 5+",
+            "keywords": [
+                "dotenv",
+                "dotenv-editor",
+                "laravel"
+            ],
+            "time": "2017-06-26T06:36:42+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -3335,6 +3333,57 @@
                 "webprofiler"
             ],
             "time": "2018-05-03T18:27:04+00:00"
+        },
+        {
+            "name": "brotzka/laravel-dotenv-editor",
+            "version": "v2.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Brotzka/laravel-dotenv-editor.git",
+                "reference": "0ae9ecfaf1c2824a419b4d7a8c20046bb6aeca43"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Brotzka/laravel-dotenv-editor/zipball/0ae9ecfaf1c2824a419b4d7a8c20046bb6aeca43",
+                "reference": "0ae9ecfaf1c2824a419b4d7a8c20046bb6aeca43",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Brotzka\\DotenvEditor\\DotenvEditorServiceProvider"
+                    ],
+                    "aliases": {
+                        "DotenvEditor": "Brotzka\\DotenvEditor\\DotenvEditorFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Brotzka\\DotenvEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabian Hagen",
+                    "email": "fabianhagen87@gmail.com"
+                }
+            ],
+            "description": "A package for editing the .env file in your Laravel root.",
+            "keywords": [
+                "dotenv",
+                "dotenv-editor",
+                "laravel"
+            ],
+            "time": "2018-07-02T05:42:54+00:00"
         },
         {
             "name": "doctrine/instantiator",

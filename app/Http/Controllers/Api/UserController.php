@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\User;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Input;

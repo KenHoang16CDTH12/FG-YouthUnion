@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers\Api;
 
-use App\LCDoan;
 use Illuminate\Http\Request;
 use App\Repositories\LCDoanRepository;
 use App\Http\Controllers\Controller;

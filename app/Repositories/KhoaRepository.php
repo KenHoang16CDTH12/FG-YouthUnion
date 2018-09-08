@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Khoa;
+use App\Models\Khoa;
 use App\Http\Resources\KhoaResource;
 
 class KhoaRepository
@@ -39,7 +39,7 @@ class KhoaRepository
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)   
+    public function show($id)
     {
         //Return object
         return new KhoaResource(Khoa::findOrFail($id));

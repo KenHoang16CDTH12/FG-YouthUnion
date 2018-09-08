@@ -11,6 +11,6 @@ class NamHocTableSeeder extends Seeder
      */
     public function run()
     {
-        $namhocs = factory(App\NamHoc::class, 20)->create();
+        $namhocs = factory(App\Models\NamHoc::class, 20)->create();
     }
 }

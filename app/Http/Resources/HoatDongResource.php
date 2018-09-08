@@ -21,7 +21,7 @@ class HoatDongResource extends Resource
             'from_date' => $this->from_date,
             'end_date' => $this->end_date,
             'hoc_ky' => $this->hocky,
-            'hoat_dong_type' => $this->hoatdongtype,
+            'hoatdong_type' => $this->hoatdongtype,
             'updated_at' => $this->updated_at,
         ];
     }

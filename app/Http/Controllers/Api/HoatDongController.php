@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\HoatDong;
 use Illuminate\Http\Request;
-use App\Repositories\HoatDongRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use App\Repositories\HoatDongRepository;
 use App\Http\Requests\HoatDongStoreRequest;
 use App\Http\Requests\HoatDongUpdateRequest;
 

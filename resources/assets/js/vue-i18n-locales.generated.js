@@ -1,15 +1,15 @@
 export default {
     "en": {
-        "auth": {
-            "failed": "These credentials do not match our records.",
-            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-        },
         "message": {
             "hello": "Hello,"
         },
         "pagination": {
             "previous": "&laquo; Previous",
             "next": "Next &raquo;"
+        },
+        "auth": {
+            "failed": "These credentials do not match our records.",
+            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
         "passwords": {
             "password": "Passwords must be at least six characters and match the confirmation.",

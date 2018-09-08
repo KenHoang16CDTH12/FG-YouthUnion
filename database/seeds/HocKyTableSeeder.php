@@ -11,6 +11,6 @@ class HocKyTableSeeder extends Seeder
      */
     public function run()
     {
-        $hockys = factory(App\HocKy::class, 20)->create();
+        $hockys = factory(App\Models\HocKy::class, 20)->create();
     }
 }

@@ -14,39 +14,42 @@
             <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main">Dashboard</span><span class="badge badge badge-info badge-pill float-right mr-2">1</span></a>
                 <ul class="menu-content">
                     <li>
-                        <a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">eCommerce</a>
+                        <a class="menu-item" href="dashboard-ecommerce.html">eCommerce</a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="index.html"><i class="la la-table"></i><span class="menu-title" data-i18n="nav.dash.main">Table</span><span class="badge badge badge-info badge-pill float-right mr-2">10</span></a>
+            <li class="nav-item"><a href="index.html"><i class="la la-table"></i><span class="menu-title" data-i18n="nav.dash.main">Table</span><span class="badge badge badge-info badge-pill float-right mr-2">10</span></a>
                 <ul class="menu-content">
                     <li>
-                        <a class="menu-item" href="users" data-i18n="nav.dash.ecommerce">Users</a>
+                         <router-link :to="{ name: 'tables-users'}">Test Users</router-link>
                     </li>
                     <li>
-                        <a class="menu-item" href="namhocs" data-i18n="nav.dash.ecommerce">NamHoc</a>
+                        <router-link :to="{ name: 'tables-users'}" class="menu-item">Users</router-link>
                     </li>
                     <li>
-                        <a class="menu-item" href="hockys" data-i18n="nav.dash.ecommerce">HocKy</a>
+                        <router-link :to="{ name: 'tables-namhocs'}" class="menu-item">NamHoc</router-link>
                     </li>
                     <li>
-                        <a class="menu-item" href="hoatdongs" data-i18n="nav.dash.ecommerce">HoatDong</a>
+                        <router-link :to="{ name: 'tables-hockys'}" class="menu-item">HocKy</router-link>
                     </li>
                     <li>
-                        <a class="menu-item" href="lcdhoatdongs" data-i18n="nav.dash.ecommerce">LCDHoatDong</a>
+                        <router-link :to="{ name: 'tables-hoatdongs'}" class="menu-item">HoatDong</router-link>
                     </li>
                     <li>
-                        <a class="menu-item" href="lcd" data-i18n="nav.dash.ecommerce">LCD</a>
+                        <router-link :to="{ name: 'tables-lcdoanhoatdongs'}" class="menu-item">LCDHoatDong</router-link>
                     </li>
                     <li>
-                        <a class="menu-item" href="khoas" data-i18n="nav.dash.ecommerce">Khoa</a>
+                        <router-link :to="{ name: 'tables-lcdoans'}" class="menu-item">LCDoan</router-link>
                     </li>
                     <li>
-                        <a class="menu-item" href="lops" data-i18n="nav.dash.ecommerce">Lop</a>
+                        <router-link :to="{ name: 'tables-khoas'}" class="menu-item">Khoa</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: 'tables-lops'}" class="menu-item">Lop</router-link>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.templates.main">Templates</span></a>
+            <li class="nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.templates.main">Templates</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">Vertical</a>
                     <ul class="menu-content">

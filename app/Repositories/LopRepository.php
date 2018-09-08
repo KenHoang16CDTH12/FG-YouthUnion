@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Lop;
+use App\Models\Lop;
 use App\Http\Resources\LopResource;
 
 class LopRepository
@@ -82,6 +82,6 @@ class LopRepository
       $lop->delete();
       return response()->json([
           'meesage' => 'Delete #' . $id . ' successful!'
-      ], 200);   
+      ], 200);
     }
 }

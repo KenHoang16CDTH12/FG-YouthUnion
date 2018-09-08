@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\LCDoanHoatDong;
 use Illuminate\Http\Request;
-use App\Repositories\LCDoanHoatDongRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use App\Repositories\LCDoanHoatDongRepository;
 use App\Http\Requests\LCDoanHoatDongStoreRequest;
 use App\Http\Requests\LCDoanHoatDongUpdateRequest;
 

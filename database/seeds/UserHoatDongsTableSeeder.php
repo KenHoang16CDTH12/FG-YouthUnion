@@ -11,6 +11,6 @@ class UserHoatDongsTableSeeder extends Seeder
      */
     public function run()
     {
-        $userhoatdongs = factory(App\UserHoatDong::class, 20)->create();
+        $userhoatdongs = factory(App\Models\UserHoatDong::class, 20)->create();
     }
 }

@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Models\User::class, function (Faker $faker) {
     return [
         'email' => $faker->unique()->safeEmail,
         'username' => $faker->unique()->name,
@@ -21,6 +21,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
         'active' => $faker->randomElement([0, 1]),
         'role_id' => $faker->randomElement([1, 2, 3]),
-        'class_id' => factory(App\Lop::class)->create()->id,
+        'lop_id' => factory(App\Models\Lop::class)->create()->id,
     ];
 });

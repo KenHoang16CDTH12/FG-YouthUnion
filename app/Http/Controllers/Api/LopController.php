@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Lop;
 use Illuminate\Http\Request;
 use App\Repositories\LopRepository;
 use Illuminate\Support\Facades\Input;

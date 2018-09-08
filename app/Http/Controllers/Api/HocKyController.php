@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\HocKy;
 use Illuminate\Http\Request;
 use App\Repositories\HocKyRepository;
 use App\Http\Controllers\Controller;

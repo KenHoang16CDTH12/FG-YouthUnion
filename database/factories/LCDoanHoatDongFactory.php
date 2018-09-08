@@ -3,10 +3,10 @@
 use Faker\Generator as Faker;
 
 
-$factory->define(App\LCDoanHoatDong::class, function ($faker) {
+$factory->define(App\Models\LCDoanHoatDong::class, function ($faker) {
     return [
-        'lcdoan_id' => factory(App\LCDoan::class)->create()->id,
-        'hoatdong_id' => factory(App\HoatDong::class)->create()->id,
+        'lcdoan_id' => factory(App\Models\LCDoan::class)->create()->id,
+        'hoatdong_id' => factory(App\Models\HoatDong::class)->create()->id,
     ];
 });
 

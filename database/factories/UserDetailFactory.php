@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\UserDetail::class, function (Faker $faker) {
+$factory->define(App\Models\UserDetail::class, function (Faker $faker) {
     return [
         'first_name' => $faker->firstName,
         'middle_name' => $faker->name,
@@ -13,6 +13,6 @@ $factory->define(App\UserDetail::class, function (Faker $faker) {
         'address' => $faker->address,
         'photo' => null,
         'student_code' => $faker->postcode,
-        'user_id' => factory(App\User::class)->create()->id,
+        'user_id' => factory(App\Models\User::class)->create()->id,
     ];
 });
