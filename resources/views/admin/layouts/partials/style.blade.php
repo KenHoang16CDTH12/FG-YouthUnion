@@ -4,6 +4,7 @@
 {!! Html::style('app-assets/css/vendors.css') !!}
 {!! Html::style('app-assets/vendors/css/forms/icheck/icheck.css') !!}
 {!! Html::style('app-assets/vendors/css/forms/icheck/custom.css') !!}
+{!! Html::style('app-assets/vendors/css/forms/selects/select2.min.css') !!}
 <!-- ============================================ -->
 <!-- END VENDOR CSS -->
 <!-- ============================================ -->
@@ -37,10 +38,12 @@
 {!! Html::style('app-assets/css/core/menu/menu-types/vertical-menu-modern.css') !!}
 {!! Html::style('app-assets/css/core/colors/palette-gradient.css') !!}
 {!! Html::style('app-assets/css/core/colors/palette-loader.css') !!}
+{!! Html::style('app-assets/css/plugins/animate/animate.css') !!}
 <!-- ============================================ -->
 <!-- END CORE CSS -->
 <!-- ============================================ -->
 <!-- ============================================ -->
+<!-- BEGIN Page Level CSS -->
 <!-- ============================================ -->
 {!! Html::style('app-assets/css/pages/login-register.css') !!}
 <!-- ============================================ -->
