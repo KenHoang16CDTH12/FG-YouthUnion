@@ -134,26 +134,26 @@ export default {
     },
     data() {
       return {
-        cardTitle: 'lops',
+        cardTitle: 'Lop',
         entries: 10,
         searchText: '',
       }
     },
     computed: {
         ...mapState({
-            query: state => state.lops.all,
+            query: state => state.classes.all,
         }),
     },
     created () {
         let url = null;
         let entries = 10;
         let searchText = this.searchText;
-        this.getIndexlops({ url, entries, searchText });
+        this.getIndexLops({ url, entries, searchText });
     },
     methods: {
-        ...mapActions('lops', {
-            getIndexlops: 'index',
-            deletelop: 'delete'
+        ...mapActions('classes', {
+            getIndexLops: 'index',
+            deleteLop: 'delete'
         }),
         cardFooterText() {
           let value = this.query.items.meta;
@@ -162,13 +162,13 @@ export default {
         getLopsWithEntries(urlPaginate) {
           let entries = this.entries;
           let searchText = this.searchText;
-          this.getIndexlops({ urlPaginate, entries, searchText });
+          this.getIndexLops({ urlPaginate, entries, searchText });
         },
         changeEntries(entries) {
           let url = null;
           this.entries = entries;
           let searchText = this.searchText;
-          this.getIndexlops({url, entries, searchText});
+          this.getIndexLops({url, entries, searchText});
         },
         showTextStatus(status) {
           return status === 1 ? "Active" : "Inactive";
@@ -177,7 +177,7 @@ export default {
           let url = null;
           let entries = this.entries;
           let searchText = event.target.value;
-          this.getIndexlops({url, entries, searchText});
+          this.getIndexLops({url, entries, searchText});
         }
     }
 
