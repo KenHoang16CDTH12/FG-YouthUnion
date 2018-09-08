@@ -45,7 +45,10 @@ class FGDevComand extends Command
     {
         $this->comment('Attempting to install or upgrade FGDev.');
         $this->comment('Remember, you can always install/upgrade manually following the guide here:');
-        $this->info('📙  '.config('fg_dev.docs_url').PHP_EOL);
+        $this->info('📙  '.config('fg-dev.misc.docs_url').PHP_EOL);
+
+        $this->info('Composer installing ...');
+        system('composer install');
 
         if (!config('app.key')) {
             $this->info('Generating app key');
@@ -88,9 +91,9 @@ class FGDevComand extends Command
         $this->info('Generating vue-i18n');
         Artisan::call('vue-i18n:generate');
 
-        $this->comment(PHP_EOL.'🎆  Success! FGDev can now be run from localhost with `php artisan serve`.');
+        $this->comment(PHP_EOL.'🎆 Success! FGDev can now be run from localhost with `php artisan serve`.');
         $this->comment('Again, for more configuration guidance, refer to');
-        $this->info('📙  '.config('fg_dev.docs_url'));
+        $this->info('📙  '.config('fg-dev.misc.docs_url'));
         $this->comment('or open the .env file in the root installation folder.');
         $this->comment('Make with by FGDev!');
     }
