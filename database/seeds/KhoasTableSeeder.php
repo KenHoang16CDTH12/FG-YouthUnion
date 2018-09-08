@@ -11,6 +11,6 @@ class KhoasTableSeeder extends Seeder
      */
     public function run()
     {
-        $khoas = factory(App\Khoa::class, 20)->create();
+        $khoas = factory(App\Models\Khoa::class, 20)->create();
     }
 }

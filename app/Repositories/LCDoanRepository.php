@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\LCDoan;
+use App\Models\LCDoan;
 use App\Http\Resources\LCDoanResource;
 
 class LCDoanRepository

@@ -2,10 +2,10 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\UserHoatDong::class, function ($faker) {
+$factory->define(App\Models\UserHoatDong::class, function ($faker) {
     return [
-        'user_id' => factory(App\User::class)->create()->id,
-        'hoatdong_id' => factory(App\HoatDong::class)->create()->id,
+        'user_id' => factory(App\Models\User::class)->create()->id,
+        'hoatdong_id' => factory(App\Models\HoatDong::class)->create()->id,
         'status' => $faker->randomElement(['ACTIVE','UNACTIVE']),
     ];
 });

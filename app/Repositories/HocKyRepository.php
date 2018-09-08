@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\HocKy;
+use App\Models\HocKy;
 use App\Http\Resources\HocKyResource;
 
 class HocKyRepository

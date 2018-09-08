@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\NamHoc;
+use App\Models\NamHoc;
 use App\Http\Resources\NamHocResource;
 
 class NamHocRepository

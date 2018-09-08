@@ -6,7 +6,7 @@ import { account } from './account.module';
 import { users } from './users.module';
 import { namhocs } from './namhocs.module';
 import { khoas } from './khoas.module';
-import { classes } from './lops.module';
+import { lops } from './lops.module';
 import { lcdoans } from './lcdoans.module';
 import { hockys } from './hockys.module';
 
@@ -19,7 +19,7 @@ export const store = new Vuex.Store({
         users,
         namhocs,
         khoas,
-        classes,
+        lops,
         lcdoans,
         hockys
     }

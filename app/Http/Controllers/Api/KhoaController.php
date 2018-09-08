@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Khoa;
 use Illuminate\Http\Request;
 use App\Repositories\KhoaRepository;
 use App\Http\Controllers\Controller;

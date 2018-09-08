@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\UserDetail;
 use Illuminate\Http\Request;
 use App\Repositories\UserDetailRepository;
 use App\Http\Controllers\Controller;

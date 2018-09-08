@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             HoatDongsTableSeeder::class,
             LCDoansTableSeeder::class,
             KhoasTableSeeder::class,
-            ClassesTableSeeder::class,
+            LopsTableSeeder::class,
             UsersTableSeeder::class,
             UserHoatDongsTableSeeder::class,
             LCDoanHoatDongsTableSeeder::class,

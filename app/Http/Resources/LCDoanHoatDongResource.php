@@ -17,7 +17,7 @@ class LCDoanHoatDongResource extends Resource
         return [
             'id' => $this->id,
             'user' => $this->user,
-            'hoat_dong' => $this->hoatdong,
+            'hoatdong' => $this->hoatdong,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

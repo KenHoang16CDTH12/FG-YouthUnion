@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\UserDetail;
+use App\Models\UserDetail;
 use App\Http\Resources\UserDetailResource;
 
 class UserDetailRepository

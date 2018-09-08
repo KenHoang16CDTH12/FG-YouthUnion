@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\HoatDong;
+use App\Models\HoatDong;
 use App\Http\Resources\HoatDongResource;
 
 class HoatDongRepository

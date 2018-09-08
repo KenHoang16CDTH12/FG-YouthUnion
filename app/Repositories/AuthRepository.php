@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
 use Carbon\Carbon;
+use App\Models\User;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 

@@ -2,10 +2,10 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Khoa::class, function ($faker) {
+$factory->define(App\Models\Khoa::class, function ($faker) {
     return [
-        'name' => $faker->sentence,
+        'name' => $faker->name,
         'desc' => $faker->paragraph,
-        'lcdoan_id' => factory(App\LCDoan::class)->create()->id,
+        'lcdoan_id' => factory(App\Models\LCDoan::class)->create()->id,
     ];
 });
