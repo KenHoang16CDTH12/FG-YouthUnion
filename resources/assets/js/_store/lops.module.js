@@ -1,6 +1,6 @@
 import { resourceService } from '../_services';
 
-const objName = "lops";
+const objName = "classes";
 
 const state = {
     all: {},
@@ -142,7 +142,7 @@ const mutations = {
     }
 };
 
-export const lops = {
+export const classes = {
     namespaced: true,
     state,
     actions,

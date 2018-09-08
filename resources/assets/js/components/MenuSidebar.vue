@@ -12,20 +12,49 @@
         <!-- ============================================ -->
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main">Dashboard</span><span class="badge badge badge-info badge-pill float-right mr-2">1</span></a>
-            <ul class="menu-content">
-                <li><a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">eCommerce</a>
-                </li>
-            </ul>
-            </li>
-            <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.templates.main">Templates</span></a>
-            <ul class="menu-content">
-                <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">Vertical</a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="../vertical-menu-template" data-i18n="nav.templates.vert.classic_menu">Classic Menu</a>
+                    <li>
+                        <a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">eCommerce</a>
                     </li>
                 </ul>
-                </li>
-            </ul>
+            </li>
+            <li class=" nav-item"><a href="index.html"><i class="la la-table"></i><span class="menu-title" data-i18n="nav.dash.main">Table</span><span class="badge badge badge-info badge-pill float-right mr-2">10</span></a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="menu-item" href="users" data-i18n="nav.dash.ecommerce">Users</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="namhocs" data-i18n="nav.dash.ecommerce">NamHoc</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="hockys" data-i18n="nav.dash.ecommerce">HocKy</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="hoatdongs" data-i18n="nav.dash.ecommerce">HoatDong</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="lcdhoatdongs" data-i18n="nav.dash.ecommerce">LCDHoatDong</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="lcd" data-i18n="nav.dash.ecommerce">LCD</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="khoas" data-i18n="nav.dash.ecommerce">Khoa</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="lops" data-i18n="nav.dash.ecommerce">Lop</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.templates.main">Templates</span></a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">Vertical</a>
+                    <ul class="menu-content">
+                        <li><a class="menu-item" href="../vertical-menu-template" data-i18n="nav.templates.vert.classic_menu">Classic Menu</a>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
             </li>
             <li class=" navigation-header">
             <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip"
