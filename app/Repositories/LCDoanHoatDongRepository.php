@@ -12,10 +12,24 @@ class LCDoanHoatDongRepository
      *
      * @return Collection
      */
-    public function collection()
+    public function collection($entries)
     {
         // Return collection of objects as a resource
-        return LCDoanHoatDongResource::collection(LCDoanHoatDong::orderBy('created_at', 'desc')->paginate(25));
+        return LCDoanHoatDongResource::collection(LCDoanHoatDong::orderBy('created_at', 'desc')->paginate($entries));
+    }
+
+    /**
+     * Get search of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionSearch($entries, $searchText)
+    {
+        $query = LCDoanHoatDong::where('id', $searchText)
+                     ->orWhere('lcdoan_id', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('hoatdong_id', 'LIKE', '%'.$searchText.'%');
+        // Return collection of objects as a resource
+        return LCDoanHoatDongResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
     }
 
     /**

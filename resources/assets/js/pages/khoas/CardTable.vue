@@ -63,25 +63,27 @@
                    <thead class="bg-info white">
                      <tr>
                          <th class="border-top-0">#</th>
-                         <th class="border-top-0">Năm học</th>
-                         <th class="border-top-0">Action</th>
+                         <th class="border-top-0">Name</th>
+                         <th class="border-top-0">Lien Chi Doan</th>
                      </tr>
                    </thead>
                    <tbody>
-                     <tr v-for="namhoc in query.items.data" :key="namhoc.id">
+                     <tr v-for="khoa in query.items.data" :key="khoa.id">
                        <td class="text-truncate">
-                         {{ namhoc.id }}
+                         {{ khoa.id }}
                        </td>
                        <td class="text-truncate">
-                        {{namhoc.nam_hoc}}
+                         {{ khoa.name }}
                        </td>
-                       
+                       <td class="text-truncate">
+                         {{ khoa.lcdoan.name }}
+                       </td>
                        <td class="text-truncate">
                          <div class="btn-group mx-2" role="group">
                             <button type="button" class="btn btn-sm btn-icon btn-info"><i class="la la-pencil"></i></button>
                             <span v-if="query.deleting"><em> - Deleting...</em></span>
-                            <span v-else-if="namhoc.deleteError" class="text-danger"> - ERROR: {{query.deleteError}}</span>
-                            <button v-else type="button" class="btn btn-sm btn-icon btn-danger"><i class="la la-remove" @click.prevent="deletenamhoc(namhoc.id)"></i></button>
+                            <span v-else-if="khoa.deleteError" class="text-danger"> - ERROR: {{query.deleteError}}</span>
+                            <button v-else type="button" class="btn btn-sm btn-icon btn-danger"><i class="la la-remove" @click.prevent="deleteKhoa(khoa.id)"></i></button>
                             <button type="button" class="btn btn-sm btn-icon btn-primary"><i class="la la-eye"></i></button>
                             <!-- la-eye-slash -->
                           </div>
@@ -100,7 +102,7 @@
                 :first_link="query.items.links.first"
                 :last_link="query.items.links.last"
                 :path="query.items.meta.path"
-                :getDataWithEntries="getnamhocsWithEntries"
+                :getDataWithEntries="getKhoasWithEntries"
              ></paginator>
              <!-- ============================================ -->
              <!-- Loading -->
@@ -127,47 +129,50 @@ export default {
     },
     data() {
       return {
-        cardTitle: 'Năm Học',
+        cardTitle: 'Khoa',
         entries: 10,
         searchText: '',
       }
     },
     computed: {
         ...mapState({
-            query: state => state.namhocs.all,
+            query: state => state.khoas.all,
         }),
     },
     created () {
         let url = null;
         let entries = 10;
         let searchText = this.searchText;
-        this.getIndexNamHocs({ url, entries, searchText });
+        this.getIndexKhoas({ url, entries, searchText });
     },
     methods: {
-        ...mapActions('namhocs', {
-            getIndexNamHocs: 'index',
-            deletenamhoc: 'delete'
+        ...mapActions('khoas', {
+            getIndexKhoas: 'index',
+            deleteKhoa: 'delete'
         }),
         cardFooterText() {
           let value = this.query.items.meta;
           return "Showing "+value.from+" to "+ value.to+" of "+value.total+" entries.";
         },
-        getnamhocsWithEntries(urlPaginate) {
+        getKhoasWithEntries(urlPaginate) {
           let entries = this.entries;
           let searchText = this.searchText;
-          this.getIndexNamHocs({ urlPaginate, entries, searchText });
+          this.getIndexKhoas({ urlPaginate, entries, searchText });
         },
         changeEntries(entries) {
           let url = null;
           this.entries = entries;
           let searchText = this.searchText;
-          this.getIndexNamHocs({url, entries, searchText});
+          this.getIndexKhoas({url, entries, searchText});
+        },
+        showTextStatus(status) {
+          return status === 1 ? "Active" : "Inactive";
         },
         doSearch(event) {
           let url = null;
           let entries = this.entries;
           let searchText = event.target.value;
-          this.getIndexNamHocs({url, entries, searchText});
+          this.getIndexKhoas({url, entries, searchText});
         }
     }
 

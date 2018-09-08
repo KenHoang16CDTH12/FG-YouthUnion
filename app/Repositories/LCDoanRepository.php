@@ -12,10 +12,24 @@ class LCDoanRepository
      *
      * @return Collection
      */
-    public function collection()
+    public function collection($entries)
     {
         // Return collection of objects as a resource
-        return LCDoanResource::collection(LCDoan::orderBy('created_at', 'desc')->paginate(25));
+        return LCDoanResource::collection(LCDoan::orderBy('created_at', 'desc')->paginate($entries));
+    }
+
+    /**
+     * Get search of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionSearch($entries, $searchText)
+    {
+        $query = LCDoan::where('id', $searchText)
+                     ->orWhere('name', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('desc', 'LIKE', '%'.$searchText.'%');
+        // Return collection of objects as a resource
+        return LCDoanResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
     }
 
     /**

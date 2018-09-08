@@ -63,25 +63,29 @@
                    <thead class="bg-info white">
                      <tr>
                          <th class="border-top-0">#</th>
-                         <th class="border-top-0">Năm học</th>
+                         <th class="border-top-0">Học Kỳ</th>
+                         <th class="border-top-0">Năm Học</th>
                          <th class="border-top-0">Action</th>
                      </tr>
                    </thead>
                    <tbody>
-                     <tr v-for="namhoc in query.items.data" :key="namhoc.id">
+                     <tr v-for="hocky in query.items.data" :key="hocky.id">
                        <td class="text-truncate">
-                         {{ namhoc.id }}
+                         {{ hocky.id }}
                        </td>
                        <td class="text-truncate">
-                        {{namhoc.nam_hoc}}
+                        {{hocky.hocky}}
+                       </td>
+                       <td class="text-truncate">
+                        {{hocky.namhoc_id}}
                        </td>
                        
                        <td class="text-truncate">
                          <div class="btn-group mx-2" role="group">
                             <button type="button" class="btn btn-sm btn-icon btn-info"><i class="la la-pencil"></i></button>
                             <span v-if="query.deleting"><em> - Deleting...</em></span>
-                            <span v-else-if="namhoc.deleteError" class="text-danger"> - ERROR: {{query.deleteError}}</span>
-                            <button v-else type="button" class="btn btn-sm btn-icon btn-danger"><i class="la la-remove" @click.prevent="deletenamhoc(namhoc.id)"></i></button>
+                            <span v-else-if="hocky.deleteError" class="text-danger"> - ERROR: {{query.deleteError}}</span>
+                            <button v-else type="button" class="btn btn-sm btn-icon btn-danger"><i class="la la-remove" @click.prevent="deletehocky(hocky.id)"></i></button>
                             <button type="button" class="btn btn-sm btn-icon btn-primary"><i class="la la-eye"></i></button>
                             <!-- la-eye-slash -->
                           </div>
@@ -100,7 +104,7 @@
                 :first_link="query.items.links.first"
                 :last_link="query.items.links.last"
                 :path="query.items.meta.path"
-                :getDataWithEntries="getnamhocsWithEntries"
+                :getDataWithEntries="gethockysWithEntries"
              ></paginator>
              <!-- ============================================ -->
              <!-- Loading -->
@@ -127,47 +131,48 @@ export default {
     },
     data() {
       return {
-        cardTitle: 'Năm Học',
+        cardTitle: 'Học Kỳ',
         entries: 10,
         searchText: '',
       }
     },
     computed: {
         ...mapState({
-            query: state => state.namhocs.all,
+            query: state => state.hockys.all,
         }),
     },
     created () {
         let url = null;
         let entries = 10;
         let searchText = this.searchText;
-        this.getIndexNamHocs({ url, entries, searchText });
+        this.getIndexHocKys({ url, entries, searchText });
     },
     methods: {
-        ...mapActions('namhocs', {
-            getIndexNamHocs: 'index',
+        ...mapActions('hockys', {
+            getIndexHocKys: 'index',
             deletenamhoc: 'delete'
         }),
         cardFooterText() {
           let value = this.query.items.meta;
-          return "Showing "+value.from+" to "+ value.to+" of "+value.total+" entries.";
+          return "Ken Hoang edit later!!!";
+          //return "Showing "+value.from+" to "+ value.to+" of "+value.total+" entries.";
         },
-        getnamhocsWithEntries(urlPaginate) {
+        gethockysWithEntries(urlPaginate) {
           let entries = this.entries;
           let searchText = this.searchText;
-          this.getIndexNamHocs({ urlPaginate, entries, searchText });
+          this.getIndexHocKys({ urlPaginate, entries, searchText });
         },
         changeEntries(entries) {
           let url = null;
           this.entries = entries;
           let searchText = this.searchText;
-          this.getIndexNamHocs({url, entries, searchText});
+          this.getIndexHocKys({url, entries, searchText});
         },
         doSearch(event) {
           let url = null;
           let entries = this.entries;
           let searchText = event.target.value;
-          this.getIndexNamHocs({url, entries, searchText});
+          this.getIndexHocKys({url, entries, searchText});
         }
     }
 
