@@ -6,6 +6,7 @@ use App\Khoa;
 use Illuminate\Http\Request;
 use App\Repositories\KhoaRepository;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Http\Requests\KhoaStoreRequest;
 use App\Http\Requests\KhoaUpdateRequest;
 
@@ -37,7 +38,10 @@ class KhoaController extends Controller
      */
     public function index()
     {
-        return $this->respository->collection();
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return  $this->respository->collectionSearch($entries, Input::get('searchText'));
+        return $this->respository->collection($entries);
     }
 
     /**

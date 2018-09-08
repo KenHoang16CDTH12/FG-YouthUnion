@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Lop;
 use Illuminate\Http\Request;
 use App\Repositories\LopRepository;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LopStoreRequest;
 use App\Http\Requests\LopUpdateRequest;
@@ -37,7 +38,10 @@ class LopController extends Controller
      */
     public function index()
     {
-        return $this->respository->collection();
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return  $this->respository->collectionSearch($entries, Input::get('searchText'));
+        return $this->respository->collection($entries);
     }
 
     /**

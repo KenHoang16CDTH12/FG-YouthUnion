@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\UserHoatDong;
 use Illuminate\Http\Request;
-use App\Repositories\UserHoatDongRepository;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use App\Repositories\UserHoatDongRepository;
 use App\Http\Requests\UserHoatDongStoreRequest;
 use App\Http\Requests\UserHoatDongUpdateRequest;
 
@@ -37,7 +38,10 @@ class UserHoatDongController extends Controller
      */
     public function index()
     {
-        return $this->respository->collection();
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return  $this->respository->collectionSearch($entries, Input::get('searchText'));
+        return $this->respository->collection($entries);
     }
 
     /**
