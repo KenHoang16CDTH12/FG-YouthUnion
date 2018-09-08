@@ -26,7 +26,7 @@ class HocKyRepository
     public function collectionSearch($entries, $searchText)
     {
         $query = HocKy::where('id', $searchText)
-                     ->orWhere('hoc_ky', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('hocky', 'LIKE', '%'.$searchText.'%')
                      ->orWhere('namhoc_id', 'LIKE', '%'.$searchText.'%');
         // Return collection of objects as a resource
         return HocKyResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
