@@ -72,14 +72,21 @@
                      <tr v-for="lcdoan in query.items.data" :key="lcdoan.id">
                        <td class="text-truncate">
                          {{ lcdoan.id }}
-                       </td>
-                       
+                       </td>       
                        <td class="text-truncate">
                          {{ lcdoan.name }}
                        </td>
-
                        <td class="text-truncate">
                          {{ lcdoan.desc }}
+                       </td>                    
+                       <td class="text-truncate">
+                         <div class="btn-group mx-2" role="group">
+                            <button type="button" class="btn btn-sm btn-icon btn-info"><i class="la la-pencil"></i></button>
+                            <span v-if="query.deleting"><em> - Deleting...</em></span>
+                            <span v-else-if="lcdoan.deleteError" class="text-danger"> - ERROR: {{query.deleteError}}</span>
+                            <button v-else type="button" class="btn btn-sm btn-icon btn-danger"><i class="la la-remove" @click.prevent="deleteLCDoan(lcdoan.id)"></i></button>
+                            <button type="button" class="btn btn-sm btn-icon btn-primary"><i class="la la-eye"></i></button>
+                          </div>
                        </td>
                      </tr>
                    </tbody>
@@ -140,7 +147,7 @@ export default {
     methods: {
         ...mapActions('lcdoans', {
             getIndexLCDoans: 'index',
-            deleteUser: 'delete'
+            deleteLCDoan: 'delete'
         }),
         cardFooterText() {
           let value = this.query.items.meta;
@@ -167,6 +174,5 @@ export default {
           this.getIndexLCDoans({url, entries, searchText});
         }
     }
-
 };
 </script>

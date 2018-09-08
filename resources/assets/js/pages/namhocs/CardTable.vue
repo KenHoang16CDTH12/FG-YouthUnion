@@ -81,7 +81,7 @@
                             <button type="button" class="btn btn-sm btn-icon btn-info"><i class="la la-pencil"></i></button>
                             <span v-if="query.deleting"><em> - Deleting...</em></span>
                             <span v-else-if="namhoc.deleteError" class="text-danger"> - ERROR: {{query.deleteError}}</span>
-                            <button v-else type="button" class="btn btn-sm btn-icon btn-danger"><i class="la la-remove" @click.prevent="deletenamhoc(namhoc.id)"></i></button>
+                            <button v-else type="button" class="btn btn-sm btn-icon btn-danger"><i class="la la-remove" @click.prevent="deleteNamHoc(namhoc.id)"></i></button>
                             <button type="button" class="btn btn-sm btn-icon btn-primary"><i class="la la-eye"></i></button>
                             <!-- la-eye-slash -->
                           </div>
@@ -146,7 +146,7 @@ export default {
     methods: {
         ...mapActions('namhocs', {
             getIndexNamHocs: 'index',
-            deletenamhoc: 'delete'
+            deleteNamHoc: 'delete'
         }),
         cardFooterText() {
           let value = this.query.items.meta;
