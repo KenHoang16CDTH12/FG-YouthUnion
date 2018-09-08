@@ -38,7 +38,7 @@ export const router = new Router({
         component: KhoasDashboard
        },
        {
-        path: 'classes',
+        path: 'lops',
         component: ClassesDashboard
        },
        {

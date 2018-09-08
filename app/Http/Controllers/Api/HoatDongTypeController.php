@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\HoatDongType;
-use App\Repositories\HoatDongTypeRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use App\Repositories\HoatDongTypeRepository;
 use App\Http\Requests\HoatDongTypeStoreRequest;
 use App\Http\Requests\HoatDongTypeUpdateRequest;
 
@@ -37,7 +38,10 @@ class HoatDongTypeController extends Controller
      */
     public function index()
     {
-        return $this->respository->collection();
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return  $this->respository->collectionSearch($entries, Input::get('searchText'));
+        return $this->respository->collection($entries);
     }
 
     /**

@@ -150,8 +150,7 @@ export default {
         }),
         cardFooterText() {
           let value = this.query.items.meta;
-          return "Ken Hoang edit later!!!";
-          //return "Showing "+value.from+" to "+ value.to+" of "+value.total+" entries.";
+          return "Showing "+value.from+" to "+ value.to+" of "+value.total+" entries.";
         },
         getnamhocsWithEntries(urlPaginate) {
           let entries = this.entries;

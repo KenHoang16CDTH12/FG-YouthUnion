@@ -6,6 +6,7 @@ use App\HoatDong;
 use Illuminate\Http\Request;
 use App\Repositories\HoatDongRepository;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Http\Requests\HoatDongStoreRequest;
 use App\Http\Requests\HoatDongUpdateRequest;
 
@@ -37,7 +38,10 @@ class HoatDongController extends Controller
      */
     public function index()
     {
-        return $this->respository->collection();
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return  $this->respository->collectionSearch($entries, Input::get('searchText'));
+        return $this->respository->collection($entries);
     }
 
     /**
