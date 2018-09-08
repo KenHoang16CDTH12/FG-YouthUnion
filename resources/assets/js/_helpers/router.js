@@ -7,6 +7,7 @@ import NamhocsDashboard from '../pages/dashboards/Namhocs.vue';
 import KhoasDashboard from '../pages/dashboards/Khoas.vue';
 import ClassesDashboard from '../pages/dashboards/Classes.vue';
 import LCDoansDashboard from '../pages/dashboards/LCDoans.vue';
+import HockysDashboard from '../pages/dashboards/Hockys.vue';
 
 Vue.use(Router);
 
@@ -44,6 +45,10 @@ export const router = new Router({
         path: 'lcdoans',
         component: LCDoansDashboard
        },
+       {
+        path: 'hockys',
+        component: HockysDashboard
+       }
       ]
     },
 
@@ -65,4 +70,3 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
