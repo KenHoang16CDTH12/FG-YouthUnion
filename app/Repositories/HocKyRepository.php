@@ -12,10 +12,24 @@ class HocKyRepository
      *
      * @return Collection
      */
-    public function collection()
+    public function collection($entries)
     {
         // Return collection of objects as a resource
-        return HocKyResource::collection(HocKy::orderBy('created_at', 'desc')->paginate(25));
+        return HocKyResource::collection(HocKy::orderBy('created_at', 'desc')->paginate($entries));
+    }
+
+    /**
+     * Get search of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionSearch($entries, $searchText)
+    {
+        $query = HocKy::where('id', $searchText)
+                     ->orWhere('hoc_ky', 'LIKE', '%'.$searchText.'%')
+                     ->orWhere('namhoc_id', 'LIKE', '%'.$searchText.'%');
+        // Return collection of objects as a resource
+        return HocKyResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
     }
 
     /**

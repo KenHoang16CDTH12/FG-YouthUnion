@@ -12,10 +12,23 @@ class HoatDongTypeRepository
      *
      * @return Collection
      */
-    public function collection()
+    public function collection($entries)
     {
         // Return collection of objects as a resource
-        return HoatDongTypeResource::collection(HoatDongType::orderBy('created_at', 'desc')->paginate(25));
+        return HoatDongTypeResource::collection(HoatDongType::orderBy('created_at', 'desc')->paginate($entries));
+    }
+
+    /**
+     * Get search of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionSearch($entries, $searchText)
+    {
+        $query = HoatDongType::where('id', $searchText)
+                     ->orWhere('type', 'LIKE', '%'.$searchText.'%');
+        // Return collection of objects as a resource
+        return HoatDongTypeResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
     }
 
     /**
