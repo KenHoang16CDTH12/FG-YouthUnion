@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "jackiedo/dotenv-editor": "1.*",
         "brotzka/laravel-dotenv-editor": "^2.0",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
@@ -56,7 +57,6 @@
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
             "php artisan optimize",
-            "npm install",
             "@deploy"
         ],
         "post-update-cmd": [
