@@ -12,10 +12,10 @@ class UserRepository
      *
      * @return Collection
      */
-    public function collection($entries)
+    public function collection($entries, $sort)
     {
         // Return collection of objects as a resource
-        return UserResource::collection(User::orderBy('created_at', 'desc')->paginate($entries));
+        return UserResource::collection(User::orderBy('id', $sort)->paginate($entries));
     }
 
     /**
@@ -23,13 +23,13 @@ class UserRepository
      *
      * @return Collection
      */
-    public function collectionSearch($entries, $searchText)
+    public function collectionSearch($entries, $searchText, $sort)
     {
         $query = User::where('id', $searchText)
                      ->orWhere('username', 'LIKE', '%'.$searchText.'%')
                      ->orWhere('email', 'LIKE', '%'.$searchText.'%');
         // Return collection of objects as a resource
-        return UserResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
+        return UserResource::collection($query->orderBy('id', $sort)->paginate($entries));
     }
 
     /**
@@ -65,7 +65,7 @@ class UserRepository
     public function update($request, $id)
     {
         $user = User::findOrFail($id);
-        $user->update($request->only(['active', 'role_id', 'class_id']));
+        $user->update($request->only(['username','email','password','active', 'role_id']));
         // Return object
         return new UserResource($user);
     }

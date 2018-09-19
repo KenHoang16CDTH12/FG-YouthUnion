@@ -12,43 +12,49 @@ export const resourceService = {
     delete: _delete
 };
 
-function _index(objName, urlPaginate, entries, searchText) {
+function _index(objName, urlPaginate, query) {
     const requestOptions = {
         method: 'GET',
-        headers: { ...authHeader(), contentType, accept }
+        headers: { ...authHeader(), ...contentType(), ...accept() }
     };
-
-    entries = entries || 10;
-    searchText = searchText || '';
-    if (urlPaginate) urlPaginate = `${urlPaginate}&entries=${entries}&searchText=${searchText}`
-    else urlPaginate = `${url}/${objName}?entries=${entries}&searchText=${searchText}`;
+    /**
+    * query = {'entries', 'searchText', 'sort'};
+    */
+    query.entries = query.entries || 10;
+    query.searchText = query.searchText || '';
+    query.sort = query.sort || 'asc';
+    console.log(query.sort);
+    if (urlPaginate) urlPaginate = `${urlPaginate}&entries=${query.entries}&sort=${query.sort}&searchText=${query.searchText}`
+    else urlPaginate = `${url}/${objName}?entries=${query.entries}&sort=${query.sort}&searchText=${query.searchText}`;
+    console.log(urlPaginate);
     return fetch(urlPaginate, requestOptions).then(handleResponse);
 }
 
-function _store(objName, obj) {
+function _store(objName, object) {
+    console.log(object);
     const requestOptions = {
         method: 'POST',
-        headers: { ...authHeader(), contentType },
-        body: JSON.stringify(obj)
+        headers: { ...authHeader(), ...contentType(), ...accept() },
+        body: JSON.stringify(object)
     };
-
-    return fetch(`${url}/${objName}`, requestOptions).then(handleResponse);
+    return fetch(`${url}/${objName}`, requestOptions)
+            .then(handleResponse);
 }
 
-function _update(objName, user) {
+function _update(objName, object) {
     const requestOptions = {
         method: 'PUT',
-        headers: { ...authHeader(), contentType },
-        body: JSON.stringify(user)
+        headers: { ...authHeader(), ...contentType(), ...accept() },
+        body: JSON.stringify(object)
     };
 
-    return fetch(`${url}/${objName}/${user.id}`, requestOptions).then(handleResponse);
+    return fetch(`${url}/${objName}/${object.id}`, requestOptions).then(handleResponse);
 }
 
 function _show(objName, id) {
     const requestOptions = {
         method: 'GET',
-        headers:{ ...authHeader(), contentType }
+        headers: { ...authHeader(), ...contentType(), ...accept() }
     };
 
     return fetch(`${url}/${objName}/${id}`, requestOptions).then(handleResponse);
@@ -58,7 +64,7 @@ function _show(objName, id) {
 function _delete(objName, id) {
     const requestOptions = {
         method: 'DELETE',
-        headers: { ...authHeader(), contentType }
+        headers: { ...authHeader(), ...contentType(), ...accept() }
     };
 
     return fetch(`${url}/${objName}/${id}`, requestOptions).then(handleResponse);

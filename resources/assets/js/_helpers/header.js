@@ -1,16 +1,21 @@
+import { getToken } from '../_utils/auth'
 export function authHeader() {
     // return authorization header with oauth2
-    let auth = JSON.parse(localStorage.getItem('auth'));
-
-    if (auth && auth.access_token) {
-        return { 'Authorization': 'Bearer ' + auth.access_token };
+    if (getToken()) {
+        return { 'Authorization': 'Bearer ' + getToken() };
     } else {
         return {};
     }
 }
 
-export const accept = { 'Accept': 'application/json' };
+export function accept() {
+  return { 'Accept': 'application/json' };
+}
 
-export const contentType = { 'Content-Type': 'application/json' };
+export function contentType() {
+ return { 'Content-Type': 'application/json' };
+}
 
-export const xRequestedWith = { 'X-Requested-With': 'XMLHttpRequest' };
+export function xRequestedWith() {
+  return { 'X-Requested-With': 'XMLHttpRequest' };
+}

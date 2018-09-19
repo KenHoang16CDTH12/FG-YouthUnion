@@ -63,4 +63,17 @@ class AuthRepository
         'message' => 'Successfully logged out'
       ]);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function user($request)
+    {
+        $user = $request->user();
+        //Return object
+        return new UserResource($user);
+    }
 }

@@ -39,8 +39,8 @@ class UserController extends Controller
     {
         $entries = Input::has('entries') ? Input::get('entries') : 10;
         if (Input::has('searchText'))
-            return  $this->respository->collectionSearch($entries, Input::get('searchText'));
-        return $this->respository->collection($entries);
+            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
+        return $this->respository->collection($entries, Input::get('sort'));
     }
 
     /**

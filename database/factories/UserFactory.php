@@ -20,7 +20,6 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
         'active' => $faker->randomElement([0, 1]),
-        'role_id' => $faker->randomElement([1, 2, 3]),
-        'lop_id' => factory(App\Models\Lop::class)->create()->id,
+        'role_id' => $faker->randomElement([1, 2, 3])
     ];
 });

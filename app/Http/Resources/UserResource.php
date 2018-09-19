@@ -20,7 +20,6 @@ class UserResource extends Resource
             'email' => $this->email,
             'active' => $this->active,
             'role' => $this->role,
-            'lop' => $this->lop,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

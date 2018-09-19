@@ -14,5 +14,6 @@ $factory->define(App\Models\UserDetail::class, function (Faker $faker) {
         'photo' => null,
         'student_code' => $faker->postcode,
         'user_id' => factory(App\Models\User::class)->create()->id,
+        'lop_id' => factory(App\Models\Lop::class)->create()->id,
     ];
 });

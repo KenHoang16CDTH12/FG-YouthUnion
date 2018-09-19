@@ -6,44 +6,53 @@ require('./bootstrap');
  */
 import Vue from 'vue';
 import Vuex from 'vuex';
+import Cookies from 'js-cookie';
+import Element from 'element-ui';
 import VeeValidate from 'vee-validate';
-import VueInternationalization from 'vue-i18n';
-import Locale from './vue-i18n-locales.generated';
 
 Vue.use(Vuex);
+Vue.use(Element, {
+    size: Cookies.get('size') || 'medium', // set element-ui default size
+    i18n: (key, value) => i18n.t(key, value)
+});
 Vue.use(VeeValidate);
-Vue.use(VueInternationalization);
+
 window.Vue = require('vue');
+
+//Components
+Vue.component('back-button', require('./_components/BackButton.vue'));
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import App from './app/App';
-import { store } from './_store';
-import { router } from './_helpers';
+import App from './App';
+import store from './_stores';
+import router from './_routers';
+import i18n from './_langs'; // Internationalization
+import './permission'; // permission control
+import './errorLog'; // error log
 
-// setup fake backend
-//import { configureFakeBackend } from './_helpers';
-//configureFakeBackend();
-//Options
-const lang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
-// or however you determine your current app locale
+// Global Event Bus
+window.Events = new Vue();
 
-const i18n = new VueInternationalization({
-    locale: lang,
-    messages: Locale
-});
+// Add the router to every vue instance.
+Vue.prototype.router = router;
 
-new Vue({
+Vue.prototype.goBack = () => {
+    router.go(-1);
+};
+Vue.prototype.goNext = () => {
+    router.go(1);
+};
+
+const app = new Vue({
     created() {
     },
     el: '#app',
-    i18n,
-    components: {
-    },
     router,
     store,
-    render: h => h(App)
+    i18n
 });

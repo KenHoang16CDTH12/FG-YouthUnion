@@ -27,9 +27,23 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'], function
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('logout', 'AuthController@logout');
     });
+
+    Route::group([
+      'middleware' => 'auth:api'
+    ], function() {
+        Route::get('logout', 'AuthController@logout');
+        Route::get('user', 'AuthController@user');
+    });
 });
 
-Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  function() {
+//'middleware' => 'auth:api',
+Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  function() {
+    /*
+    |------------------------------------------------------------
+    | Role API Routes
+    |------------------------------------------------------------
+    */
+    Route::get('roles/select', 'RoleController@roles');
     /*
     |------------------------------------------------------------
     | User API Routes

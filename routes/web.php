@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +10,7 @@
 |
 */
 
-Route::get('{view}', function () {
-    return view('admin.index');
-})->where('view', '(.*)');
+Route::get('/{any}', function() {
+  return view('admin.index');
+})->where('any', '.*');
+

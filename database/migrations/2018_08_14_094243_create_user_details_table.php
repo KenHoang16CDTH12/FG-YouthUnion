@@ -24,9 +24,11 @@ class CreateUserDetailsTable extends Migration
             $table->text('address')->nullable();
             $table->text('photo')->nullable();
             $table->string('student_code', 50)->nullable();
+            $table->foreign('lop_id')->references('id')->on('lops')->onDelete('cascade');
             $table->timestamps();
             //FK
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('lop_id')->unsigned()->nullable();
         });
     }
 
