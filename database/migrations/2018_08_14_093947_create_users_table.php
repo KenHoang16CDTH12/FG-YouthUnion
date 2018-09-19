@@ -21,11 +21,9 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->boolean('active');
             $table->integer('role_id')->unsigned();
-            $table->integer('lop_id')->unsigned()->nullable();
             $table->timestamps();
             //FK
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
-            $table->foreign('lop_id')->references('id')->on('lops')->onDelete('cascade');
         });
     }
 

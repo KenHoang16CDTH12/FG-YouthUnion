@@ -53,4 +53,14 @@ class AuthController extends Controller
     {
       return $this->respository->logout($request);
     }
+
+    /**
+     * Get the authenticated User
+     *
+     * @return [json] user object
+     */
+    public function user(Request $request)
+    {
+        return $this->respository->user($request);
+    }
 }

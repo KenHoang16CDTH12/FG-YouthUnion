@@ -19,7 +19,8 @@ class UserDetail extends Model
         'address',
         'photo',
         'student_code',
-        'user_id'
+        'user_id',
+        'lop_id'
     ];
 
     /**

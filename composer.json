@@ -6,8 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "jackiedo/dotenv-editor": "1.*",
         "fideloper/proxy": "~3.3",
+        "jackiedo/dotenv-editor": "1.*",
         "laravel/framework": "5.5.*",
         "laravel/passport": "4.0.3",
         "laravel/tinker": "~1.0",

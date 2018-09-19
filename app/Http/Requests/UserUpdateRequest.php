@@ -26,7 +26,6 @@ class UserUpdateRequest extends FormRequest
         return [
             'active' => 'boolean',
             'role_id' => 'integer',
-            'class_id' => 'integer'
         ];
     }
 }
