@@ -47,7 +47,7 @@
                         <el-button class="cancel-btn" size="small" icon="el-icon-refresh" type="warning" @click="cancelEdit(scope.row)">Cancel</el-button>
                       </template>
                       <template v-else>
-                        <span>{{scope.row.username}}</span>
+                        <span>{{ scope.row.username }}</span>
                         <el-button size="small" icon="el-icon-edit" @click="enableEditInline(scope.row)"></el-button>
                       </template>
                     </template>
@@ -251,7 +251,6 @@ export default {
           this.loadData();
         },
         handleSort() {
-          console.log("Working");
           this.loadData();
         },
         handleSizeChange(val) {
@@ -270,10 +269,22 @@ export default {
             excel.export_json_to_excel({
               header: tHeader,
               data,
-              filename: 'table-list'
+              filename: 'users-list'
             })
             this.downloadLoading = false
           })
+        },
+        formatJson(filterVal, jsonData) {
+          return jsonData.map(v => filterVal.map(j => {
+            if (j === 'role') {
+              return (v[j].type)
+            }
+            if (j === 'timestamp') {
+              return parseTime(v[j])
+            } else {
+              return v[j]
+            }
+          }))
         },
         enableEditInline(row) {
           this.$message({

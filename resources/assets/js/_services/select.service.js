@@ -5,7 +5,7 @@ import { contentType } from '../_helpers';
 import { handleResponse } from '../_helpers';
 
 export const selectService = {
-    getRoles: _get
+    dataSelect: _get
 };
 
 function _get(objName) {

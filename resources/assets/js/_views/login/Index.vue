@@ -32,13 +32,20 @@
                     </p>
                     <div class="card-body pt-0">
                     <form :model="loginForm" @submit.prevent="handleLogin" class="form-horizontal">
-                        <fieldset class="form-group floating-label-form-group">
+                        <fieldset
+                          class="form-group floating-label-form-group"
+                          :class="{ error: errors.first('email') }
+                          ">
                           <label for="email">{{ $t('login.email') }}</label>
-                          <input type="email" class="form-control" :placeholder="$t('login.yourEmail')" v-model="loginForm.email">
+                          <input type="email" class="form-control" :placeholder="$t('login.yourEmail')" v-model="loginForm.email" v-validate="'required|email'" name="email">
+                          <span class="red">{{ errors.first('email') }}</span>
                         </fieldset>
-                        <fieldset class="form-group floating-label-form-group mb-1">
+                        <fieldset
+                          class="form-group floating-label-form-group mb-1"
+                          :class="{ error: errors.first('password') }">
                           <label for="password">{{ $t('login.password') }}</label>
-                          <input type="password" class="form-control" :placeholder="$t('login.yourPassword')" v-model="loginForm.password" >
+                          <input type="password" class="form-control" :placeholder="$t('login.yourPassword')" v-model="loginForm.password" v-validate="'required|min:6'" name="password">
+                          <span class="red">{{ errors.first('password') }}</span>
                         </fieldset>
                         <div class="form-group row">
                           <div class="col-md-6 col-12 text-center text-sm-left">
@@ -64,6 +71,7 @@
     <!-- ============================================ -->
 </template>
 <script>
+import { required, minLength } from 'vuelidate/lib/validators'
 export default {
     data () {
         return {
@@ -101,16 +109,29 @@ export default {
           }
         },
         handleLogin() {
-          this.loading = true
-          this.$store.dispatch('login', this.loginForm)
-            .then(() => {
-              this.loading = false
-              //this.$router.push({ path: this.redirect || '/' })
-              location.reload()
-          })
-            .catch(() => {
-            this.loading = false
-          })
+          this.$validator.validateAll().then((result) => {
+            if (result) {
+              this.loading = true
+              this.$store.dispatch('login', this.loginForm)
+              .then(() => {
+                  this.loading = false
+                  //this.$router.push({ path: this.redirect || '/' })
+                  location.reload()
+              })
+              .catch((error) => {
+                this.loading = false
+                this.$message({
+                   message: 'Unauthorization',
+                   type: 'error'
+                })
+              })
+            } else {
+              this.$message({
+                 message: "Error validate.",
+                 type: 'error'
+              })
+            }
+          });
         },
         afterQRScan() {
           // const hash = window.location.hash.slice(1)

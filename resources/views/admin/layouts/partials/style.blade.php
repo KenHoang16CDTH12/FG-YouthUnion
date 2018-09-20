@@ -22,6 +22,7 @@
 <!-- BEGIN PLUGIN CSS -->
 <!-- ============================================ -->
 {!! Html::style('app-assets/css/plugins/loaders/loaders.min.css') !!}
+{!! Html::style('app-assets/css/plugins/forms/validation/form-validation.css') !!}
 <!-- ============================================ -->
 <!-- END PLUGIN CSS -->
 <!-- ============================================ -->
