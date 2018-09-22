@@ -37,7 +37,7 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'], function
 });
 
 //'middleware' => 'auth:api',
-Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  function() {
+Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  function() {
     /*
     |------------------------------------------------------------
     | Role API Routes
@@ -154,4 +154,14 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'],  functio
     Route::post('lcdoanhoatdongs', 'LCDoanHoatDongController@store');
     Route::put('lcdoanhoatdongs/{id}', 'LCDoanHoatDongController@update');
     Route::delete('lcdoanhoatdongs/{id}', 'LCDoanHoatDongController@destroy');
+     /*
+    |------------------------------------------------------------
+    | Notifications API Routes
+    |------------------------------------------------------------
+    */
+    Route::get('notifications', 'NotificationController@index');
+    Route::get('notifications/{id}', 'NotificationController@show');
+    Route::post('notifications', 'NotificationController@store');
+    Route::delete('notifications/{id}', 'NotificationController@destroy');
+    Route::delete('notifications', 'NotificationController@clear');
 });

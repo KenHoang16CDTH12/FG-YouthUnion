@@ -81,8 +81,6 @@ class UserHoatDongRepository
     {
       $user_hoatdong = UserHoatDong::findOrFail($id);
       $user_hoatdong->delete();
-      return response()->json([
-          'meesage' => 'Delete #' . $id . ' successful!'
-      ], 200);
+      return response()->json(null, 204);
     }
 }

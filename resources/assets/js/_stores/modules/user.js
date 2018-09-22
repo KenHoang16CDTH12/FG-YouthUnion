@@ -1,8 +1,9 @@
 import { authService } from '../../_services';
-import { getToken, setToken, removeToken } from '../../_utils/auth'
+import { getToken, setToken, removeToken, getUserID, setUserID, removeUserID } from '../../_utils/auth'
 
 const user = {
   state: {
+    id: getUserID(),
     user: '',
     status: '',
     code: '',
@@ -17,6 +18,9 @@ const user = {
   },
 
   mutations: {
+    SET_ID: (state, id) => {
+       state.id = id
+    },
     SET_CODE: (state, code) => {
       state.code = code
     },
@@ -65,16 +69,17 @@ const user = {
 
     // Get user infomation
     user({ commit, state }) {
-      console.log("Working")
       return new Promise((resolve, reject) => {
         authService.user()
             .then(
                 response => {
                    if (!response.data) { // Since mockjs does not support custom status codes, it can only be hacked like this.
-                      //reject('error')
-                       console.log(error);
+                      reject('error')
                     }
                     const data = response.data
+
+                    commit('SET_ID', data.id)
+                    setUserID(data.id)
 
                     commit('SET_ROLE', data.role.type)
 
@@ -110,8 +115,10 @@ const user = {
         authService.logout(state.token)
             .then(
                 response => {
+                    commit('SET_ID', '')
+                    removeUserID()
                     commit('SET_TOKEN', '')
-                    commit('SET_ROLE', [])
+                    commit('SET_ROLE', '')
                     removeToken()
                     resolve()
                 },

@@ -98,8 +98,6 @@ class UserDetailRepository
     {
       $userdetail = UserDetail::findOrFail($id);
       $userdetail->delete();
-      return response()->json([
-          'meesage' => 'Delete #' . $id . ' successful!'
-      ], 200);
+      return response()->json(null, 204);
     }
 }

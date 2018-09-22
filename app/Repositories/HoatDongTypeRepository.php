@@ -79,8 +79,6 @@ class HoatDongTypeRepository
     {
       $hoatdong_type = HoatDongType::findOrFail($id);
       $hoatdong_type->delete();
-      return response()->json([
-          'meesage' => 'Delete #' . $id . ' successful!'
-      ], 200);
+      return response()->json(null, 204);
     }
 }

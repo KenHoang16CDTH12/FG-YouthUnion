@@ -61,6 +61,8 @@ return [
     'createUser' => 'Create User',
     'editUser' => 'Edit User',
     'errorPages' => 'Error Pages',
+    'notification' => 'Notification',
+    'listNotification' => 'List Notification',
     'page401' => '401',
     'page404' => '404',
     'errorLog' => 'Error Log',

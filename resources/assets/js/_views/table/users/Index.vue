@@ -4,21 +4,21 @@
     <div class="row">
       <div class="col-12">
         <div class="card box-shadow-0 border-info animated fadeIn" data-appear="appear" data-animation="fadeIn">
-          <!-- ============================================ -->
+          <!-- ======================================== -->
           <!-- Header -->
-          <!-- ============================================ -->
+          <!-- ======================================== -->
           <card-header :title="cardTitle"></card-header>
-          <!-- ============================================ -->
+          <!-- ======================================== -->
           <!-- Content -->
-          <!-- ============================================ -->
+          <!-- ======================================== -->
           <div class="card-content collapse show">
-            <!-- ============================================ -->
+            <!-- ======================================== -->
             <!-- Body -->
-            <!-- ============================================ -->
+            <!-- ======================================== -->
             <div class="card-body">
-              <!-- ============================================ -->
+              <!-- ======================================== -->
               <!-- Search -->
-              <!-- ============================================ -->
+              <!-- ======================================== -->
               <div class="filter-container float-right" v-if="objects">
                 <el-input placeholder="Search..." v-model="query.searchText" style="width: auto;" class="filter-item" @keyup.enter.native="handleSearch" v-on:input="query.searchText = $event.target.value"/>
                 <el-select v-model="query.sort" style="width: 140px" class="filter-item" @change="handleSort">
@@ -28,18 +28,25 @@
                 <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-circle-plus" @click="handleCreate">Add</el-button>
                 <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">Export</el-button>
               </div>
-              <el-table v-if="objects" v-loading.body="isLoading" :data="objects" border fit highlight-current-row style="width: 100%" row-key="id">
-                  <!-- ============================================ -->
+              <!-- =================================== -->
+              <!-- Card Loading -->
+              <!-- =================================== -->
+              <card-loading v-if="isLoading && !objects"/>
+              <!-- =================================== -->
+              <!-- Table -->
+              <!-- =================================== -->
+              <el-table v-if="objects" :data="objects" border fit highlight-current-row style="width: 100%" row-key="id">
+                  <!-- =================================== -->
                   <!-- ID -->
-                  <!-- ============================================ -->
+                  <!-- =================================== -->
                   <el-table-column align="center" label="#" width="80">
                     <template slot-scope="scope">
                       <span>{{ scope.row.id }}</span>
                     </template>
                   </el-table-column>
-                  <!-- ============================================ -->
+                  <!-- ======================================== -->
                   <!-- Username -->
-                  <!-- ============================================ -->
+                  <!-- ======================================== -->
                   <el-table-column width="auto" align="center" label="Username">
                     <template slot-scope="scope">
                       <template v-if="scope.row.edit">
@@ -52,33 +59,33 @@
                       </template>
                     </template>
                   </el-table-column>
-                  <!-- ============================================ -->
+                  <!-- ======================================== -->
                   <!-- Email -->
-                  <!-- ============================================ -->
+                  <!-- ======================================== -->
                   <el-table-column width="auto" align="center" label="Email">
                     <template slot-scope="scope">
-                      <a href="mailto:email@example.com">{{ scope.row.email }}</a>
+                      <a :href="'mailto:' + scope.row.email">{{ scope.row.email }}</a>
                     </template>
                   </el-table-column>
-                  <!-- ============================================ -->
+                  <!-- ======================================== -->
                   <!-- Role -->
-                  <!-- ============================================ -->
+                  <!-- ======================================== -->
                   <el-table-column width="auto" align="center" label="Permission">
                     <template slot-scope="scope">
                       <span>{{ scope.row.role.type }}</span>
                     </template>
                   </el-table-column>
-                  <!-- ============================================ -->
+                  <!-- ======================================== -->
                   <!-- Status -->
-                  <!-- ============================================ -->
+                  <!-- ======================================== -->
                   <el-table-column width="auto" align="center" label="Status">
                     <template slot-scope="scope">
                       <el-tag :type="scope.row.active | statusFilter">{{ showTextStatus(scope.row.active) }}</el-tag>
                     </template>
                   </el-table-column>
-                  <!-- ============================================ -->
+                  <!-- ======================================== -->
                   <!-- Action -->
-                  <!-- ============================================ -->
+                  <!-- ======================================== -->
                   <el-table-column width="auto" align="center" label="Action">
                     <template slot-scope="scope">
                      <div class="btn-group mx-2" role="group">
@@ -115,10 +122,11 @@ import { resourceService } from '../../../_services';
 import Sortable from 'sortablejs';
 import waves from '../../../_directives/waves'
 import CardHeader from '../../../_components/card-element/Header.vue';
+import CardLoading from '../../../_components/card-element/Loading.vue';
 
 export default {
     components: {
-       CardHeader,
+       CardHeader, CardLoading
     },
     directives: {
       waves
@@ -254,7 +262,7 @@ export default {
           this.loadData();
         },
         handleSizeChange(val) {
-          this.entries = val;
+          this.query.entries = val;
           this.loadData();
         },
         handleCurrentChange(val) {
