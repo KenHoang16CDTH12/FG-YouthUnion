@@ -81,8 +81,6 @@ class KhoaRepository
     {
       $khoa = Khoa::findOrFail($id);
       $khoa->delete();
-      return response()->json([
-          'meesage' => 'Delete #' . $id . ' successful!'
-      ], 200);
+      return response()->json(null, 204);
     }
 }

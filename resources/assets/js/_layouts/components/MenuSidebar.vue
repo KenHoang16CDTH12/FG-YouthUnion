@@ -11,55 +11,27 @@
         <!-- Begin Navigation-->
         <!-- ============================================ -->
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a><i class="la la-home"></i><span class="menu-title">Dashboard</span><span class="badge badge badge-info badge-pill float-right mr-2">1</span></a>
-                <ul class="menu-content">
-                    <li>
-                        <router-link tag="a" :to="{ name: 'dashboard' }" class="menu-item">Dashboard</router-link>
-                    </li>
-                </ul>
+            <!-- ============================================ -->
+            <!-- Sidebar item-->
+            <!-- ============================================ -->
+            <li class=" nav-item">
+                <router-link tag="a" :to="{ name: 'dashboard' }" class="menu-item">
+                    <i class="la la-home"></i>
+                    <span class="menu-title">Dashboard</span>
+                </router-link>
             </li>
-            <li class="nav-item"><a><i class="la la-table"></i><span class="menu-title">Table</span><span class="badge badge badge-info badge-pill float-right mr-2">10</span></a>
+            <li class=" nav-item">
+                <router-link tag="a" :to="{ name: 'notification.index' }" class="menu-item">
+                    <i class="ficon ft-bell"></i>
+                    <span class="menu-title">Notification</span>
+                </router-link>
+            </li>
+            <li class="nav-item"><a><i class="la la-table"></i><span class="menu-title">Table</span><span class="badge badge badge-info badge-pill float-right mr-2">1</span></a>
                 <ul class="menu-content">
                     <li>
                         <router-link tag="a" :to="{ name: 'users.index' }" class="menu-item">Users</router-link>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.templates.main">Templates</span></a>
-                <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">Vertical</a>
-                    <ul class="menu-content">
-                        <li><a class="menu-item" href="../vertical-menu-template" data-i18n="nav.templates.vert.classic_menu">Classic Menu</a>
-                        </li>
-                    </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class=" navigation-header">
-            <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip"
-            data-placement="right" data-original-title="Layouts"></i>
-            </li>
-            <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title" data-i18n="nav.page_layouts.main">Page layouts</span><span class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
-            <ul class="menu-content">
-                <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts.1_column">1 column</a>
-                </li>
-            </ul>
-            </li>
-            <li class=" nav-item"><a href="changelog.html"><i class="la la-copy"></i><span class="menu-title" data-i18n="nav.changelog.main">Changelog</span><span class="badge badge badge-pill badge-warning float-right">1.0</span></a>
-            </li>
-            <li class=" nav-item"><a href="scrumboard.html"><i class="la la-check-square"></i><span class="menu-title" data-i18n="nav.scrumboard.main">Scrumboard</span><span class="badge badge badge-info float-right">Update</span></a>
-            </li>
-            <li class=" navigation-header">
-            <span data-i18n="nav.category.ui">User Interface</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip"
-            data-placement="right" data-original-title="User Interface"></i>
-            </li>
-            <li class=" nav-item"><a href="#"><i class="la la-tablet"></i><span class="menu-title" data-i18n="nav.cards.main">Cards</span><span class="badge badge badge-success float-right mr-2">New</span></a>
-            <ul class="menu-content">
-                <li><a class="menu-item" href="card-bootstrap.html" data-i18n="nav.cards.card_bootstrap">Bootstrap</a>
-                </li>
-                <li><a class="menu-item" href="card-headings.html" data-i18n="nav.cards.card_headings">Headings</a>
-                </li>
-            </ul>
             </li>
             <li class=" navigation-header">
             <span data-i18n="nav.category.support">Support</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip"
@@ -89,7 +61,11 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  created()   {
+  data() {
+    return {
+    }
+  },
+  created() {
   },
   computed: {
     ...mapGetters([

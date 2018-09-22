@@ -80,8 +80,6 @@ class LCDoanRepository
     {
       $lcdoan = LCDoan::findOrFail($id);
       $lcdoan->delete();
-      return response()->json([
-          'meesage' => 'Delete #' . $id . ' successful!'
-      ], 200);
+      return response()->json(null, 204);
     }
 }

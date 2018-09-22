@@ -80,8 +80,6 @@ class HocKyRepository
     {
       $hocky = HocKy::findOrFail($id);
       $hocky->delete();
-      return response()->json([
-          'meesage' => 'Delete #' . $id . ' successful!'
-      ], 200);
+      return response()->json(null, 204);
     }
 }

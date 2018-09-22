@@ -80,8 +80,6 @@ class LopRepository
     {
       $lop = Lop::findOrFail($id);
       $lop->delete();
-      return response()->json([
-          'meesage' => 'Delete #' . $id . ' successful!'
-      ], 200);
+      return response()->json(null, 204);
     }
 }

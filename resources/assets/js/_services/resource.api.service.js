@@ -23,7 +23,6 @@ function _index(objName, urlPaginate, query) {
     query.entries = query.entries || 10;
     query.searchText = query.searchText || '';
     query.sort = query.sort || 'asc';
-    console.log(query.sort);
     if (urlPaginate) urlPaginate = `${urlPaginate}&entries=${query.entries}&sort=${query.sort}&searchText=${query.searchText}`
     else urlPaginate = `${url}/${objName}?entries=${query.entries}&sort=${query.sort}&searchText=${query.searchText}`;
     console.log(urlPaginate);
