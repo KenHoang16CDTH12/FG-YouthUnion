@@ -10,7 +10,5 @@
 |
 */
 
-Route::get('/{any}', function() {
-  return view('admin.index');
-})->where('any', '.*');
+Route::get('/{any}', 'Web\SPAController@index')->where('any', '.*');
 
