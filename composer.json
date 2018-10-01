@@ -5,10 +5,10 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.0.0",
-        "fideloper/proxy": "~3.3",
+        "php": ">=7.1.2",
+        "fideloper/proxy": "~4.0",
         "jackiedo/dotenv-editor": "1.*",
-        "laravel/framework": "5.5.*",
+        "laravel/framework": "5.7.*",
         "laravel/passport": "4.0.3",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
@@ -52,8 +52,7 @@
         ],
         "deploy": [
             "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "php artisan key:generate",
-            "php artisan migrate"
+            "php artisan key:generate"
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
