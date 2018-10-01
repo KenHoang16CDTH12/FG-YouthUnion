@@ -4,7 +4,6 @@
       <!-- ============================================ -->
       <!-- Content Header-->
       <!-- ============================================ -->
-      <tags-view/>
       <bread-crumb/>
       <!-- ============================================ -->
       <!-- Content Body-->
@@ -20,13 +19,11 @@
 
 <script>
 import BreadCrumb from './BreadCrumb.vue'
-import TagsView from './TagsView.vue'
 
 export default {
   name: 'AppMain',
   components: {
-    BreadCrumb,
-    TagsView
+    BreadCrumb
   },
   computed: {
     cachedViews() {

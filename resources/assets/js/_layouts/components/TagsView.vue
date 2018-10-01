@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-view-container">
+  <section>
     <scroll-pane ref="scrollPane" class="tags-view-wrapper">
       <router-link
         v-for="tag in Array.from(visitedViews)"
@@ -19,7 +19,7 @@
       <li @click="closeOthersTags">{{ $t('tagsview.closeOthers') }}</li>
       <li @click="closeAllTags">{{ $t('tagsview.closeAll') }}</li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -123,7 +123,6 @@ export default {
       this.selectedTag = tag
       const offsetLeft = this.$el.getBoundingClientRect().left // container margin left
       this.left = e.clientX - offsetLeft + 15 // 15: margin right
-      this.top = e.clientY
     },
     closeMenu() {
       this.visible = false
@@ -133,67 +132,61 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.tags-view-container {
-  height: 34px;
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #d8dce5;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 0 3px 0 rgba(0, 0, 0, .04);
-  .tags-view-wrapper {
-    .tags-view-item {
-      display: inline-block;
-      position: relative;
-      height: 26px;
-      line-height: 26px;
-      border: 1px solid #d8dce5;
-      color: #495060;
-      background: #fff;
-      padding: 0 8px;
-      font-size: 12px;
-      margin-left: 5px;
-      margin-top: 4px;
-      &:first-of-type {
-        margin-left: 15px;
-      }
-      &:last-of-type {
-        margin-right: 15px;
-      }
-      &.active {
-        background-color: #42b983;
-        color: #fff;
-        border-color: #42b983;
-        &::before {
-          content: '';
-          background: #fff;
-          display: inline-block;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          position: relative;
-          margin-right: 2px;
-        }
+
+.tags-view-wrapper {
+  .tags-view-item {
+    display: inline-block;
+    position: relative;
+    height: 26px;
+    line-height: 26px;
+    border-color: #fff;
+    color: #495060;
+    background: #fff;
+    padding: 0 8px;
+    font-size: 12px;
+    margin-left: 5px;
+    margin-top: 4px;
+    &:first-of-type {
+      margin-left: 15px;
+    }
+    &:last-of-type {
+      margin-right: 15px;
+    }
+    &.active {
+      background-color: #1E9FF2;;
+      color: #fff;
+      border-color: #1E9FF2;;
+      &::before {
+        content: '';
+        background: #fff;
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        position: relative;
+        margin-right: 2px;
       }
     }
   }
-  .contextmenu {
+}
+.contextmenu {
+  margin: 0;
+  background: #fff;
+  z-index: 100;
+  position: absolute;
+  list-style-type: none;
+  padding: 5px 0;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #333;
+  box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .3);
+  li {
     margin: 0;
-    background: #fff;
-    z-index: 100;
-    position: absolute;
-    list-style-type: none;
-    padding: 5px 0;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 400;
-    color: #333;
-    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .3);
-    li {
-      margin: 0;
-      padding: 7px 16px;
-      cursor: pointer;
-      &:hover {
-        background: #eee;
-      }
+    padding: 7px 16px;
+    cursor: pointer;
+    &:hover {
+      background: #eee;
     }
   }
 }

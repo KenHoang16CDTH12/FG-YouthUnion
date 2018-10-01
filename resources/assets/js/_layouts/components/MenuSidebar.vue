@@ -26,7 +26,7 @@
                     <span class="menu-title">Notification</span>
                 </router-link>
             </li>
-            <li class="nav-item"><a><i class="la la-table"></i><span class="menu-title">Table</span><span class="badge badge badge-info badge-pill float-right mr-2">1</span></a>
+            <li class="nav-item has-sub"><a><i class="la la-table"></i><span class="menu-title">Table</span><span class="badge badge badge-info badge-pill float-right mr-2">1</span></a>
                 <ul class="menu-content">
                     <li>
                         <router-link tag="a" :to="{ name: 'users.index' }" class="menu-item">Users</router-link>
