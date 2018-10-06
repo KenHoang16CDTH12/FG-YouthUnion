@@ -7,6 +7,7 @@ Vue.use(Router);
 import Layout from '../_layouts/Layout'
 
 /* Router Modules */
+import activityRouter from './modules/activity'
 import notificationRouter from './modules/notification'
 
 /** note: Submenu only appear when children.length>=1
@@ -96,6 +97,7 @@ export default new Router({
 
 export const asyncRouterMap = [
   /** When your routing table is too long, you can split it into small modules**/
+  activityRouter,
   notificationRouter,
   {
     path: '/table',
