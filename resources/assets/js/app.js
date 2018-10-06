@@ -28,7 +28,7 @@ Vue.component('back-button', require('./_components/BackButton.vue'));
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import App from './App';
+import App from './App.vue';
 import store from './_stores';
 import router from './_routers';
 import i18n from './_langs'; // Internationalization
