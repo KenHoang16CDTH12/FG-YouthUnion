@@ -1,7 +1,7 @@
 <template>
 <div class="content-header row ">
   <div class="content-header-left col-md-12 col-12 breadcrumb-new">
-    <h3 class="content-header-title mb-0 d-inline-block bg-gradient-striped-blue box-shadow-0">{{ generateTitle(lastLevelList) }}</h3>
+    <h3 class="content-header-title mb-0 d-inline-block box-shadow-0">{{ generateTitle(lastLevelList) }}</h3>
     <div class="row breadcrumbs-top d-inline-block">
       <div class="breadcrumb-wrapper col-12">
           <ol class="breadcrumb">
@@ -12,7 +12,7 @@
           </ol>
       </div>
     </div>
-    <div class="card bg-gradient-striped-blue box-shadow-0">
+    <div class="card box-shadow-0">
       <div class="card-content">
          <tags-view/>
       </div>
