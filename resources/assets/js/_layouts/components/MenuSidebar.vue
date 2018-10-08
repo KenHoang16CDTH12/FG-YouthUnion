@@ -34,6 +34,14 @@
                 </ul>
             </li>
 
+            <li class="nav-item has-sub"><a><i class="la la-table"></i><span class="menu-title">BinhNguyen</span><span class="badge badge badge-info badge-pill float-right mr-2">1</span></a>
+                <ul class="menu-content">
+                    <li>
+                        <router-link tag="a" :to="{ name: 'binh.index' }" class="menu-item">Activity</router-link>
+                    </li>
+                </ul>
+            </li>
+
             <li class=" navigation-header">
             <span data-i18n="nav.category.support">Activity Management</span>
             <li class="nav-item has-sub"><a><i class="la la-briefcase"></i><span class="menu-title">Activity</span><span class="badge badge badge-info badge-pill float-right mr-2">1</span></a>
@@ -55,6 +63,7 @@
                 <span class="menu-title" data-i18n="nav.support_documentation.main">Github</span>
             </a>
             </li>
+            
         </ul>
         <!-- ============================================ -->
         <!-- End Navigation-->
@@ -67,6 +76,8 @@
 <!-- ============================================ -->
 <!-- End Main_menu -->
 <!-- ============================================ -->
+
+
 </template>
 <script>
 import { mapGetters } from 'vuex'

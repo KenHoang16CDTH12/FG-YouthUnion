@@ -9,6 +9,7 @@ import Layout from '../_layouts/Layout'
 /* Router Modules */
 import activityRouter from './modules/activity'
 import notificationRouter from './modules/notification'
+import binhRouter from './modules/binh'
 
 /** note: Submenu only appear when children.length>=1
  *  detail see  https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -99,6 +100,7 @@ export const asyncRouterMap = [
   /** When your routing table is too long, you can split it into small modules**/
   activityRouter,
   notificationRouter,
+  binhRouter,
   {
     path: '/table',
     component: Layout,
