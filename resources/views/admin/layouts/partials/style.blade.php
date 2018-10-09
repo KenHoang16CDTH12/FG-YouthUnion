@@ -47,6 +47,7 @@
 <!-- BEGIN Page Level CSS -->
 <!-- ============================================ -->
 {!! Html::style('app-assets/css/pages/login-register.css') !!}
+{!! Html::style('app-assets/vendors/css/cryptocoins/cryptocoins.css') !!}
 <!-- ============================================ -->
 <!-- END Page Level CSS -->
 <!-- ============================================ -->
