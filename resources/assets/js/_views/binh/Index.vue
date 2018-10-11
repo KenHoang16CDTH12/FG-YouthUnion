@@ -58,19 +58,19 @@
                 <div class="card-content collapse show">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Name</label>
                                     <input type="text" id="name" class="form-control p-1" placeholder="Name" name="name">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">From date</label>
                                     <input type="date" id="fdate" class="form-control" name="date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="date Opened" data-original-title title>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">End date</label>
                                     <input type="date" id="edate" class="form-control" name="date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="date Opened" data-original-title title>
