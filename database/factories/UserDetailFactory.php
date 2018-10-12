@@ -12,7 +12,7 @@ $factory->define(App\Models\UserDetail::class, function (Faker $faker) {
         'phone' => $faker->phoneNumber,
         'address' => $faker->address,
         'photo' => null,
-        'student_code' => $faker->postcode,
+        'code' => $faker->postcode,
         'user_id' => factory(App\Models\User::class)->create()->id,
         'lop_id' => factory(App\Models\Lop::class)->create()->id,
     ];

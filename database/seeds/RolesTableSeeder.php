@@ -15,15 +15,11 @@ class RolesTableSeeder extends Seeder
         $roles = [
           [
               'id' => 1,
-              'type' => 'ADMIN'
+              'type' => 'Admin'
           ],
           [
               'id' => 2,
-              'type' => 'STUDENT'
-          ],
-          [
-              'id' => 3,
-              'type' => 'CLIENT'
+              'type' => 'Editor'
           ]
         ];
         DB::table('roles')->insert($roles);
