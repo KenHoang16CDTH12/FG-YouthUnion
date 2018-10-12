@@ -24,7 +24,7 @@ class UserDetailResource extends Resource
             'phone' => $this->phone,
             'address' => $this->address,
             'photo' => $this->photo,
-            'student_code' => $this->student_code,
+            'code' => $this->code,
             'lop' => $this->lop,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

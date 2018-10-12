@@ -23,7 +23,7 @@ class CreateUserDetailsTable extends Migration
             $table->string('phone', 50)->nullable();
             $table->text('address')->nullable();
             $table->text('photo')->nullable();
-            $table->string('student_code', 50)->nullable();
+            $table->string('code', 50)->nullable();
             $table->foreign('lop_id')->references('id')->on('lops')->onDelete('cascade');
             $table->timestamps();
             //FK

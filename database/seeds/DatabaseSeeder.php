@@ -12,8 +12,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             //RolesTableSeeder::class,
-            NamHocTableSeeder::class,
-            HocKyTableSeeder::class,
             HoatDongTypesTableSeeder::class,
             HoatDongsTableSeeder::class,
             LCDoansTableSeeder::class,

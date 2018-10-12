@@ -156,15 +156,11 @@ class FGDevComand extends Command
         $roles = [
           [
               'id' => 1,
-              'type' => 'ADMIN'
+              'type' => 'Admin'
           ],
           [
               'id' => 2,
-              'type' => 'STUDENT'
-          ],
-          [
-              'id' => 3,
-              'type' => 'CLIENT'
+              'type' => 'Editor'
           ]
         ];
         DB::table('roles')->insert($roles);
