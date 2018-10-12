@@ -2,8 +2,8 @@
 <!-- BEGIN VENDOR CSS -->
 <!-- ============================================ -->
 {!! Html::style('app-assets/css/vendors.css') !!}
-{!! Html::style('app-assets/vendors/css/forms/icheck/icheck.css') !!}
-{!! Html::style('app-assets/vendors/css/forms/icheck/custom.css') !!}
+{{-- {!! Html::style('app-assets/vendors/css/forms/icheck/icheck.css') !!} --}}
+{{-- {!! Html::style('app-assets/vendors/css/forms/icheck/custom.css') !!} --}}
 {!! Html::style('app-assets/vendors/css/forms/selects/select2.min.css') !!}
 <!-- ============================================ -->
 <!-- END VENDOR CSS -->
@@ -11,10 +11,10 @@
 <!-- ============================================ -->
 <!-- BEGIN FONT CSS -->
 <!-- ============================================ -->
-{!! Html::style('app-assets/fonts/feather/style.css') !!}
+{{-- {!! Html::style('app-assets/fonts/feather/style.css') !!}
 {!! Html::style('/app-assets/fonts/simple-line-icons/style.min.css') !!}
 {!! Html::style('/app-assets/fonts/meteocons/style.min.css') !!}
-{!! Html::style('/app-assets/fonts/line-awesome/css/line-awesome.min.css') !!}
+{!! Html::style('/app-assets/fonts/line-awesome/css/line-awesome.min.css') !!} --}}
 <!-- ============================================ -->
 <!-- END FONT CSS -->
 <!-- ============================================ -->
@@ -37,6 +37,7 @@
 <!-- BEGIN CORE CSS -->
 <!-- ============================================ -->
 {!! Html::style('app-assets/css/core/menu/menu-types/vertical-menu-modern.css') !!}
+{!! Html::style('app-assets/css/core/menu/menu-types/vertical-menu.css') !!}
 {!! Html::style('app-assets/css/core/colors/palette-gradient.css') !!}
 {!! Html::style('app-assets/css/core/colors/palette-loader.css') !!}
 {!! Html::style('app-assets/css/plugins/animate/animate.css') !!}
@@ -48,6 +49,9 @@
 <!-- ============================================ -->
 {!! Html::style('app-assets/css/pages/login-register.css') !!}
 {!! Html::style('app-assets/vendors/css/cryptocoins/cryptocoins.css') !!}
+{!! Html::style('app-assets/vendors/css/forms/selects/selectize.css') !!}
+{!! Html::style('app-assets/vendors/css/forms/selects/selectize.default.css') !!}
+{!! Html::style('app-assets/css/plugins/forms/selectize/selectize.css') !!}
 <!-- ============================================ -->
 <!-- END Page Level CSS -->
 <!-- ============================================ -->

@@ -1,6 +1,7 @@
+
 <template>
   <!-- card actions section start -->
-  <section id="card-actions">
+  <section id="card-actions" class="basic-select2">
     <div class="row">
       <div class="col-xl-4 col-12">
         <div class="card">
@@ -75,34 +76,73 @@
                                     <input type="date" id="edate" class="form-control" name="date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="date Opened" data-original-title title>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="btn-group mt-1 mr-1 mb-1 btn-lg">
-                                    <button type="button" class="btn btn-icon btn-success p-1">
-                                        <i class="la la-plus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-success p1">Loại Hoạt Động</button>
-                                    <button type="button" class="btn btn-success dropdown-toggle p-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">something else</a>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="row">                      
+                          <div class="col-lg-6 col-md-12">
+                            
+                            <div class="form-group">
+                              <select data-placeholder="Select a state..." class="select2-icons form-control" id="select2-icons">
+                                <optgroup label="Services">
+                                  <option value="wordpress" data-icon="wordpress" selected>WordPress</option>
+                                  <option value="codepen" data-icon="codepen">Codepen</option>
+                                  <option value="drupal" data-icon="drupal">Drupal</option>
+                                  <option value="pinterest" data-icon="pinterest">CSS3</option>
+                                  <option value="html" data-icon="html5">HTML5</option>
+                                </optgroup>
+                                <optgroup label="File types">
+                                  <option value="pdf" data-icon="file-pdf-o">PDF</option>
+                                  <option value="word" data-icon="file-word-o">Word</option>
+                                  <option value="excel" data-icon="file-excel-o">Excel</option>
+                                  <option value="powerpoint" data-icon="file-powerpoint-o">PowerPoint</option>
+                                </optgroup>
+                                <optgroup label="Browsers">
+                                  <option value="chrome" data-icon="chrome">Chrome</option>
+                                  <option value="firefox" data-icon="firefox">Firefox</option>
+                                  <option value="safari" data-icon="safari">Safari</option>
+                                  <option value="opera" data-icon="opera">Opera</option>
+                                  <option value="IE" data-icon="internet-explorer">IE</option>
+                                </optgroup>
+                              </select>
                             </div>
-                            <div class="col-md-12">
-                                <label for="">Description</label>
-                                <textarea name="des" id="text" cols="30" rows="10" class="form-control" placeholder="Description" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments" data-original-title title></textarea>
-                            </div>
+                          </div>                      
+                          <div class="col-lg-6 col-md-12">
+                              <div class="form-group">
+                                <select data-placeholder="Select a state..." class="select2-icons form-control" id="select2-icons-multiple"
+                                multiple="multiple">
+                                  <optgroup label="Services">
+                                    <option value="wordpress" data-icon="wordpress" selected>WordPress</option>
+                                    <option value="codepen" data-icon="codepen">Codepen</option>
+                                    <option value="drupal" data-icon="drupal">Drupal</option>
+                                    <option value="pinterest" data-icon="pinterest">CSS3</option>
+                                    <option value="html" data-icon="html5">HTML5</option>
+                                  </optgroup>
+                                  <optgroup label="File types">
+                                    <option value="pdf" data-icon="file-pdf-o">PDF</option>
+                                    <option value="word" data-icon="file-word-o">Word</option>
+                                    <option value="excel" data-icon="file-excel-o">Excel</option>
+                                    <option value="powerpoint" data-icon="file-powerpoint-o">PowerPoint</option>
+                                  </optgroup>
+                                  <optgroup label="Browsers">
+                                    <option value="chrome" data-icon="chrome">Chrome</option>
+                                    <option value="firefox" data-icon="firefox">Firefox</option>
+                                    <option value="safari" data-icon="safari">Safari</option>
+                                    <option value="opera" data-icon="opera">Opera</option>
+                                    <option value="IE" data-icon="internet-explorer">IE</option>
+                                  </optgroup>
+                                </select>
+                              </div>
+                          </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6 mt-1">
-                                <button type="button" class="btn btn-success btn-lg mt-1 mr-1 mb-1 pr-5 pl-5">Cấp Quyền</button>
-                            </div>
+                          <div class="col-md-12">
+                              <label for="">Description</label>
+                              <textarea name="des" id="text" cols="30" rows="10" class="form-control" placeholder="Description" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments" data-original-title title></textarea>
+                          </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <button type="button" class="btn btn-warning mt-1 mr-1 mb-1 float-right">Confirm</button>
-                                <button type="button" class="btn btn-warning mt-1 mr-1 mb-1 float-right">Cancel</button>
+                                <button type="button" class="btn btn-success mt-1 mr-1 mb-1 float-right">Cancel</button>
+                                <button type="button" class="btn btn-success mt-1 mr-1 mb-1 float-right">Confirm</button>
                             </div>
                         </div>
                     </div>
