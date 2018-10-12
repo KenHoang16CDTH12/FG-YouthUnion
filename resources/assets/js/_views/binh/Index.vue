@@ -79,7 +79,6 @@
                         </div>
                         <div class="row">                      
                           <div class="col-lg-6 col-md-12">
-                            
                             <div class="form-group">
                               <select data-placeholder="Select a state..." class="select2-icons form-control" id="select2-icons">
                                 <optgroup label="Services">
@@ -145,6 +144,127 @@
                                 <button type="button" class="btn btn-success mt-1 mr-1 mb-1 float-right">Confirm</button>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Chose Academic</div>
+                    <div class="heading-elements">
+                      <ul class="list-inline mb-0">
+                        <li>
+                          <a data-action="close"><i class="ft-x"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="">Acade Year</label>
+                            <div class="form-group">
+                              <select data-placeholder="Select a state..." class="select2-icons form-control" id="select2-icons">
+                                <optgroup label="Services">
+                                  <option value="wordpress" data-icon="wordpress" selected>---------------</option>
+                                  <option value="wordpress" data-icon="wordpress">WordPress</option>
+                                  <option value="codepen" data-icon="codepen">Codepen</option>
+                                  <option value="drupal" data-icon="drupal">Drupal</option>
+                                  <option value="pinterest" data-icon="pinterest">CSS3</option>
+                                  <option value="html" data-icon="html5">HTML5</option>
+                                </optgroup>
+                                <optgroup label="File types">
+                                  <option value="pdf" data-icon="file-pdf-o">PDF</option>
+                                  <option value="word" data-icon="file-word-o">Word</option>
+                                  <option value="excel" data-icon="file-excel-o">Excel</option>
+                                  <option value="powerpoint" data-icon="file-powerpoint-o">PowerPoint</option>
+                                </optgroup>
+                                <optgroup label="Browsers">
+                                  <option value="chrome" data-icon="chrome">Chrome</option>
+                                  <option value="firefox" data-icon="firefox">Firefox</option>
+                                  <option value="safari" data-icon="safari">Safari</option>
+                                  <option value="opera" data-icon="opera">Opera</option>
+                                  <option value="IE" data-icon="internet-explorer">IE</option>
+                                </optgroup>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="">Program</label>
+                            <div class="form-group">
+                              <select data-placeholder="Select a state..." class="select2-icons form-control" id="select2-icons">
+                                <optgroup label="Services">
+                                  <option value="wordpress" data-icon="wordpress" selected>---------------</option>
+                                  <option value="wordpress" data-icon="wordpress">WordPress</option>
+                                  <option value="codepen" data-icon="codepen">Codepen</option>
+                                  <option value="drupal" data-icon="drupal">Drupal</option>
+                                  <option value="pinterest" data-icon="pinterest">CSS3</option>
+                                  <option value="html" data-icon="html5">HTML5</option>
+                                </optgroup>
+                                <optgroup label="File types">
+                                  <option value="pdf" data-icon="file-pdf-o">PDF</option>
+                                  <option value="word" data-icon="file-word-o">Word</option>
+                                  <option value="excel" data-icon="file-excel-o">Excel</option>
+                                  <option value="powerpoint" data-icon="file-powerpoint-o">PowerPoint</option>
+                                </optgroup>
+                                <optgroup label="Browsers">
+                                  <option value="chrome" data-icon="chrome">Chrome</option>
+                                  <option value="firefox" data-icon="firefox">Firefox</option>
+                                  <option value="safari" data-icon="safari">Safari</option>
+                                  <option value="opera" data-icon="opera">Opera</option>
+                                  <option value="IE" data-icon="internet-explorer">IE</option>
+                                </optgroup>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <label for=""><i class="ft-clipboard"></i> Class Information</label>
+                          <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                              <thead>
+                                <tr>
+                                  <th>Program</th>
+                                  <th>Academic</th>
+                                  <th>Class Detail</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Laravel</td>
+                                  <td>2018-20919</td>
+                                  <td><a href="">mother of</a></td>
+                                </tr>
+                                <tr>
+                                  <td>Laravel</td>
+                                  <td>2018-20919</td>
+                                  <td><a href="">mother of</a></td>
+                                </tr>
+                                <tr>
+                                  <td>Laravel</td>
+                                  <td>2018-20919</td>
+                                  <td><a href="">mother of</a></td>
+                                </tr>
+                                <tr>
+                                  <td>Laravel</td>
+                                  <td>2018-20919</td>
+                                  <td><a href="">mother of</a></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -262,12 +382,7 @@
         </div>
       </div>
     </div>
-    
   </section>
-
-
-
-
 </template>
 <script>
 import { Alert } from '../../_utils';
