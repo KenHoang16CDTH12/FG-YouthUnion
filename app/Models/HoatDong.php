@@ -13,17 +13,9 @@ class HoatDong extends Model
       'desc',
       'from_date',
       'end_date',
-      'hocky_id',
       'hoatdong_type_id'
     ];
 
-	/**
-	* Get the hocky that owns the hoatdong.
-	*/
-	public function hocky()
-	{
-		return $this->belongsTo('App\Models\HocKy');
-	}
 	/**
 	* Get the hoatdongtype that owns the hoatdong.
 	*/

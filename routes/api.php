@@ -66,26 +66,6 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api
     Route::delete('userdetails/{id}', 'UserDetailController@destroy');
     /*
     |------------------------------------------------------------
-    | NamHoc API Routes
-    |------------------------------------------------------------
-    */
-    Route::get('namhocs', 'NamHocController@index');
-    Route::get('namhocs/{id}', 'NamHocController@show');
-    Route::post('namhocs', 'NamHocController@store');
-    Route::put('namhocs/{id}', 'NamHocController@update');
-    Route::delete('namhocs/{id}', 'NamHocController@destroy');
-    /*
-    |------------------------------------------------------------
-    | HocKy API Routes
-    |------------------------------------------------------------
-    */
-    Route::get('hockys', 'HocKyController@index');
-    Route::get('hockys/{id}', 'HocKyController@show');
-    Route::post('hockys', 'HocKyController@store');
-    Route::put('hockys/{id}', 'HocKyController@update');
-    Route::delete('hockys/{id}', 'HocKyController@destroy');
-    /*
-    |------------------------------------------------------------
     | HoatDongType API Routes
     |------------------------------------------------------------
     */
@@ -104,6 +84,9 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api
     Route::post('hoatdongs', 'HoatDongController@store');
     Route::put('hoatdongs/{id}', 'HoatDongController@update');
     Route::delete('hoatdongs/{id}', 'HoatDongController@destroy');
+    Route::get('comingup/hoatdongs', 'HoatDongController@indexComingUp');
+    Route::get('happening/hoatdongs', 'HoatDongController@indexHappening');
+    Route::get('finished/hoatdongs', 'HoatDongController@indexFinished');
     /*
     |------------------------------------------------------------
     | LCDoan API Routes

@@ -39,8 +39,47 @@ class HoatDongController extends Controller
     {
         $entries = Input::has('entries') ? Input::get('entries') : 10;
         if (Input::has('searchText'))
-            return  $this->respository->collectionSearch($entries, Input::get('searchText'));
-        return $this->respository->collection($entries);
+            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
+        return $this->respository->collection($entries, Input::get('sort'));
+    }
+
+    /**
+     * Get comming up of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function indexComingUp()
+    {
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
+        return $this->respository->collectionComingUp($entries, Input::get('sort'));
+    }
+
+    /**
+     * Get happenning of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function indexHappening()
+    {
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
+        return $this->respository->collectionHappening($entries, Input::get('sort'));
+    }
+
+    /**
+     * Get finished of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function indexFinished()
+    {
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
+        return $this->respository->collectionFinished($entries, Input::get('sort'));
     }
 
     /**
