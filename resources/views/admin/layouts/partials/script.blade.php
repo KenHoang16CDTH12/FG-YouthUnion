@@ -11,7 +11,6 @@
 {!! Html::script('app-assets/data/jvector/visitor-data.js') !!}
 {!! Html::script('app-assets/vendors/js/animation/jquery.appear.js') !!}
 {!! Html::script('app-assets/vendors/js/forms/select/select2.full.min.js') !!}
-{!! Html::script('app-assets/vendors/js/forms/select/selectize.min.js') !!}
 <!-- ============================================ -->
 <!-- END PAGE VENDOR JS -->
 <!-- ============================================ -->

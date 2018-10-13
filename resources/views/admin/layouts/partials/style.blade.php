@@ -2,8 +2,8 @@
 <!-- BEGIN VENDOR CSS -->
 <!-- ============================================ -->
 {!! Html::style('app-assets/css/vendors.css') !!}
-{{-- {!! Html::style('app-assets/vendors/css/forms/icheck/icheck.css') !!} --}}
-{{-- {!! Html::style('app-assets/vendors/css/forms/icheck/custom.css') !!} --}}
+{!! Html::style('app-assets/vendors/css/forms/icheck/icheck.css') !!}
+{!! Html::style('app-assets/vendors/css/forms/icheck/custom.css') !!}
 {!! Html::style('app-assets/vendors/css/forms/selects/select2.min.css') !!}
 <!-- ============================================ -->
 <!-- END VENDOR CSS -->
@@ -11,10 +11,10 @@
 <!-- ============================================ -->
 <!-- BEGIN FONT CSS -->
 <!-- ============================================ -->
-{{-- {!! Html::style('app-assets/fonts/feather/style.css') !!}
+{!! Html::style('app-assets/fonts/feather/style.css') !!}
 {!! Html::style('/app-assets/fonts/simple-line-icons/style.min.css') !!}
 {!! Html::style('/app-assets/fonts/meteocons/style.min.css') !!}
-{!! Html::style('/app-assets/fonts/line-awesome/css/line-awesome.min.css') !!} --}}
+{!! Html::style('/app-assets/fonts/line-awesome/css/line-awesome.min.css') !!}
 <!-- ============================================ -->
 <!-- END FONT CSS -->
 <!-- ============================================ -->
