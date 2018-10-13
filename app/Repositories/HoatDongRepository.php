@@ -2,20 +2,22 @@
 
 namespace App\Repositories;
 
+use Carbon\Carbon;
 use App\Models\HoatDong;
 use App\Http\Resources\HoatDongResource;
 
 class HoatDongRepository
 {
+
     /**
      * Get all of the objects for a given model.
      *
      * @return Collection
      */
-    public function collection($entries)
+    public function collection($entries, $sort)
     {
         // Return collection of objects as a resource
-        return HoatDongResource::collection(HoatDong::orderBy('created_at', 'desc')->paginate($entries));
+        return HoatDongResource::collection(HoatDong::orderBy('id', $sort)->paginate($entries));
     }
 
     /**
@@ -23,17 +25,55 @@ class HoatDongRepository
      *
      * @return Collection
      */
-    public function collectionSearch($entries, $searchText)
+    public function collectionSearch($entries, $searchText, $sort)
     {
         $query = HoatDong::where('id', $searchText)
-                     ->orWhere('name', 'LIKE', '%'.$searchText.'%')
-                     ->orWhere('desc', 'LIKE', '%'.$searchText.'%')
-                     ->orWhere('from_date', 'LIKE', '%'.$searchText.'%')
-                     ->orWhere('end_date', 'LIKE', '%'.$searchText.'%')
-                     ->orWhere('hocky_id', 'LIKE', '%'.$searchText.'%')
-                     ->orWhere('hoatdong_type_id', 'LIKE', '%'.$searchText.'%');
+                     ->orWhere('name', 'LIKE', '%'.$searchText.'%');
         // Return collection of objects as a resource
-        return HoatDongResource::collection($query->orderBy('created_at', 'desc')->paginate($entries));
+        return HoatDongResource::collection($query->orderBy('id', $sort)->paginate($entries));
+    }
+
+    /**
+     * Get coming up of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionComingUp($entries, $sort)
+    {
+
+        // Return collection of objects as a resource
+        return HoatDongResource::collection(
+            HoatDong::whereDate('from_date', '>=', Carbon::today()->toDateString())
+                     ->orderBy('id', $sort)->paginate($entries));
+    }
+
+    /**
+     * Get happenning of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionHappening($entries, $sort)
+    {
+
+        // Return collection of objects as a resource
+        return HoatDongResource::collection(
+            HoatDong::whereDate('from_date', '<=', Carbon::today()->toDateString())
+                     ->whereDate('end_date', '>=', Carbon::today()->toDateString())
+                     ->orderBy('id', $sort)->paginate($entries));
+    }
+
+    /**
+     * Get finished of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function collectionFinished($entries, $sort)
+    {
+
+         // Return collection of objects as a resource
+        return HoatDongResource::collection(
+            HoatDong::whereDate('end_date', '<=', Carbon::today()->toDateString())
+                     ->orderBy('id', $sort)->paginate($entries));
     }
 
     /**
@@ -69,7 +109,7 @@ class HoatDongRepository
     public function update($request, $id)
     {
         $hoatdong = HoatDong::findOrFail($id);
-        $hoatdong->update($request->only(['name','desc','from_date','end_date','hocky_id','hoatdong_type_id']));
+        $hoatdong->update($request->only(['name','desc','from_date','end_date', 'hoatdong_type_id']));
         // Return object
         return new HoatDongResource($hoatdong);
     }
