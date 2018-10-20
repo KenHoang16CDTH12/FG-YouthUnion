@@ -54,16 +54,10 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api
     Route::post('users', 'UserController@store');
     Route::put('users/{id}', 'UserController@update');
     Route::delete('users/{id}', 'UserController@destroy');
-    /*
-    |------------------------------------------------------------
-    | UserDetail API Routes
-    |------------------------------------------------------------
-    */
-    Route::get('userdetails', 'UserDetailController@index');
-    Route::get('userdetails/{id}', 'UserDetailController@show');
-    Route::post('userdetails', 'UserDetailController@store');
-    Route::put('userdetails/{id}', 'UserDetailController@update');
-    Route::delete('userdetails/{id}', 'UserDetailController@destroy');
+    Route::get('users/detail/{id}', 'UserController@showDetail');
+    Route::get('users/to/lop/{id}', 'UserController@toLop');
+    Route::get('users/to/khoa/{id}', 'UserController@toKhoa');
+    Route::get('users/to/lcdoan/{id}', 'UserController@toLCD');
     /*
     |------------------------------------------------------------
     | HoatDongType API Routes
@@ -122,11 +116,8 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api
     | UserHoatDong API Routes
     |------------------------------------------------------------
     */
-    Route::get('userhoatdongs', 'UserHoatDongController@index');
-    Route::get('userhoatdongs/{id}', 'UserHoatDongController@show');
-    Route::post('userhoatdongs', 'UserHoatDongController@store');
-    Route::put('userhoatdongs/{id}', 'UserHoatDongController@update');
-    Route::delete('userhoatdongs/{id}', 'UserHoatDongController@destroy');
+    Route::get('userhoatdongs/{id}', 'UserHoatDongController@collectionJoined');
+    Route::post('userhoatdongs', 'UserHoatDongController@attendance');
     /*
     |------------------------------------------------------------
     | LCDoanHoatDong API Routes

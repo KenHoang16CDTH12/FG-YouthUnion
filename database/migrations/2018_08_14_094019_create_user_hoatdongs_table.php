@@ -17,7 +17,6 @@ class CreateUserHoatdongsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('hoatdong_id')->unsigned();
-            $table->string('status', 50);
             $table->timestamps();
             //FK
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

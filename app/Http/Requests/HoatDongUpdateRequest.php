@@ -13,7 +13,7 @@ class HoatDongUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,11 +24,10 @@ class HoatDongUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'string',
+            'name' => 'string|unique:hoatdongs|max:255',
             'desc' => 'string',
-            'from_date' => 'date',
-            'end_date' => 'date',
-            'hocky_id' => 'integer',
+            'from_date' => 'date_format:"Y-m-d"|before:end_date',
+            'end_date' => 'date_format:"Y-m-d"|after:from_date',
             'hoatdong_type_id' => 'integer'
         ];
     }

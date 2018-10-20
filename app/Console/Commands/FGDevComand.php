@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use DB;
 use Exception;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Artisan;
@@ -76,8 +77,8 @@ class FGDevComand extends Command
 
         if (!User::count()) {
             $this->setUpAdminAccount();
-            $this->info('Seeding initial data');
-            Artisan::call('db:seed', ['--force' => true]);
+            //Seeding data
+            $this->seedingData();
         } else {
             $this->comment('Data seeded -- skipping');
         }
@@ -153,24 +154,58 @@ class FGDevComand extends Command
      */
     private function setUpAdminAccount()
     {
-        $roles = [
-          [
-              'id' => 1,
-              'type' => 'Admin'
-          ],
-          [
-              'id' => 2,
-              'type' => 'Editor'
-          ]
-        ];
-        DB::table('roles')->insert($roles);
 
+        if (!Role::count()) {
+            $roles = [
+              [
+                  'id' => 1,
+                  'type' => 'Admin'
+              ],
+              [
+                  'id' => 2,
+                  'type' => 'Editor'
+              ]
+            ];
+            DB::table('roles')->insert($roles);
+            $this->comment('Default role -- adding');
+        } else {
+            $this->comment('Default role -- skipping');
+        }
         $this->info("Let's create the admin account.");
-        $name = $this->ask('Your name');
-        $email = $this->ask('Your email address');
+
+        $isName = false;
+        while (!$isName) {
+            $name = $this->ask('Your name');
+            if (trim($name) != '') {
+                $name = trim($name);
+                $isName = true;
+            } else {
+                $this->error('Name isn\'t null. Let\'s try again.');
+            }
+        }
+
+        $isEmail = false;
+        while (!$isEmail) {
+            $email = $this->ask('Your email address');
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $this->error('Email isn\'t correct. Let\'s try again.');
+            } else {
+                $isEmail = true;
+            }
+        }
+
+        $isPassword = false;
+        while(!$isPassword) {
+            $password = $this->secret('Your desired password');
+            if (strlen($password) >= 6) {
+                   $isPassword = true;
+            } else {
+                $this->error('Please input password length >= 6');
+            }
+        }
+
         $passwordConfirmed = false;
         while (!$passwordConfirmed) {
-            $password = $this->secret('Your desired password');
             $confirmation = $this->secret('Again, just to make sure');
             if ($confirmation !== $password) {
                 $this->error('That doesn\'t match. Let\'s try again.');
@@ -188,5 +223,18 @@ class FGDevComand extends Command
             'role_id' => 1,
             'class_id' => null
         ]);
+    }
+
+    /**
+     * Seeding data
+     */
+    private function seedingData() {
+        $isSeed = $this->ask('Do you want seeding fake data? (Y/N)');
+        if ($isSeed == 'Y' || $isSeed == 'Yes') {
+            $this->info('Seeding initial data');
+            Artisan::call('db:seed', ['--force' => true]);
+        } else {
+            $this->comment('Data seeded -- skipping');
+        }
     }
 }

@@ -13,7 +13,7 @@ class HoatDongTypeUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class HoatDongTypeUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'string'
+            'type' => 'string|unique:hoatdong_types|max:100'
         ];
     }
 }
