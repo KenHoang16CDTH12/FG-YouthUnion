@@ -31,61 +31,25 @@ class UserHoatDongController extends Controller
     }
 
     /**
-     * Get all of the objects for a given model.
-     *
-     * @return Collection
-     */
-    public function index()
-    {
-        $entries = Input::has('entries') ? Input::get('entries') : 10;
-        if (Input::has('searchText'))
-            return  $this->respository->collectionSearch($entries, Input::get('searchText'));
-        return $this->respository->collection($entries);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return $this->respository->show($id);
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserHoatDongStoreRequest $request)
+    public function attendance(UserHoatDongStoreRequest $request)
     {
         $request->validated();
-        return $this->respository->store($request);
+        return $this->respository->attendance($request);
     }
 
     /**
-     * Display the specified resource.
+     * Collect Joined.
      *
-     * @param  $request | $id
-     * @return \Illuminate\Http\Response
+     * @return Collection
      */
-    public function update(UserHoatDongUpdateRequest $request, $id)
+    public function collectionJoined($id)
     {
-        $request->validated();
-        return $this->respository->update($request, $id);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        return $this->respository->destroy($id);
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        return $this->respository->collectionJoined($id, $entries, Input::get('sort'));
     }
 }

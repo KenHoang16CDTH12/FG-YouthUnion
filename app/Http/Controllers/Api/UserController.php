@@ -88,4 +88,48 @@ class UserController extends Controller
     {
         return $this->respository->destroy($id);
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showDetail($id)
+    {
+        return $this->respository->showDetail($id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function toLop($id)
+    {
+        return $this->respository->toLop($id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function toKhoa($id)
+    {
+        return $this->respository->toKhoa($id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function toLCD($id)
+    {
+        return $this->respository->toLCD($id);
+    }
 }

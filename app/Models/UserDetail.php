@@ -30,4 +30,12 @@ class UserDetail extends Model
 	{
 		return $this->belongsTo('App\Models\User');
 	}
+
+    /**
+    * Get the lop that owns the user_detail.
+    */
+    public function lop()
+    {
+        return $this->belongsTo('App\Models\Lop');
+    }
 }

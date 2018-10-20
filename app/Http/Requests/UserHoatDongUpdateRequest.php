@@ -13,7 +13,7 @@ class UserHoatDongUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,7 @@ class UserHoatDongUpdateRequest extends FormRequest
     {
         return [
             'user_id' => 'integer',
-            'hoatdongs_id' => 'integer',
-            'status' => 'string|max:45'
+            'hoatdong_id' => 'integer'
         ];
     }
 }

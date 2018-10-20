@@ -6,6 +6,5 @@ $factory->define(App\Models\UserHoatDong::class, function ($faker) {
     return [
         'user_id' => factory(App\Models\User::class)->create()->id,
         'hoatdong_id' => factory(App\Models\HoatDong::class)->create()->id,
-        'status' => $faker->randomElement(['ACTIVE','UNACTIVE']),
     ];
 });

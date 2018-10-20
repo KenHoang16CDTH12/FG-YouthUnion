@@ -3,7 +3,10 @@
 namespace App\Repositories;
 
 use App\Models\User;
+use App\Models\UserDetail;
 use App\Http\Resources\UserResource;
+use App\Http\Resources\DataResource;
+use App\Http\Resources\UserDetailResource;
 
 class UserRepository
 {
@@ -81,5 +84,71 @@ class UserRepository
       $user = User::findOrFail($id);
       $user->delete();
       return response()->json(null, 204);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showDetail($id)
+    {
+        //Return object
+        return new UserDetailResource(UserDetail::where('user_id', $id)->first());
+    }
+
+    /**
+     * User of Lop
+     *
+     * @param  int  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function toLop($id)
+    {
+        $obj = User::join('user_details', 'user_details.user_id', 'users.id')
+                        ->join('lops', 'lops.id', 'user_details.lop_id')
+                        ->where('users.id', $id)
+                        ->first(['lops.*']);
+        // Return object
+        //return response()->json($obj, 200);
+        return new DataResource($obj);
+    }
+
+    /**
+     * User of Khoa
+     *
+     * @param  int  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function toKhoa($id)
+    {
+        $obj = User::join('user_details', 'user_details.user_id', 'users.id')
+                        ->join('lops', 'lops.id', 'user_details.lop_id')
+                        ->join('khoas', 'khoas.id', 'lops.khoa_id')
+                        ->where('users.id', $id)
+                        ->first(['khoas.*']);
+        // Return object
+        //return response()->json($obj, 200);
+        return new DataResource($obj);
+    }
+
+    /**
+     * User of LCD
+     *
+     * @param  int  $request | $id
+     * @return \Illuminate\Http\Response
+     */
+    public function toLCD($id)
+    {
+        $obj = User::join('user_details', 'user_details.user_id', 'users.id')
+                        ->join('lops', 'lops.id', 'user_details.lop_id')
+                        ->join('khoas', 'khoas.id', 'lops.khoa_id')
+                        ->join('lcdoans', 'lcdoans.id', 'khoas.lcdoan_id')
+                        ->where('users.id', $id)
+                        ->first(['lcdoans.*']);
+        // Return object
+        //return response()->json($obj, 200);
+        return new DataResource($obj);
     }
 }
