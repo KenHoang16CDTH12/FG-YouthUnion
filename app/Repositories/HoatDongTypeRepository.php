@@ -12,6 +12,17 @@ class HoatDongTypeRepository
      *
      * @return Collection
      */
+    public function all()
+    {
+        // Return collection of objects as a resource
+        return HoatDongTypeResource::collection(HoatDongType::orderBy('id')->get());
+    }
+
+    /**
+     * Get all of the objects for a given model.
+     *
+     * @return Collection
+     */
     public function collection($entries, $sort)
     {
         // Return collection of objects as a resource

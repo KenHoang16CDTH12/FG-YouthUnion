@@ -34,6 +34,16 @@ class LCDoanController extends Controller
      *
      * @return Collection
      */
+    public function all()
+    {
+        return $this->respository->all();
+    }
+
+    /**
+     * Get all of the objects for a given model.
+     *
+     * @return Collection
+     */
     public function index()
     {
         $entries = Input::has('entries') ? Input::get('entries') : 10;

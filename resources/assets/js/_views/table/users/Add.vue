@@ -116,9 +116,8 @@ export default {
           { key: 0, value: 'Inactive'}
         ],
         roles: [
-          { key: 1, value: 'ADMIN' },
-          { key: 2, value: 'STUDENT'},
-          { key: 3, value: 'CLIENT'}
+          { key: 1, value: 'Admin' },
+          { key: 2, value: 'Editor'}
         ],
         object: {},
         errorValues: null

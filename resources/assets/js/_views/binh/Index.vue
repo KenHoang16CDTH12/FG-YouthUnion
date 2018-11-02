@@ -57,93 +57,58 @@
                 </div>
                 <div class="card-content collapse show">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" id="name" class="form-control p-1" placeholder="Name" name="name">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="">From date</label>
-                                    <input type="date" id="fdate" class="form-control" name="date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="date Opened" data-original-title title>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="">End date</label>
-                                    <input type="date" id="edate" class="form-control" name="date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="date Opened" data-original-title title>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">                      
-                          <div class="col-lg-6 col-md-12">
-                            <div class="form-group">
-                              <select data-placeholder="Select a state..." class="select2-icons form-control" id="select2-icons">
-                                <optgroup label="Services">
-                                  <option value="wordpress" data-icon="wordpress" selected>WordPress</option>
-                                  <option value="codepen" data-icon="codepen">Codepen</option>
-                                  <option value="drupal" data-icon="drupal">Drupal</option>
-                                  <option value="pinterest" data-icon="pinterest">CSS3</option>
-                                  <option value="html" data-icon="html5">HTML5</option>
-                                </optgroup>
-                                <optgroup label="File types">
-                                  <option value="pdf" data-icon="file-pdf-o">PDF</option>
-                                  <option value="word" data-icon="file-word-o">Word</option>
-                                  <option value="excel" data-icon="file-excel-o">Excel</option>
-                                  <option value="powerpoint" data-icon="file-powerpoint-o">PowerPoint</option>
-                                </optgroup>
-                                <optgroup label="Browsers">
-                                  <option value="chrome" data-icon="chrome">Chrome</option>
-                                  <option value="firefox" data-icon="firefox">Firefox</option>
-                                  <option value="safari" data-icon="safari">Safari</option>
-                                  <option value="opera" data-icon="opera">Opera</option>
-                                  <option value="IE" data-icon="internet-explorer">IE</option>
-                                </optgroup>
-                              </select>
-                            </div>
-                          </div>                      
-                          <div class="col-lg-6 col-md-12">
-                              <div class="form-group">
-                                <select data-placeholder="Select a state..." class="select2-icons form-control" id="select2-icons-multiple"
-                                multiple="multiple">
-                                  <optgroup label="Services">
-                                    <option value="wordpress" data-icon="wordpress" selected>WordPress</option>
-                                    <option value="codepen" data-icon="codepen">Codepen</option>
-                                    <option value="drupal" data-icon="drupal">Drupal</option>
-                                    <option value="pinterest" data-icon="pinterest">CSS3</option>
-                                    <option value="html" data-icon="html5">HTML5</option>
-                                  </optgroup>
-                                  <optgroup label="File types">
-                                    <option value="pdf" data-icon="file-pdf-o">PDF</option>
-                                    <option value="word" data-icon="file-word-o">Word</option>
-                                    <option value="excel" data-icon="file-excel-o">Excel</option>
-                                    <option value="powerpoint" data-icon="file-powerpoint-o">PowerPoint</option>
-                                  </optgroup>
-                                  <optgroup label="Browsers">
-                                    <option value="chrome" data-icon="chrome">Chrome</option>
-                                    <option value="firefox" data-icon="firefox">Firefox</option>
-                                    <option value="safari" data-icon="safari">Safari</option>
-                                    <option value="opera" data-icon="opera">Opera</option>
-                                    <option value="IE" data-icon="internet-explorer">IE</option>
-                                  </optgroup>
-                                </select>
+                      <form class="form">
+                        <div class="form-body">
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <div class="form-group">
+                                      <label for="">Name</label>
+                                      <input type="text" id="name" class="form-control p-1" placeholder="Name" name="name">
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="form-group">
+                                      <label for="">From date</label>
+                                      <input type="date" id="fdate" class="form-control" name="date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="date Opened" data-original-title title>
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="form-group">
+                                      <label for="">End date</label>
+                                      <input type="date" id="edate" class="form-control" name="date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="date Opened" data-original-title title>
+                                  </div>
                               </div>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                              <label for="">Description</label>
-                              <textarea name="des" id="text" cols="30" rows="10" class="form-control" placeholder="Description" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments" data-original-title title></textarea>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                 <label class="typo__label">HoatDong Type</label>
+                                 <multiselect v-model="value" :options="options" :custom-label="nameWithLang" placeholder="Select one" label="name" track-by="name"></multiselect>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="typo__label">Lien Chi Doan</label>
+                                <multiselect v-model="value" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                                <label for="">Description</label>
+                                <textarea name="des" id="text" cols="30" rows="10" class="form-control" placeholder="Description" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments" data-original-title title></textarea>
+                            </div>
                           </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <button type="button" class="btn btn-success mt-1 mr-1 mb-1 float-right">Cancel</button>
-                                <button type="button" class="btn btn-success mt-1 mr-1 mb-1 float-right">Confirm</button>
-                            </div>
+                        <div class="form-actions center">
+                          <button type="button" class="btn btn-warning mr-1">
+                            <i class="ft-x"></i> Cancel
+                          </button>
+                          <button type="submit" class="btn btn-primary">
+                            <i class="la la-check-square-o"></i> Save
+                          </button>
                         </div>
+                      </form>
                     </div>
                 </div>
             </div>
@@ -385,17 +350,17 @@
   </section>
 </template>
 <script>
-import { Alert } from '../../_utils';
-import { resourceService } from '../../_services';
-
-import Sortable from 'sortablejs';
+import { Alert } from '../../_utils'
+import { resourceService } from '../../_services'
+import Sortable from 'sortablejs'
+import Multiselect from 'vue-multiselect'
 import waves from '../../_directives/waves'
-import CardHeader from '../../_components/card-element/Header.vue';
-import CardLoading from '../../_components/card-element/Loading.vue';
+import CardHeader from '../../_components/card-element/Header.vue'
+import CardLoading from '../../_components/card-element/Loading.vue'
 
 export default {
     components: {
-       CardHeader, CardLoading
+       Multiselect, CardHeader, CardLoading
     },
     directives: {
       waves
@@ -426,6 +391,14 @@ export default {
         errorValues: null,
         downloadLoading: false,
         sortOptions: [{ label: 'ID Ascending', key: 'asc' }, { label: 'ID Descending', key: 'desc' }],
+        value: [
+          { name: 'Javascript', code: 'js' }
+        ],
+        options: [
+          { name: 'Vue.js', code: 'vu' },
+          { name: 'Javascript', code: 'js' },
+          { name: 'Open Source', code: 'os' }
+        ]
       }
     },
     computed: {
@@ -584,6 +557,14 @@ export default {
             row.originalUsername = row.username;
             this.updateObject(row);
         },
+        addTag (newTag) {
+          const tag = {
+            name: newTag,
+            code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
+          }
+          this.options.push(tag)
+          this.value.push(tag)
+        }
     }
 };
 </script>

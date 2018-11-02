@@ -25,7 +25,7 @@ class HoatDongStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|unique:hoatdongs|max:255',
-            'desc' => 'required|string',
+            'desc' => 'string',
             'from_date' => 'date_format:"Y-m-d"|required|before:end_date',
             'end_date' => 'date_format:"Y-m-d"|required|after:from_date',
             'hoatdong_type_id' => 'required|integer'
