@@ -16,7 +16,7 @@ const activityRouter = {
       path: 'index',
       component: () => import('../../_views/activity/Index'),
       name: 'activity.index',
-      meta: { title: 'listactivity' }
+      meta: { title: 'listActivity' }
     },
     {
       path: 'type',

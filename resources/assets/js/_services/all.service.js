@@ -4,16 +4,15 @@ import { authHeader } from '../_helpers';
 import { contentType } from '../_helpers';
 import { handleResponse } from '../_helpers';
 
-export const selectService = {
-    dataSelect: _get
+export const allService = {
+    all: _all
 };
 
-function _get(objName) {
+function _all(objName) {
     const requestOptions = {
         method: 'GET',
         headers: { ...authHeader(), ...contentType(), ...accept() }
     };
-    console.log(`${url}/${objName}/select`);
-    return fetch(`${url}/${objName}/select`, requestOptions).then(handleResponse);
+    return fetch(`${url}/all/${objName}`, requestOptions).then(handleResponse);
 }
 

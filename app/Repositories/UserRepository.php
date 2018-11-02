@@ -151,4 +151,24 @@ class UserRepository
         //return response()->json($obj, 200);
         return new DataResource($obj);
     }
+
+
+
+    /**
+     * List users of LCD
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function usersOfLCD($idLCD, $entries, $sort)
+    {
+        $query = User::join('user_details', 'user_details.user_id', 'users.id')
+                        ->join('lops', 'lops.id', 'user_details.lop_id')
+                        ->join('khoas', 'khoas.id', 'lops.khoa_id')
+                        ->join('lcdoans', 'lcdoans.id', 'khoas.lcdoan_id')
+                        ->where('lcdoans.id', $idLCD);
+        // Return object
+        //return response()->json($obj, 200);
+        return UserResource::collection($query->orderBy('id', $sort)->paginate($entries, ['users.*']));
+    }
 }

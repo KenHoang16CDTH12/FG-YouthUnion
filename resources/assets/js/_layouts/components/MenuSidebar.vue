@@ -49,6 +49,9 @@
                     <li>
                         <router-link tag="a" :to="{ name: 'activity.type.index' }" class="menu-item">Type</router-link>
                     </li>
+                    <li>
+                        <router-link tag="a" :to="{ name: 'activity.index' }" class="menu-item">Activity</router-link>
+                    </li>
                 </ul>
             </li>
 
@@ -63,7 +66,7 @@
                 <span class="menu-title" data-i18n="nav.support_documentation.main">Github</span>
             </a>
             </li>
-            
+
         </ul>
         <!-- ============================================ -->
         <!-- End Navigation-->

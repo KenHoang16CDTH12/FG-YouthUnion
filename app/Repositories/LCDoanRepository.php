@@ -7,6 +7,17 @@ use App\Http\Resources\LCDoanResource;
 
 class LCDoanRepository
 {
+
+    /**
+     * Get all of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function all()
+    {
+        // Return collection of objects as a resource
+        return LCDoanResource::collection(LCDoan::orderBy('id')->get());
+    }
     /**
      * Get all of the objects for a given model.
      *

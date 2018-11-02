@@ -230,7 +230,7 @@ class FGDevComand extends Command
      */
     private function seedingData() {
         $isSeed = $this->ask('Do you want seeding fake data? (Y/N)');
-        if ($isSeed == 'Y' || $isSeed == 'Yes') {
+        if ($isSeed == 'Y' || $isSeed == 'Yes' || $isSeed == 'y') {
             $this->info('Seeding initial data');
             Artisan::call('db:seed', ['--force' => true]);
         } else {

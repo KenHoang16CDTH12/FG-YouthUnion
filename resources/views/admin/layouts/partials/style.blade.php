@@ -4,7 +4,6 @@
 {!! Html::style('app-assets/css/vendors.css') !!}
 {!! Html::style('app-assets/vendors/css/forms/icheck/icheck.css') !!}
 {!! Html::style('app-assets/vendors/css/forms/icheck/custom.css') !!}
-{!! Html::style('app-assets/vendors/css/forms/selects/select2.min.css') !!}
 <!-- ============================================ -->
 <!-- END VENDOR CSS -->
 <!-- ============================================ -->
@@ -49,9 +48,6 @@
 <!-- ============================================ -->
 {!! Html::style('app-assets/css/pages/login-register.css') !!}
 {!! Html::style('app-assets/vendors/css/cryptocoins/cryptocoins.css') !!}
-{!! Html::style('app-assets/vendors/css/forms/selects/selectize.css') !!}
-{!! Html::style('app-assets/vendors/css/forms/selects/selectize.default.css') !!}
-{!! Html::style('app-assets/css/plugins/forms/selectize/selectize.css') !!}
 <!-- ============================================ -->
 <!-- END Page Level CSS -->
 <!-- ============================================ -->

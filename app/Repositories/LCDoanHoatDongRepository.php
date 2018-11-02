@@ -53,7 +53,15 @@ class LCDoanHoatDongRepository
     public function store($request)
     {
         // Return object
-        return new LCDoanHoatDongResource(LCDoanHoatDong::create($request->all()));
+        $object = LCDoanHoatDong::where('lcdoan_id', $request['lcdoan_id'])
+                            ->where('hoatdong_id', $request['hoatdong_id'])
+                            ->first();
+        if ($object == null) {
+            // Return object
+            return new LCDoanHoatDongResource(LCDoanHoatDong::create($request->all()));
+        } else {
+            return new LCDoanHoatDongResource($object);
+        }
     }
 
     /**

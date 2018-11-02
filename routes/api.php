@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api
     Route::put('users/{id}', 'UserController@update');
     Route::delete('users/{id}', 'UserController@destroy');
     Route::get('users/detail/{id}', 'UserController@showDetail');
+    Route::get('users/lcdoan/{id}', 'UserController@usersOfLCD');
     Route::get('users/to/lop/{id}', 'UserController@toLop');
     Route::get('users/to/khoa/{id}', 'UserController@toKhoa');
     Route::get('users/to/lcdoan/{id}', 'UserController@toLCD');
@@ -68,6 +69,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api
     Route::post('hoatdongtypes', 'HoatDongTypeController@store');
     Route::put('hoatdongtypes/{id}', 'HoatDongTypeController@update');
     Route::delete('hoatdongtypes/{id}', 'HoatDongTypeController@destroy');
+    Route::get('all/hoatdongtypes', 'HoatDongTypeController@all');
     /*
     |------------------------------------------------------------
     | HoatDong API Routes
@@ -91,6 +93,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api
     Route::post('lcdoans', 'LCDoanController@store');
     Route::put('lcdoans/{id}', 'LCDoanController@update');
     Route::delete('lcdoans/{id}', 'LCDoanController@destroy');
+    Route::get('all/lcdoans', 'LCDoanController@all');
     /*
     |------------------------------------------------------------
     | Khoa API Routes

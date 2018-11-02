@@ -132,4 +132,16 @@ class UserController extends Controller
     {
         return $this->respository->toLCD($id);
     }
+
+    /**
+     *  List users of LCD.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function usersOfLCD($idLCD)
+    {
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        return $this->respository->usersOfLCD($idLCD, $entries, Input::get('sort'));
+    }
 }
