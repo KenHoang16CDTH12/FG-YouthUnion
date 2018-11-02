@@ -1,6 +1,6 @@
 <p align="center">
   <!-- Logo -->
-  <img width="320" src="">
+  <img width="320" src="https://image.ibb.co/g8MGNf/FGDev-Logo.png">
 </p>
 
 <p align="center">
@@ -36,7 +36,7 @@ Understanding and learning this knowledge in advance will greatly help the use o
 ---
 
  <p align="center">
-  <img width="900" src="https://thumb.ibb.co/bxEWoL/dashboard.png">
+  <img width="900" src="https://image.ibb.co/cVq48L/dashboard.png">
 </p>
 
 ## Features
