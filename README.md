@@ -16,7 +16,7 @@ English | [Vietnamese](./README.vi.md)
 
 ## Introduction
 
-[vue-element-admin](http://panjiachen.github.io/vue-element-admin) is a front-end management background integration solution. It based on [vue](https://github.com/vuejs/vue) and use the UI Toolkit [element](https://github.com/ElemeFE/element).
+[fg-youth-union](https://github.com/KenHoang16CDTH12/FG-YouthUnion) is a project management. It based on [vue](https://github.com/vuejs/vue) and use the UI Toolkit [element](https://github.com/ElemeFE/element).
 
 It is a magical vue admin based on the newest development stack of vue, built-in i18n solution, typical templates for enterprise applications, lots of awesome features. It helps you build a large complex Single-Page Applications. I believe whatever your needs are, this project will help you.
 
@@ -30,7 +30,7 @@ It is a magical vue admin based on the newest development stack of vue, built-in
 
 ## Preparation
 
-You need to install [node](http://nodejs.org/) and [git](https://git-scm.com/) locally. The project is based on [ES2015+](http://es6.ruanyifeng.com/), [vue](https://cn.vuejs.org/index.html), [vuex](https://vuex.vuejs.org/zh-cn/), [vue-router](https://router.vuejs.org/zh-cn/) and [element-ui](https://github.com/ElemeFE/element).
+You need to install [node](http://nodejs.org/) and [git](https://git-scm.com/) locally. The project is based on [Laravel/Framework](https://github.com/laravel/framework), [vue](https://cn.vuejs.org/index.html), [vuex](https://vuex.vuejs.org/zh-cn/), [vue-router](https://router.vuejs.org/zh-cn/) and [element-ui](https://github.com/ElemeFE/element).
 Understanding and learning this knowledge in advance will greatly help the use of this project.
 
 ---
