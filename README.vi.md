@@ -16,7 +16,7 @@ Vietnamese | [English](./README.md)
 
 ## Giới thiệu
 
-[fg-youth-union](https://github.com/KenHoang16CDTH12/FG-YouthUnion) is a project management. Nó dựa trên [vue](https://github.com/vuejs/vue) và sử dụng Bộ công cụ giao diện người dùng [element](https://github.com/ElemeFE/element).
+[fg-youth-union](https://github.com/KenHoang16CDTH12/FG-YouthUnion) là một dự án quản lý. Nó dựa trên [vue](https://github.com/vuejs/vue) và sử dụng Bộ công cụ giao diện người dùng [element](https://github.com/ElemeFE/element).
 
 Nó là một quản trị viên vue huyền diệu dựa trên chồng phát triển mới nhất của vue, được xây dựng trong giải pháp i18n, các mẫu điển hình cho các ứng dụng doanh nghiệp, rất nhiều tính năng tuyệt vời. Nó giúp bạn xây dựng một ứng dụng đơn phức tạp lớn. Tôi tin rằng bất cứ nhu cầu của bạn là gì, dự án này sẽ giúp bạn.
 
@@ -66,6 +66,10 @@ Việc hiểu và học hỏi kiến thức này trước sẽ giúp ích rất 
 ```bash
 # clone the project
 git clone https://github.com/KenHoang16CDTH12/FG-YouthUnion.git
+```
+please create database FG-YouthUnion
+```bash
+# create database FG-YouthUnion
 
 # install composer laravel
 composer install

@@ -16,7 +16,7 @@ English | [Vietnamese](./README.vi.md)
 
 ## Introduction
 
-[fg-youth-union](https://github.com/KenHoang16CDTH12/FG-YouthUnion) is a project management. It based on [vue](https://github.com/vuejs/vue) and use the UI Toolkit [element](https://github.com/ElemeFE/element).
+[fg-youth-union](https://github.com/KenHoang16CDTH12/FG-YouthUnion) is a management project. It based on [vue](https://github.com/vuejs/vue) and use the UI Toolkit [element](https://github.com/ElemeFE/element).
 
 It is a magical vue admin based on the newest development stack of vue, built-in i18n solution, typical templates for enterprise applications, lots of awesome features. It helps you build a large complex Single-Page Applications. I believe whatever your needs are, this project will help you.
 
@@ -66,6 +66,10 @@ Understanding and learning this knowledge in advance will greatly help the use o
 ```bash
 # clone the project
 git clone https://github.com/KenHoang16CDTH12/FG-YouthUnion.git
+```
+please create database FG-YouthUnion
+```bash
+# create database FG-YouthUnion
 
 # install composer laravel
 composer install
