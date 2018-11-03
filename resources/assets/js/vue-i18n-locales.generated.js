@@ -1,10 +1,30 @@
 export default {
     "en": {
-        "tagsview": {
-            "refresh": "Refresh",
-            "close": "Close",
-            "closeOthers": "Close Others",
-            "closeAll": "Close All"
+        "table": {
+            "dynamicTips1": "Fixed header, sorted by header order",
+            "dynamicTips2": "Not fixed header, sorted by click order",
+            "dragTips1": "The default order",
+            "dragTips2": "The after dragging order",
+            "title": "Title",
+            "importance": "Imp",
+            "type": "Type",
+            "remark": "Remark",
+            "search": "Search",
+            "add": "Add",
+            "export": "Export",
+            "reviewer": "reviewer",
+            "id": "ID",
+            "date": "Date",
+            "author": "Author",
+            "readings": "Readings",
+            "status": "Status",
+            "actions": "Actions",
+            "edit": "Edit",
+            "publish": "Publish",
+            "draft": "Draft",
+            "delete": "Delete",
+            "cancel": "Cancel",
+            "confirm": "Confirm"
         },
         "login": {
             "title": "Login Form",
@@ -18,13 +38,11 @@ export default {
             "thirdparty": "Or connect with",
             "thirdpartyTips": "Can not be simulated on local, so please combine you own business simulation! ! !"
         },
-        "navbar": {
-            "logOut": "Log Out",
-            "dashboard": "Dashboard",
-            "github": "Github",
-            "screenfull": "Screenfull",
-            "theme": "Theme",
-            "size": "Global Size"
+        "tagsview": {
+            "refresh": "Refresh",
+            "close": "Close",
+            "closeOthers": "Close Others",
+            "closeAll": "Close All"
         },
         "message": {
             "hello": "Hello,"
@@ -98,10 +116,20 @@ export default {
             "i18n": "I18n",
             "externalLink": "External Link"
         },
+        "navbar": {
+            "logOut": "Log Out",
+            "dashboard": "Dashboard",
+            "github": "Github",
+            "screenfull": "Screenfull",
+            "theme": "Theme",
+            "size": "Global Size"
+        },
         "documentation": {
             "documentation": "Documentation",
             "github": "Github Repository"
-        },
+        }
+    },
+    "vi": {
         "table": {
             "dynamicTips1": "Fixed header, sorted by header order",
             "dynamicTips2": "Not fixed header, sorted by click order",
@@ -127,14 +155,6 @@ export default {
             "delete": "Delete",
             "cancel": "Cancel",
             "confirm": "Confirm"
-        }
-    },
-    "vi": {
-        "tagsview": {
-            "refresh": "Refresh",
-            "close": "Close",
-            "closeOthers": "Close Others",
-            "closeAll": "Close All"
         },
         "login": {
             "title": "Login Form",
@@ -148,13 +168,11 @@ export default {
             "thirdparty": "Or connect with",
             "thirdpartyTips": "Can not be simulated on local, so please combine you own business simulation! ! !"
         },
-        "navbar": {
-            "logOut": "Log Out",
-            "dashboard": "Dashboard",
-            "github": "Github",
-            "screenfull": "Screenfull",
-            "theme": "Theme",
-            "size": "Global Size"
+        "tagsview": {
+            "refresh": "Refresh",
+            "close": "Close",
+            "closeOthers": "Close Others",
+            "closeAll": "Close All"
         },
         "message": {
             "hello": "Xin chao,"
@@ -228,35 +246,17 @@ export default {
             "i18n": "I18n",
             "externalLink": "External Link"
         },
+        "navbar": {
+            "logOut": "Log Out",
+            "dashboard": "Dashboard",
+            "github": "Github",
+            "screenfull": "Screenfull",
+            "theme": "Theme",
+            "size": "Global Size"
+        },
         "documentation": {
             "documentation": "Documentation",
             "github": "Github Repository"
-        },
-        "table": {
-            "dynamicTips1": "Fixed header, sorted by header order",
-            "dynamicTips2": "Not fixed header, sorted by click order",
-            "dragTips1": "The default order",
-            "dragTips2": "The after dragging order",
-            "title": "Title",
-            "importance": "Imp",
-            "type": "Type",
-            "remark": "Remark",
-            "search": "Search",
-            "add": "Add",
-            "export": "Export",
-            "reviewer": "reviewer",
-            "id": "ID",
-            "date": "Date",
-            "author": "Author",
-            "readings": "Readings",
-            "status": "Status",
-            "actions": "Actions",
-            "edit": "Edit",
-            "publish": "Publish",
-            "draft": "Draft",
-            "delete": "Delete",
-            "cancel": "Cancel",
-            "confirm": "Confirm"
         }
     }
 }
