@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Repositories\UserRepository;
+//use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Repositories\Contracts\UserRepository;
 
 class UserController extends Controller
 {
@@ -25,9 +26,9 @@ class UserController extends Controller
      * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(UserRepository $respository)
+    public function __construct()
     {
-        $this->respository = $respository;
+        $this->respository = app(UserRepository::class);
     }
 
     /**
@@ -37,10 +38,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $entries = Input::has('entries') ? Input::get('entries') : 10;
-        if (Input::has('searchText'))
-            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
-        return $this->respository->collection($entries, Input::get('sort'));
+        return $this->respository->paginate(5);
     }
 
     /**
