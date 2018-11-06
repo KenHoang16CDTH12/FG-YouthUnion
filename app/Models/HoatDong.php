@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HoatDong extends Model
 {
-	protected $table = 'hoatdongs';
+  	protected $table = 'hoatdongs';
 
     protected $fillable = [
       'name',
@@ -16,11 +16,29 @@ class HoatDong extends Model
       'hoatdong_type_id'
     ];
 
-	/**
-	* Get the hoatdongtype that owns the hoatdong.
-	*/
-	public function hoatdongtype()
-	{
-		return $this->belongsTo('App\Models\HoatDongType');
-	}
+
+
+      public $relations = [
+          'hoatdongtype'
+      ];
+
+      public $columns = [
+          '*'
+      ];
+
+      public $searchColumns = [
+          'id',
+          'name',
+          'desc',
+          'from_date',
+          'end_date'
+      ];
+
+  	/**
+  	* Get the hoatdongtype that owns the hoatdong.
+  	*/
+  	public function hoatdongtype()
+  	{
+  		return $this->belongsTo('App\Models\HoatDongType');
+  	}
 }

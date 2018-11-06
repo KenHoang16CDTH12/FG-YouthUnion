@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\RoleRepository;
+use App\Repositories\Contracts\RoleRepository;
 
 class RoleController extends Controller
 {
@@ -23,9 +23,9 @@ class RoleController extends Controller
      * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(RoleRepository $respository)
+    public function __construct()
     {
-        $this->respository = $respository;
+        $this->respository = app(RoleRepository::class);
     }
 
     /**
@@ -33,8 +33,8 @@ class RoleController extends Controller
      *
      * @return list
      */
-    public function roles()
+    public function all()
     {
-        return $this->respository->roles();
+        return $this->respository->all();
     }
 }

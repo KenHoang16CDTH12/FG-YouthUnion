@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
-use App\Repositories\NotificationRepository;
+use App\Repositories\Contracts\NotificationRepository;
 use App\Http\Requests\NotificationStoreRequest;
 
 class NotificationController extends Controller
@@ -24,9 +24,9 @@ class NotificationController extends Controller
      * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(NotificationRepository $respository)
+    public function __construct()
     {
-        $this->respository = $respository;
+        $this->respository = app(NotificationRepository::class);
     }
 
     /**
@@ -39,9 +39,9 @@ class NotificationController extends Controller
         if (Input::has('user_id')) {
             $entries = Input::has('entries') ? Input::get('entries') : 10;
             if (Input::has('searchText')) {
-                return  $this->respository->collectionSearch(Input::get('user_id'), $entries, Input::get('searchText'), Input::get('sort'));
+                return  $this->respository->paginateNotifySearch(Input::get('user_id'), $entries, Input::get('searchText'), Input::get('sort'));
             }
-            return $this->respository->collection(Input::get('user_id'), $entries, Input::get('sort'));
+            return $this->respository->paginateNotify(Input::get('user_id'), $entries, Input::get('sort'));
         }
         return response()->json(null, 400);
     }
@@ -55,7 +55,7 @@ class NotificationController extends Controller
     public function show($id)
     {
         if (Input::has('user_id'))
-            return $this->respository->show(Input::get('user_id'), $id);
+            return $this->respository->showNotify(Input::get('user_id'), $id);
     }
 
     /**
@@ -67,7 +67,7 @@ class NotificationController extends Controller
     public function store(NotificationStoreRequest $request)
     {
         $request->validated();
-        return $this->respository->store($request);
+        return $this->respository->create($request->all());
     }
 
     /**
@@ -79,7 +79,7 @@ class NotificationController extends Controller
     public function destroy($id)
     {
         if (Input::has('user_id'))
-            return $this->respository->destroy(Input::get('user_id'), $id);
+            return $this->respository->destroyNotify(Input::get('user_id'), $id);
     }
 
 
@@ -93,6 +93,6 @@ class NotificationController extends Controller
     public function clear()
     {
         if (Input::has('user_id'))
-            return $this->respository->clear(Input::get('user_id'));
+            return $this->respository->clearNotify(Input::get('user_id'));
     }
 }

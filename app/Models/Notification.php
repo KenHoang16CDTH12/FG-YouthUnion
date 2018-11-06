@@ -17,6 +17,21 @@ class Notification extends Model
         'status'
     ];
 
+    public $relations = [
+        'user'
+    ];
+
+    public $columns = [
+        '*'
+    ];
+
+    public $searchColumns = [
+        'id',
+        'title',
+        'message',
+        'type'
+    ];
+
     /**
     * Get the user that owns the notification.
     */

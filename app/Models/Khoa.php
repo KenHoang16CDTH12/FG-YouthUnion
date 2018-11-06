@@ -6,12 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Khoa extends Model
 {
-	protected $table = 'khoas';
+  	protected $table = 'khoas';
 
     protected $fillable = [
       'name',
       'desc',
       'lcdoan_id'
+    ];
+
+    public $relations = [
+        'lcdoan'
+    ];
+
+    public $columns = [
+        '*'
+    ];
+
+    public $searchColumns = [
+        'id',
+        'name',
+        'desc'
     ];
 
     /**
@@ -22,11 +36,11 @@ class Khoa extends Model
         return $this->hasMany('App\Models\Lop');
     }
 
-	/**
-	* Get the lcdoan that owns the khoa.
-	*/
-	public function lcdoan()
-	{
-		return $this->belongsTo('App\Models\LCDoan');
-	}
+  	/**
+  	* Get the lcdoan that owns the khoa.
+  	*/
+  	public function lcdoan()
+  	{
+  		return $this->belongsTo('App\Models\LCDoan');
+  	}
 }

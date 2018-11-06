@@ -13,6 +13,18 @@ class LCDoan extends Model
       'desc'
     ];
 
+    public $relations = [];
+
+    public $columns = [
+        '*'
+    ];
+
+    public $searchColumns = [
+        'id',
+        'name',
+        'desc'
+    ];
+
     /**
      * Get the khoas for the lcdoan.
      */

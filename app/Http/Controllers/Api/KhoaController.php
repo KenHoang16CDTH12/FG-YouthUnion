@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Repositories\KhoaRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\KhoaStoreRequest;
 use App\Http\Requests\KhoaUpdateRequest;
+use App\Repositories\Contracts\KhoaRepository;
 
 class KhoaController extends Controller
 {
@@ -25,9 +25,19 @@ class KhoaController extends Controller
      * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(KhoaRepository $respository)
+    public function __construct()
     {
-        $this->respository = $respository;
+        $this->respository = app(KhoaRepository::class);
+    }
+
+    /**
+     * Get all of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function all()
+    {
+        return $this->respository->all();
     }
 
     /**
@@ -37,10 +47,11 @@ class KhoaController extends Controller
      */
     public function index()
     {
-        $entries = Input::has('entries') ? Input::get('entries') : 10;
+
+        $perPage = Input::has('entries') ? Input::get('entries') : 10;
         if (Input::has('searchText'))
-            return  $this->respository->collectionSearch($entries, Input::get('searchText'));
-        return $this->respository->collection($entries);
+            return $this->respository->paginateSearch($perPage, Input::get('sort'), Input::get('searchText'));
+        return $this->respository->paginate($perPage, Input::get('sort'));
     }
 
     /**
@@ -51,7 +62,7 @@ class KhoaController extends Controller
      */
     public function show($id)
     {
-        return $this->respository->show($id);
+        return $this->respository->find($id);
     }
 
     /**
@@ -63,7 +74,7 @@ class KhoaController extends Controller
     public function store(KhoaStoreRequest $request)
     {
         $request->validated();
-        return $this->respository->store($request);
+        return $this->respository->create($request->all());
     }
 
     /**
@@ -75,7 +86,7 @@ class KhoaController extends Controller
     public function update(KhoaUpdateRequest $request, $id)
     {
         $request->validated();
-        return $this->respository->update($request, $id);
+        return $this->respository->update($id, $request->all());
     }
 
     /**
@@ -86,6 +97,6 @@ class KhoaController extends Controller
      */
     public function destroy($id)
     {
-        return $this->respository->destroy($id);
+        return $this->respository->delete($id);
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
-use App\Repositories\UserHoatDongRepository;
+use App\Repositories\Contracts\UserHoatDongRepository;
 use App\Http\Requests\UserHoatDongStoreRequest;
 use App\Http\Requests\UserHoatDongUpdateRequest;
 
@@ -25,9 +25,9 @@ class UserHoatDongController extends Controller
      * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(UserHoatDongRepository $respository)
+    public function __construct()
     {
-        $this->respository = $respository;
+        $this->respository = app(UserHoatDongRepository::class);
     }
 
     /**

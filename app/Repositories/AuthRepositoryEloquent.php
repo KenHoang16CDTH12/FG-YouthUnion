@@ -4,23 +4,25 @@ namespace App\Repositories;
 
 use Carbon\Carbon;
 use App\Models\User;
-use App\Http\Resources\UserResource;
+use App\Http\Resources\DataResource;
 use Illuminate\Support\Facades\Auth;
+use App\Repositories\Contracts\AuthRepository;
 
-class AuthRepository
-{
-    /**
-     * Login user and create token
-     *
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [boolean] remember_me
-     * @return [string] access_token
-     * @return [string] token_type
-     * @return [string] expires_at
-     */
-    public function login($request)
-    {
+class AuthRepositoryEloquent implements AuthRepository {
+
+   protected $dataResource = DataResource::class;
+
+   /**
+   * Login user and create token
+   *
+   * @param  [string] email
+   * @param  [string] password
+   * @param  [boolean] remember_me
+   * @return [string] access_token
+   * @return [string] token_type
+   * @return [string] expires_at
+   */
+    public function login($request) {
       $credentials = request(['email', 'password']);
 
       if (!Auth::attempt($credentials)) {
@@ -46,9 +48,10 @@ class AuthRepository
         'expires_at' => Carbon::parse(
           $tokenResult->token->expires_at
         )->toDateTimeString(),
-        'user' => new UserResource($user)
+        'user' => new $this->dataResource($user)
       ]);
     }
+
 
     /**
      * Logout user (Revoke the token)
@@ -74,6 +77,6 @@ class AuthRepository
     {
         $user = $request->user();
         //Return object
-        return new UserResource($user);
+        return new $this->dataResource($user);
     }
 }

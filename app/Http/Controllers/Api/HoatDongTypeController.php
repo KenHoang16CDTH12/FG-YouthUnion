@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
-use App\Repositories\HoatDongTypeRepository;
 use App\Http\Requests\HoatDongTypeStoreRequest;
 use App\Http\Requests\HoatDongTypeUpdateRequest;
+use App\Repositories\Contracts\HoatDongTypeRepository;
 
 class HoatDongTypeController extends Controller
 {
@@ -25,9 +25,9 @@ class HoatDongTypeController extends Controller
      * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(HoatDongTypeRepository $respository)
+    public function __construct()
     {
-        $this->respository = $respository;
+        $this->respository = app(HoatDongTypeRepository::class);
     }
 
     /**
@@ -47,10 +47,11 @@ class HoatDongTypeController extends Controller
      */
     public function index()
     {
-        $entries = Input::has('entries') ? Input::get('entries') : 10;
+
+        $perPage = Input::has('entries') ? Input::get('entries') : 10;
         if (Input::has('searchText'))
-            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
-        return $this->respository->collection($entries, Input::get('sort'));
+            return $this->respository->paginateSearch($perPage, Input::get('sort'), Input::get('searchText'));
+        return $this->respository->paginate($perPage, Input::get('sort'));
     }
 
     /**
@@ -61,7 +62,7 @@ class HoatDongTypeController extends Controller
      */
     public function show($id)
     {
-        return $this->respository->show($id);
+        return $this->respository->find($id);
     }
 
     /**
@@ -73,7 +74,7 @@ class HoatDongTypeController extends Controller
     public function store(HoatDongTypeStoreRequest $request)
     {
         $request->validated();
-        return $this->respository->store($request);
+        return $this->respository->create($request->all());
     }
 
     /**
@@ -85,7 +86,7 @@ class HoatDongTypeController extends Controller
     public function update(HoatDongTypeUpdateRequest $request, $id)
     {
         $request->validated();
-        return $this->respository->update($request, $id);
+        return $this->respository->update($id, $request->all());
     }
 
     /**
@@ -96,6 +97,6 @@ class HoatDongTypeController extends Controller
      */
     public function destroy($id)
     {
-        return $this->respository->destroy($id);
+        return $this->respository->delete($id);
     }
 }
