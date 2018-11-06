@@ -25,7 +25,7 @@ class FGDevComand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Command setup project make with by FGDev';
 
     /**
      * Create a new command instance.

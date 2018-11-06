@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
-use App\Repositories\HoatDongRepository;
+use App\Repositories\Contracts\HoatDongRepository;
 use App\Http\Requests\HoatDongStoreRequest;
 use App\Http\Requests\HoatDongUpdateRequest;
 
@@ -25,9 +25,9 @@ class HoatDongController extends Controller
      * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(HoatDongRepository $respository)
+    public function __construct()
     {
-        $this->respository = $respository;
+        $this->respository = app(HoatDongRepository::class);
     }
 
     /**
@@ -37,49 +37,11 @@ class HoatDongController extends Controller
      */
     public function index()
     {
-        $entries = Input::has('entries') ? Input::get('entries') : 10;
-        if (Input::has('searchText'))
-            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
-        return $this->respository->collection($entries, Input::get('sort'));
-    }
 
-    /**
-     * Get comming up of the objects for a given model.
-     *
-     * @return Collection
-     */
-    public function indexComingUp()
-    {
-        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        $perPage = Input::has('entries') ? Input::get('entries') : 10;
         if (Input::has('searchText'))
-            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
-        return $this->respository->collectionComingUp($entries, Input::get('sort'));
-    }
-
-    /**
-     * Get happenning of the objects for a given model.
-     *
-     * @return Collection
-     */
-    public function indexHappening()
-    {
-        $entries = Input::has('entries') ? Input::get('entries') : 10;
-        if (Input::has('searchText'))
-            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
-        return $this->respository->collectionHappening($entries, Input::get('sort'));
-    }
-
-    /**
-     * Get finished of the objects for a given model.
-     *
-     * @return Collection
-     */
-    public function indexFinished()
-    {
-        $entries = Input::has('entries') ? Input::get('entries') : 10;
-        if (Input::has('searchText'))
-            return  $this->respository->collectionSearch($entries, Input::get('searchText'), Input::get('sort'));
-        return $this->respository->collectionFinished($entries, Input::get('sort'));
+            return $this->respository->paginateSearch($perPage, Input::get('sort'), Input::get('searchText'));
+        return $this->respository->paginate($perPage, Input::get('sort'));
     }
 
     /**
@@ -90,7 +52,7 @@ class HoatDongController extends Controller
      */
     public function show($id)
     {
-        return $this->respository->show($id);
+        return $this->respository->find($id);
     }
 
     /**
@@ -102,7 +64,7 @@ class HoatDongController extends Controller
     public function store(HoatDongStoreRequest $request)
     {
         $request->validated();
-        return $this->respository->store($request);
+        return $this->respository->create($request->all());
     }
 
     /**
@@ -114,7 +76,7 @@ class HoatDongController extends Controller
     public function update(HoatDongUpdateRequest $request, $id)
     {
         $request->validated();
-        return $this->respository->update($request, $id);
+        return $this->respository->update($id, $request->all());
     }
 
     /**
@@ -125,6 +87,45 @@ class HoatDongController extends Controller
      */
     public function destroy($id)
     {
-        return $this->respository->destroy($id);
+        return $this->respository->delete($id);
+    }
+
+    /**
+     * Get comming up of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function indexComingUp()
+    {
+        $perPage = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return $this->respository->paginateCommingUpSearch($perPage, Input::get('sort'), Input::get('searchText'));
+        return $this->respository->paginateCommingUp($perPage, Input::get('sort'));
+    }
+
+    /**
+     * Get happenning of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function indexHappening()
+    {
+        $perPage = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return $this->respository->paginateHappeningSearch($perPage, Input::get('sort'), Input::get('searchText'));
+        return $this->respository->paginateHappening($perPage, Input::get('sort'));
+    }
+
+    /**
+     * Get finished of the objects for a given model.
+     *
+     * @return Collection
+     */
+    public function indexFinished()
+    {
+        $perPage = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return $this->respository->paginateFinishedSearch($perPage, Input::get('sort'), Input::get('searchText'));
+        return $this->respository->paginateFinished($perPage, Input::get('sort'));
     }
 }

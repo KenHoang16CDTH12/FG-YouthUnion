@@ -34,27 +34,25 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public $relations = [
+        'role'
+    ];
+
+    public $columns = [
+        '*'
+    ];
+
+    public $searchColumns = [
+        'id',
+        'email',
+        'username'
+    ];
+
     /**
      * Get the role that owns the user.
      */
     public function role()
     {
         return $this->belongsTo('App\Models\Role');
-    }
-
-    /**
-     * Get the userdetail for the user.
-     */
-    public function userdetail()
-    {
-        return $this->belongsTo('App\Models\UserDetail');
-    }
-
-    /**
-     * Get the class for the user.
-     */
-    public function lop()
-    {
-        return $this->belongsTo('App\Models\Lop', 'lop_id');
     }
 }

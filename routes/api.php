@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api
     | Role API Routes
     |------------------------------------------------------------
     */
-    Route::get('roles/select', 'RoleController@roles');
+    Route::get('roles/select', 'RoleController@all');
     /*
     |------------------------------------------------------------
     | User API Routes

@@ -23,6 +23,24 @@ class UserDetail extends Model
         'lop_id'
     ];
 
+    public $relations = [
+        'user',
+        'lop'
+    ];
+
+    public $columns = [
+        '*'
+    ];
+
+    public $searchColumns = [
+        'first_name',
+        'middle_name',
+        'last_name',
+        'phone',
+        'address',
+        'code'
+    ];
+
     /**
 	* Get the user that owns the user_detail.
 	*/

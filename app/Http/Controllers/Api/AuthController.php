@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\AuthRepository;
+use App\Repositories\Contracts\AuthRepository;
 use App\Http\Requests\UserLoginRequest;
 
 class AuthController extends Controller
@@ -23,9 +23,9 @@ class AuthController extends Controller
      * @param  ObjectRepository  $objects
      * @return void
      */
-    public function __construct(AuthRepository $respository)
+    public function __construct()
     {
-        $this->respository = $respository;
+        $this->respository = app(AuthRepository::class);
     }
     /**
      * Login user and create token

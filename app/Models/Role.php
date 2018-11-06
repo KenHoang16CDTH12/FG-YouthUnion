@@ -12,6 +12,16 @@ class Role extends Model
 
     public $incrementing = false;
 
+    public $relations = [];
+
+    public $columns = [
+        '*'
+    ];
+
+    public $searchColumns = [
+        'id',
+        'type'
+    ];
     /**
      * Get the users for the role.
      */

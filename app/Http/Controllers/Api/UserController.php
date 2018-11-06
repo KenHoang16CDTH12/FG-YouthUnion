@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-//use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
@@ -38,7 +37,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return $this->respository->paginate(5);
+
+        $perPage = Input::has('entries') ? Input::get('entries') : 10;
+        if (Input::has('searchText'))
+            return $this->respository->paginateSearch($perPage, Input::get('sort'), Input::get('searchText'));
+        return $this->respository->paginate($perPage, Input::get('sort'));
     }
 
     /**
@@ -49,7 +52,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return $this->respository->show($id);
+        return $this->respository->find($id);
     }
 
     /**
@@ -61,7 +64,7 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         $request->validated();
-        return $this->respository->store($request);
+        return $this->respository->create($request->all());
     }
 
     /**
@@ -73,7 +76,7 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id)
     {
         $request->validated();
-        return $this->respository->update($request, $id);
+        return $this->respository->update($id, $request->all());
     }
 
     /**
@@ -84,7 +87,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        return $this->respository->destroy($id);
+        return $this->respository->delete($id);
     }
 
     /**
