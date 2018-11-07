@@ -74,6 +74,9 @@ please create database FG-YouthUnion
 # install composer laravel
 composer install
 
+# install package
+npm install
+
 # setup project
 php artisan FGDev:setup
 ```
