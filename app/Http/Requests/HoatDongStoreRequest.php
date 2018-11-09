@@ -28,7 +28,7 @@ class HoatDongStoreRequest extends FormRequest
             'desc' => 'string',
             'from_date' => 'date_format:"Y-m-d"|required|before:end_date',
             'end_date' => 'date_format:"Y-m-d"|required|after:from_date',
-            'hoatdong_type_id' => 'required|integer'
+            'hoatdongtype_id' => 'required|integer'
         ];
     }
 }

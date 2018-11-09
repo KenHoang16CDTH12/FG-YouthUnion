@@ -19,10 +19,10 @@ class CreateHoatdongsTable extends Migration
             $table->text('desc')->nullable();
             $table->date('from_date');
             $table->date('end_date');
-            $table->integer('hoatdong_type_id')->unsigned();
+            $table->integer('hoatdongtype_id')->unsigned();
             $table->timestamps();
             //FK
-            $table->foreign('hoatdong_type_id')->references('id')->on('hoatdong_types')->onDelete('cascade');
+            $table->foreign('hoatdongtype_id')->references('id')->on('hoatdong_types')->onDelete('cascade');
         });
     }
 

@@ -119,7 +119,9 @@ Route::group(['middleware' => 'auth:api', 'prefix' => '/v1', 'namespace' => 'Api
     | UserHoatDong API Routes
     |------------------------------------------------------------
     */
-    Route::get('userhoatdongs/{id}', 'UserHoatDongController@collectionJoined');
+    Route::get('userhoatdongs/users/{id}', 'UserHoatDongController@paginateJoined');
+    Route::get('userhoatdongs/hoatdongs/{id}', 'UserHoatDongController@paginateHoatDongId');
+    Route::get('userhoatdongs/hoatdongs/notjoin/{id}', 'UserHoatDongController@paginateNotJoiner');
     Route::post('userhoatdongs', 'UserHoatDongController@attendance');
     /*
     |------------------------------------------------------------

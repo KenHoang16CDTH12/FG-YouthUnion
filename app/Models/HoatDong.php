@@ -13,7 +13,7 @@ class HoatDong extends Model
       'desc',
       'from_date',
       'end_date',
-      'hoatdong_type_id'
+      'hoatdongtype_id'
     ];
 
 

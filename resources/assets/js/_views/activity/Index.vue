@@ -92,11 +92,11 @@
                             <div class="col-md-6">
                               <fieldset
                               class="form-group floating-label-form-group"
-                              :class="{ error: errors.first('hoatdong_type_id') }
+                              :class="{ error: errors.first('hoatdongtype_id') }
                               ">
                                   <label class="typo__label">HoatDong Type</label>
-                                  <multiselect v-model="object.hoatdongtypes" :options="options.hoatdongtypes" :custom-label="typeWithId" placeholder="Select one" label="type" track-by="id" name="hoatdong_type_id"  v-validate="'required'"></multiselect>
-                                  <span class="red">{{ errors.first('hoatdong_type_id') }}</span>
+                                  <multiselect v-model="object.hoatdongtypes" :options="options.hoatdongtypes" :custom-label="typeWithId" placeholder="Select one" label="type" track-by="id" name="hoatdongtype_id"  v-validate="'required'"></multiselect>
+                                  <span class="red">{{ errors.first('hoatdongtype_id') }}</span>
                               </fieldset>
                             </div>
                             <div class="col-md-6">
@@ -236,7 +236,7 @@ export default {
           this.$validator.validateAll().then((result) => {
             if (result) {
               //Config object
-              this.object.hoatdong_type_id = this.object.hoatdongtypes.id
+              this.object.hoatdongtype_id = this.object.hoatdongtypes.id
               console.log(this.object);
               resourceService.store(this.objName, this.object)
                   .then(
