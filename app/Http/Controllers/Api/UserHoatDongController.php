@@ -47,9 +47,31 @@ class UserHoatDongController extends Controller
      *
      * @return Collection
      */
-    public function collectionJoined($id)
+    public function paginateJoined($id)
     {
         $entries = Input::has('entries') ? Input::get('entries') : 10;
-        return $this->respository->collectionJoined($id, $entries, Input::get('sort'));
+        return $this->respository->paginateJoined($id, $entries, Input::get('sort'));
+    }
+
+    /**
+     * Collect HoatDongId.
+     *
+     * @return Collection
+     */
+    public function paginateNotJoiner($id)
+    {
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        return $this->respository->paginateNotJoiner($id, $entries, Input::get('sort'));
+    }
+
+    /**
+     * Collect HoatDongId.
+     *
+     * @return Collection
+     */
+    public function paginateHoatDongId($id)
+    {
+        $entries = Input::has('entries') ? Input::get('entries') : 10;
+        return $this->respository->paginateHoatDongId($id, $entries, Input::get('sort'));
     }
 }

@@ -4,13 +4,13 @@ namespace App\Repositories;
 
 use Carbon\Carbon;
 use App\Models\User;
-use App\Http\Resources\DataResource;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Contracts\AuthRepository;
 
 class AuthRepositoryEloquent implements AuthRepository {
 
-   protected $dataResource = DataResource::class;
+   protected $dataResource = UserResource::class;
 
    /**
    * Login user and create token

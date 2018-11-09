@@ -28,7 +28,7 @@ class HoatDongUpdateRequest extends FormRequest
             'desc' => 'string',
             'from_date' => 'date_format:"Y-m-d"|before:end_date',
             'end_date' => 'date_format:"Y-m-d"|after:from_date',
-            'hoatdong_type_id' => 'integer'
+            'hoatdongtype_id' => 'integer'
         ];
     }
 }
