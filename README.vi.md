@@ -1,6 +1,6 @@
 <p align="center">
   <!-- Logo -->
-  <img width="320" src="https://image.ibb.co/g8MGNf/FGDev-Logo.png">
+  <img width="320" src="screenshots/FGDev-Logo.png">
 </p>
 
 <p align="center">
@@ -34,9 +34,18 @@ Bạn cần phải cài đặt [node](http://nodejs.org/) and [git](https://git-
 Việc hiểu và học hỏi kiến thức này trước sẽ giúp ích rất nhiều cho việc sử dụng dự án này.
 
 ---
+## Screenshots
 
- <p align="center">
-  <img width="900" src="https://image.ibb.co/cVq48L/dashboard.png">
+<p align="center">
+  <img width="900" src="screenshots/1.png">
+</p>
+
+<p align="center">
+  <img width="900" src="screenshots/2.png">
+</p>
+
+<p align="center">
+  <img width="900" src="screenshots/3.png">
 </p>
 
 ## Features

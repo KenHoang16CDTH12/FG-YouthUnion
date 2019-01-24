@@ -1,6 +1,6 @@
 <p align="center">
   <!-- Logo -->
-  <img width="320" src="https://image.ibb.co/g8MGNf/FGDev-Logo.png">
+  <img width="320" src="screenshots/FGDev-Logo.png">
 </p>
 
 <p align="center">
@@ -34,9 +34,18 @@ You need to install [node](http://nodejs.org/) and [git](https://git-scm.com/) l
 Understanding and learning this knowledge in advance will greatly help the use of this project.
 
 ---
+## Screenshots
 
- <p align="center">
-  <img width="900" src="https://image.ibb.co/cVq48L/dashboard.png">
+<p align="center">
+  <img width="900" src="screenshots/1.png">
+</p>
+
+<p align="center">
+  <img width="900" src="screenshots/2.png">
+</p>
+
+<p align="center">
+  <img width="900" src="screenshots/3.png">
 </p>
 
 ## Features
