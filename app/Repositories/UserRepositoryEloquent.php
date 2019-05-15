@@ -2,9 +2,13 @@
 
 namespace App\Repositories;
 
+use Illuminate\Support\Facades\Hash;
+use Laravolt\Avatar\Facade as Avatar;
+use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\UserDetail;
 use App\Repositories\Contracts\UserRepository;
+use Illuminate\Http\Response;
 
 class UserRepositoryEloquent extends BaseRepositoryEloquent implements UserRepository {
 
@@ -13,11 +17,30 @@ class UserRepositoryEloquent extends BaseRepositoryEloquent implements UserRepos
         $this->model = app(User::class);
     }
 
+    public function create($params)
+    {
+        $avatar = "";
+        if (array_key_exists("image", $params))
+            $avatar = Avatar::create($params->image)->getImageObject()->encode('png');
+        $data = User::create([
+                'email' =>  array_key_exists("email", $params) ? $params['email'] : null,
+                'username' => array_key_exists("username", $params) ? $params['username']  : null,
+                'password' => array_key_exists("password", $params) ? Hash::make($params['password'])  : null,
+                'remember_token' => str_random(10),
+                'active' => array_key_exists("active", $params) ? $params['active'] : null,
+                'role_id' => array_key_exists("role_id", $params) ? $params['role_id'] : null,
+                'class_id' => array_key_exists("class_id", $params) ? $params['class_id'] : null,
+                'image' => $avatar
+            ]);
+        Storage::put('userimage/'.$data->id.'/default.png', (string) $avatar);
+        return $data;
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function showDetail($id)
     {
@@ -28,8 +51,8 @@ class UserRepositoryEloquent extends BaseRepositoryEloquent implements UserRepos
     /**
      * User of Lop
      *
-     * @param  int  $request | $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Response
      */
     public function toLop($id)
     {
@@ -44,8 +67,8 @@ class UserRepositoryEloquent extends BaseRepositoryEloquent implements UserRepos
     /**
      * User of Khoa
      *
-     * @param  int  $request | $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Response
      */
     public function toKhoa($id)
     {
@@ -61,8 +84,8 @@ class UserRepositoryEloquent extends BaseRepositoryEloquent implements UserRepos
     /**
      * User of LCD
      *
-     * @param  int  $request | $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Response
      */
     public function toLCD($id)
     {
@@ -77,12 +100,13 @@ class UserRepositoryEloquent extends BaseRepositoryEloquent implements UserRepos
     }
 
 
-
     /**
      * List users of LCD
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param $idLCD
+     * @param $entries
+     * @param $sort
+     * @return Response
      */
     public function usersOfLCD($idLCD, $entries, $sort)
     {

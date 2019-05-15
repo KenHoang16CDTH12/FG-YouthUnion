@@ -20,6 +20,7 @@ class CreateHoatdongsTable extends Migration
             $table->date('from_date');
             $table->date('end_date');
             $table->integer('hoatdongtype_id')->unsigned();
+            $table->string('image')->nullable()->default('default.png');
             $table->timestamps();
             //FK
             $table->foreign('hoatdongtype_id')->references('id')->on('hoatdong_types')->onDelete('cascade');

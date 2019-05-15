@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Storage;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,7 +23,8 @@ class User extends Authenticatable
         'username',
         'password',
         'active',
-        'role_id'
+        'role_id',
+        'image'
     ];
 
     /**
@@ -47,6 +49,13 @@ class User extends Authenticatable
         'email',
         'username'
     ];
+
+    protected $appends = ['user_image_url'];
+
+    public function getUserImageUrlAttribute()
+    {
+        return Storage::url('userimage/' . $this->id . '/default.png');
+    }
 
     /**
      * Get the role that owns the user.
