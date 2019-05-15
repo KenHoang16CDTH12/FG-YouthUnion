@@ -14,53 +14,50 @@ class AuthController extends Controller
      *
      * @var ObjectRepository
      */
-    protected $respository;
+    protected $repository;
 
 
     /**
      * Create a new controller instance.
      *
-     * @param  ObjectRepository  $objects
-     * @return void
      */
     public function __construct()
     {
-        $this->respository = app(AuthRepository::class);
+        $this->repository = app(AuthRepository::class);
     }
+
     /**
      * Login user and create token
      *
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [boolean] remember_me
-     * @return [string] access_token
-     * @return [string] token_type
-     * @return [string] expires_at
+     * @param UserLoginRequest $request
+     * @return  [string] access_token
      */
     public function login(UserLoginRequest $request)
     {
       $request->validated();
 
-      return $this->respository->login($request);
+      return $this->repository->login($request);
     }
 
     /**
      * Logout user (Revoke the token)
      *
-     * @return [string] message
+     * @param Request $request
+     * @return  [string] message
      */
     public function logout(Request $request)
     {
-      return $this->respository->logout($request);
+      return $this->repository->logout($request);
     }
 
     /**
      * Get the authenticated User
      *
-     * @return [json] user object
+     * @param Request $request
+     * @return  [json] user object
      */
     public function user(Request $request)
     {
-        return $this->respository->user($request);
+        return $this->repository->user($request);
     }
 }

@@ -56,7 +56,8 @@ class AuthRepositoryEloquent implements AuthRepository {
     /**
      * Logout user (Revoke the token)
      *
-     * @return [string] message
+     * @param $request
+     * @return \Illuminate\Http\JsonResponse [string] message
      */
     public function logout($request)
     {

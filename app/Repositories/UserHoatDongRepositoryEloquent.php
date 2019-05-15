@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\UserHoatDong;
 use App\Models\User;
 use App\Repositories\Contracts\UserHoatDongRepository;
+use Illuminate\Http\Response;
 
 class UserHoatDongRepositoryEloquent extends BaseRepositoryEloquent implements UserHoatDongRepository {
 
@@ -16,8 +17,8 @@ class UserHoatDongRepositoryEloquent extends BaseRepositoryEloquent implements U
     /**
      * Attendance.
      *
-     * @param  int  $request
-     * @return \Illuminate\Http\Response
+     * @param $params
+     * @return Response
      */
     public function attendance($params)
     {
@@ -33,8 +34,10 @@ class UserHoatDongRepositoryEloquent extends BaseRepositoryEloquent implements U
     /**
      * Collection Joined
      *
-     * @param  $id|$entries|$sort
-     * @return \Illuminate\Http\Response
+     * @param $user_id
+     * @param $entries
+     * @param $sort
+     * @return Response
      */
     public function paginateJoined($user_id, $entries, $sort)
     {
@@ -49,8 +52,10 @@ class UserHoatDongRepositoryEloquent extends BaseRepositoryEloquent implements U
     /**
      * Collection not joiner in hoatdong
      *
-     * @param  $id|$entries|$sort
-     * @return \Illuminate\Http\Response
+     * @param $hoatdong_id
+     * @param $entries
+     * @param $sort
+     * @return Response
      */
     public function paginateNotJoiner($hoatdong_id, $entries, $sort)
     {
@@ -70,8 +75,10 @@ class UserHoatDongRepositoryEloquent extends BaseRepositoryEloquent implements U
     /**
      * Collection HoatDongId
      *
-     * @param  $id|$entries|$sort
-     * @return \Illuminate\Http\Response
+     * @param $hoatdong_id
+     * @param $entries
+     * @param $sort
+     * @return Response
      */
     public function paginateHoatDongId($hoatdong_id, $entries, $sort)
     {

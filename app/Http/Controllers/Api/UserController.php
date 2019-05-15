@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
@@ -22,8 +23,6 @@ class UserController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param  ObjectRepository  $objects
-     * @return void
      */
     public function __construct()
     {
@@ -48,7 +47,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -59,7 +58,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(UserStoreRequest $request)
     {
@@ -71,7 +70,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  $request | $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(UserUpdateRequest $request, $id)
     {
@@ -83,7 +82,7 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {
@@ -94,7 +93,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function showDetail($id)
     {
@@ -105,7 +104,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function toLop($id)
     {
@@ -116,7 +115,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function toKhoa($id)
     {
@@ -127,7 +126,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function toLCD($id)
     {
@@ -137,8 +136,8 @@ class UserController extends Controller
     /**
      *  List users of LCD.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $idLCD
+     * @return Response
      */
     public function usersOfLCD($idLCD)
     {

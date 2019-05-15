@@ -12,6 +12,7 @@
         "laravel/passport": "4.0.3",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
+        "laravolt/avatar": "^2.2",
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.28",
         "paragonie/random_compat": "2.*"
     },

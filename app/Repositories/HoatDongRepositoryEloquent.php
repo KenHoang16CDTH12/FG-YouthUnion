@@ -4,6 +4,8 @@ namespace App\Repositories;
 use Carbon\Carbon;
 use App\Models\HoatDong;
 use App\Repositories\Contracts\HoatDongRepository;
+use Illuminate\Support\Facades\Storage;
+use Laravolt\Avatar\Facade as Avatar;
 
 class HoatDongRepositoryEloquent extends BaseRepositoryEloquent implements HoatDongRepository {
 
@@ -12,6 +14,13 @@ class HoatDongRepositoryEloquent extends BaseRepositoryEloquent implements HoatD
         $this->model = app(HoatDong::class);
     }
 
+    public function create($params)
+    {
+        $data = new $this->dataResource($this->model->create($params));
+        $avatar = Avatar::create($data->image)->getImageObject()->encode('png');
+        Storage::put('hoatdongimage/'.$data->id.'/default.png', (string) $avatar);
+        return $data;
+    }
 
     public function paginateCommingUp($perPage, $sort){
       $relations = $this->model->relations;
